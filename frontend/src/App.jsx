@@ -6,6 +6,8 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero';
 import Gallery from './components/Gallery';
 import Pricing from './components/Pricing';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
         <Hero />
         <Gallery />
         <Pricing />
+        <Contact />
+        <BMICalculater />
+        <Footer />
         
       </Router>
       
