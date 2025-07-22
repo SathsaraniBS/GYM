@@ -8,6 +8,8 @@ import Gallery from './components/Gallery';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BMICalculater from './components/BMICalculater';
+import './App.css'
 
 function App() {
   return (
