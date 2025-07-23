@@ -2,9 +2,10 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <div>
+    <header>
+      <p>FitTrack</p>
       
-    </div>
+    </header>
   )
 }
 
