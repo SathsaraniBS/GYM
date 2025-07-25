@@ -5,6 +5,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero';
 import Gallery from './components/Gallery';
+import WorkoutSessions from './components/WorkoutSessions';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -17,11 +18,13 @@ function App() {
       <Router>
         <Navbar />
         <Hero />
+        <WorkoutSessions/>
         <Gallery />
         <Pricing />
         <Contact />
         <BMICalculater />
         <Footer />
+        <ToastContainer theme='drak' position='top-center'/>
         
       </Router>
       
