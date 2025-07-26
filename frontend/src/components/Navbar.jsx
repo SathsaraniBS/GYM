@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
-import './Navbar.css';
+import './Nabar.css';
+import './Button.css';
 
 const Navbar = () => {
     const [click, setClick] = useState(false);
@@ -37,7 +38,7 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <img src="./images/logo.png" alt="logo" />
+            <img src="./images/gym_logo.jpg" alt="logo" />
             
           </Link>
           <div className="menu-icon" onClick={handleClick}>

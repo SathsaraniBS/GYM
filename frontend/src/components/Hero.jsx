@@ -15,6 +15,12 @@ function Hero() {
           <p>BSS Creation</p>
         </div>
 
+        <div className='buttons'>
+          <button > Start Your Journey</button>
+          <button>Discover Your Plan</button>
+
+        </div>
+
         
 
       </div>
