@@ -1,4 +1,3 @@
-import React from 'react'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 
@@ -26,9 +25,22 @@ function BMICalculater() {
     }
   };
   return (
-    <div>
+    <section className="bmi">
+      <h1>BMI Calculator</h1>
+      <div className="container">
+        <div className="wrapper">
+          <form onSubmit={calculateBMI}>
+            <div>
+              <label>Height (cm)</label>
+              <input type="number" value={height} onChange={(e) => setHeight(e.target.value)}  />
+            </div>
+          </form>
+
+        </div>
+
+      </div>
       
-    </div>
+    </section>
   )
 }
 
