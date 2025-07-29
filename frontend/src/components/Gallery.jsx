@@ -2,7 +2,7 @@ import React from "react";
 
 function Gallery() {
 
-    const gallery = ["public/images/img1.webp", "public/images/img2.webp", "public/images/img3.webp", "public/images/img4.webp", "public/images/img5.webp", "public/images/img6.webp","public/images/img7.jpg", "public/images/img8.jpg", "public/images/img9.jpg", "public/images/img10.jpg", "public/images/img11.jpg", "public/images/img12.jpg"]
+    const gallery = ["public/img1.webp", "public/img2.webp", "public/img3.webp", "public/img4.webp", "public/img5.webp", "public/img6.webp","public/img7.jpg", "public/img8.jpg", "public/img9.jpg", "public/img10.jpg", "public/img11.jpg", "public/img12.jpg"]
     return <section className="gallery">
         <h1>BETER BEATS BEST</h1>
         <div>

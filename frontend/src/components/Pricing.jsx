@@ -1,77 +1,80 @@
 import React from 'react'
+import {Check} from 'lucide-react'
+import { Link } from 'react-router-dom' 
+
+
 
 function Pricing() {
-
-    const Pricing = [
+    const pricing = [
         {
-            imgUrl: "public/images/pricing.jpg",
-            title: 'QUARTERLY',
-            Pricing: '10000',
-            length: 3,
+            imgUrl:"/pricing.jpg",
+            title:"QUARTERLY",
+            price: 18000,
+            lenth: 3
         },
-
         {
-            imgUrl: "public/images/pricing.jpg",
-            title: 'HALF YEARLY',
-            Pricing: '20000',
-            length: 6,
+            imgUrl:"/pricing.jpg",
+            title:"HEAF_YEARLY",
+            price: 34000,
+            lenth: 6
         },
-
         {
-            imgUrl: "public/images/pricing.jpg",
-            title: 'YEARLY',
-            Pricing: '40000',
-            length: 12,
+            imgUrl:"/pricing.jpg",
+            title:"YEARLY",
+            price: 67000,
+            lenth: 12
         },
-
-
     ]
-        
-    
   return (
-    <select className='pricing'>
-        <h1>FitTrack Fithess Plan</h1>
+    <section className='pricing'>
+        <h1>BLACK TIGER FITNESS PLANS</h1>
+        <div className="wrapper">
+            {
+                pricing.map(element=>{
+                    return(
+                        <div className="card" key={element.title}>
+                            <img src={element.imgUrl} alt={element.title} />
+                            <div className="title">
+                                <h1>{element.title}</h1>
+                                <h1>PACKAGE</h1>
+                                <h3>Rs {element.price}</h3>
+                                <p>For {element.lenth} Months</p>
+                            </div>
+                            <div className="description">
+                                <p>
+                                    <Check /> Equipment                         
 
-        <div className='cards' key={element.title}>
-            <img src={element.imgUrl} alt={element.title} />
-            <div className='title'>
-                <h1>{element.title}</h1>
-                <h1>PACKAGES</h1>
-                <h3>Rs.{element.Pricing}</h3>
-                <p>For{element.length} Months</p>
-            </div>
+                                </p>
+                                <p>
+                                    <Check /> All Day Free Training                        
 
-            <div className='description'>
+                                </p>
+                                <p>
+                                    <Check /> Free Restroom                      
 
-                <p>
-                    <check/> Equlpment
-                    
-                </p>
+                                </p>
+                                <p>
+                                    <Check /> 24/7 Skilled Support                       
 
-                <p>
-                    <check/> All Day Free Training
-                </p>
+                                </p>
 
-                <p>
-                    <check/> Free Restroom
-                </p>
+                                <p>
+                                    <Check /> 20 Days Freezing Opetion                       
 
-                <p>
-                    <check/> 24/7 Skilled Suport
-                </p>
+                                </p>
+                                <Link to={"/"}>Join Now</Link>
+                            </div>
 
-                <p>
-                    <check/> 20 days Pricing Options
-                </p>
-            </div>
-                
-            
+                        </div>
+                    )
 
+                })
+
+            }
         </div>
-    </select>
       
-    
+    </section>
   )
 }
 
-export default Pricing
+export default Pricing;

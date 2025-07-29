@@ -11,7 +11,7 @@ function Hero() {
 
         </div>
         <div className="description">
-          <P>Your journey to fitness starts here</P>
+          <p>Your journey to fitness starts here</p>
           <p>BSS Creation</p>
         </div>
 
