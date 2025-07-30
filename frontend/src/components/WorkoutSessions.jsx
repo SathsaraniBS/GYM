@@ -13,14 +13,34 @@ function WorkoutSessions() {
     <div className='wrapper'>
       <h1>FEATURED BOOTCAMPS</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, doloremque.</p>
-    </div>
-
-    <div className="bootcamps">
+      
+      <div className="bootcamps">
       <div>
         <h4>BOOTCAMP 1</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, doloremque.</p>
       </div>
 
+      <div>
+        <h4>BOOTCAMP 2</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, doloremque.</p>
+      </div>
+
+      <div>
+        <h4>BOOTCAMP 3</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, doloremque.</p>
+      </div>
+
+      <div>
+        <h4>BOOTCAMP 4</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, doloremque.</p>
+      </div>
+
+      <div>
+        <h4>BOOTCAMP 5</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, doloremque.</p>
+      </div>
+
+      </div>
     </div>
     </section>
   )
