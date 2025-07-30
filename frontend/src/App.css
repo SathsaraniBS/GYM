@@ -41,6 +41,37 @@ header p {
     z-index: 999;
 }
 
+.navbar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    max-width: 1500px;
+    
+}
+
+.navbar-logo{
+    color: #fff;
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img{
+    height: 70px;
+    border-radius: 50%;
+
+}
+
+.fa-typo3{
+    margin-left: 0.5rem;
+    font-size: 1.8rem;
+}
+
+
 .hero {
   min-height: 100vh;
   position: relative;
