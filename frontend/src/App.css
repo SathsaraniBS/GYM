@@ -26,6 +26,21 @@ header p {
   color: whitesmoke;
 }
 
+.navbar {
+  background: transparent;
+    /* background: black; */
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*font-size: 1.2rem;*/
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
 .hero {
   min-height: 100vh;
   position: relative;
