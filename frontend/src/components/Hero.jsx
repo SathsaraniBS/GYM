@@ -10,7 +10,7 @@ function Hero() {
           <h1>MOVING</h1>
 
         </div>
-        <div className="description">
+        <div className="sub-title">
           <p>Your journey to fitness starts here</p>
           <p>BSS Creation</p>
         </div>
