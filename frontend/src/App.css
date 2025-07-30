@@ -27,8 +27,8 @@ header p {
 }
 
 .navbar {
-  background: transparent;
-    /* background: black; */
+  /*background: transparent; */
+    background: black; 
     height: 80px;
     display: flex;
     justify-content: center;

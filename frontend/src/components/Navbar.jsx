@@ -38,7 +38,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <img src="./images/logo.png" alt="logo" />
+            <img src="/gym_logo.png" alt="logo" />
             
           </Link>
 
