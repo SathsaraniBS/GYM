@@ -1,6 +1,22 @@
 import React from 'react'
 
 function Signup() {
+    const [name, setName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          const response = await axios.post('http://localhost:5000/api/auth/signup', {
+              name, email, password 
+            });
+          console.log(response);
+          
+        } catch (error) {
+          console.error(error);
+        }
+      };
   return (
     <div className='flex justify-center items-center h-screen bg-gray-100'>
         <div className='border shadow p-6 w-80  bg-white '>
