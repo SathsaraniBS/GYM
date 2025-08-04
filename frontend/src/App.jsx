@@ -13,6 +13,7 @@ import BMICalculater from './components/BMICalculater';
 import CustomerReview from './components/CustomerReview';
 
 import './App.css'
+import ReviewForm from './components/ReviewForm';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Contact />
         <BMICalculater />
         <CustomerReview />
+        <ReviewForm />
         <Footer />
         
       </Router>
