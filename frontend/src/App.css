@@ -296,11 +296,12 @@ header p {
 
 .workout_session {
   min-height: 100vh;
-  display: flex;
+  display: flex; 
   max-width: 1500px;
   margin: 0 auto;
   padding: 100px 0 50px 0;
   gap: 75px;
+  
 }
 .workout_session .wrapper {
   flex: 1;
@@ -677,6 +678,97 @@ header p {
     background-position: left;
   }
 }
+
+.customer-reviews {
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.customer-reviews h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.underline {
+  width: 100px;
+  height: 4px;
+  background-color: #ff4d4d;
+  margin: 0 auto 40px;
+  border: none;
+}
+
+.review-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.review-box {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.review-box h3 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.stars {
+  font-size: 1.5rem;
+  color: #ffc107;
+  margin-bottom: 15px;
+}
+
+.review-box p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.write-review,
+.show-more {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.write-review {
+  background-color: white;
+  color: #111;
+}
+
+.write-review:hover {
+  background-color: #ccc;
+}
+
+.show-more {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.show-more:hover {
+  background-color: #e60000;
+}
+
+
 footer {
   padding: 20px;
   background: #111;

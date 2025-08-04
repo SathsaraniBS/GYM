@@ -10,6 +10,8 @@ import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BMICalculater from './components/BMICalculater';
+import CustomerReview from './components/CustomerReview';
+
 import './App.css'
 
 function App() {
@@ -23,8 +25,8 @@ function App() {
         <Pricing />
         <Contact />
         <BMICalculater />
+        <CustomerReview />
         <Footer />
-        <ToastContainer theme='drak' position='top-center'/>
         
       </Router>
       

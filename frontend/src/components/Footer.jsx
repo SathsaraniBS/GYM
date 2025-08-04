@@ -2,8 +2,10 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div>
-    </div>
+    <footer>
+      © 2025 FitLife Gym. All rights reserved.
+    </footer>
+  
   )
 }
 
