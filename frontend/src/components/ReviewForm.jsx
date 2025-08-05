@@ -7,10 +7,10 @@ function ReviewForm({ onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // You can later send this to a backend or add it to the review list
     console.log('New Review:', { name, stars, text });
-    onClose(); // Close form after submission
+    onClose(); // Close the form after submission
   };
-
 
   return (
     <div className="overlay">
@@ -25,11 +25,7 @@ function ReviewForm({ onClose }) {
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <select
-            value={stars}
-            onChange={(e) => setStars(Number(e.target.value))}
-            required
-          >
+          <select value={stars} onChange={(e) => setStars(Number(e.target.value))} required>
             <option value={0}>Select rating</option>
             <option value={1}>1 Star</option>
             <option value={2}>2 Stars</option>
@@ -38,19 +34,18 @@ function ReviewForm({ onClose }) {
             <option value={5}>5 Stars</option>
           </select>
 
-          <div className="stars-display">
-            {Array.from({ length: stars }, (_, i) => (
-              <span key={i}>⭐</span>
-            ))}
-          </div>
-
+            <div className="stars-display">
+              {Array.from({ length: stars }, (_, i) => (
+                <span key={i}>⭐</span>
+              ))}
+            </div>
+            
           <textarea
             placeholder="Write your review..."
             value={text}
             onChange={(e) => setText(e.target.value)}
             required
           ></textarea>
-
           <button type="submit" className="submit-btn">Submit Review</button>
         </form>
       </div>
