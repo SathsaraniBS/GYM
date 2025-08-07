@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReviewForm from './ReviewForm'; // Make sure the path is correct
 
 function CustomerReview() {
