@@ -3,11 +3,12 @@ import ReviewForm from './ReviewForm'; // Make sure the path is correct
 
 function CustomerReview() {
   
-  const [showForm, setShowForm] = useState(false);
+  const[isModalOpen, setIsModalOpen] = useState(false);
+  
+    const closeModal = () => {
+      setIsModalOpen(false);
+    };
 
-  const handleClick = () => {
-    setShowForm(true);
-  };
 
   
 

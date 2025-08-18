@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
-function ReviewForm({ onClose }) {
-  const [name, setName] = useState('');
-  const [stars, setStars] = useState(0);
-  const [text, setText] = useState('');
+function ReviewForm() {
+  const[isModalOpen, setIsModalOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
