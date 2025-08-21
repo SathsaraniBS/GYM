@@ -1,6 +1,5 @@
 import React from 'react'
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Hero from './components/Hero';
 import Gallery from './components/Gallery';
 import WorkoutSessions from './components/WorkoutSessions';
@@ -18,20 +17,14 @@ import ReviewForm from './components/ReviewForm';
 function App() {
   return (
     <BrowserRouter>
-      <Router>
-        <H />
-        <Hero />
-        <WorkoutSessions/>
-        <Gallery />
-        <Pricing />
-        <Contact />
-        <BMICalculater />
-        <CustomerReview />
-        <ReviewForm />
-        <Footer />
-        
-      </Router>
-      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/reviews" element={<CustomerReview />} />
+        <Route path="/add-review" element={<ReviewForm />} />
+        {/* Optional 404 */}
+        <Route path="*" element={<div style={{ padding: 24 }}>Page not found</div>} />
+      </Routes>
+      <ToastContainer />
     </BrowserRouter>
   )
 }
