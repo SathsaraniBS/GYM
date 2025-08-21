@@ -7,24 +7,8 @@ function Login() {
   const [password , setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-        const response = await axios.post('http://localhost:5000/api/auth/login', {
-            email,
-            password,
-        });
-
-        console.log(response);
-        if (response.data.success) {
-            localStorage.setItem('token', response.data.token);
-            navigate('/');
-        }
-
-    } catch (error) {
-        console.log(error);
-
-    }
   }
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
