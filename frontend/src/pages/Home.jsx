@@ -1,23 +1,12 @@
-import React from 'react'
-import Hero from './components/Hero';
-import Gallery from './components/Gallery';
-import WorkoutSessions from './components/WorkoutSessions';
-import Pricing from './components/Pricing';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import BMICalculater from './components/BMICalculater';
+import React from "react";
+import Navbar from "../components/Navbar";
+
 function Home() {
   return (
-      <>
-      <Hero />
-      <WorkoutSessions />
-      <Gallery />
-      <Pricing />
-      <Contact />
-      <BMICalculater />
-      <Footer />
-    </>
-  )
+    <div className='bg-gray-100 min-h-screen'>
+      <Navbar />
+    </div>
+  );
 }
 
-export default Home
+export default Home;
