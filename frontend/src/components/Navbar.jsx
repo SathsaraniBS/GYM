@@ -61,14 +61,19 @@ const Navbar = () => {
         <li className="flex items-center space-x-3">
           <span>UserName</span>
           <Link
-            to="/login"
+            to="/"
             className="bg-red-500 px-4 py-2 rounded hover:bg-blue-700 transition"
           >
             Logout
           </Link>
+          <Link to="/login"
+            className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-700 transition"
+          >
+            Login
+          </Link>
           <Link
             to="/register"
-            className="bg-red-500 px-4 py-2 rounded hover:bg-blue-700 transition"
+            className="bg-green-500 px-4 py-2 rounded hover:bg-blue-700 transition"
           >
             Signup
           </Link>
@@ -150,6 +155,15 @@ const Navbar = () => {
             className="bg-red-500 px-6 py-3 rounded text-xl hover:bg-blue-700 transition"
           >
             Signup
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/login"
+            onClick={toggleMenu}
+            className="bg-red-500 px-6 py-3 rounded text-xl hover:bg-blue-700 transition"
+          >
+            Login
           </Link>
         </li>
       </ul>
