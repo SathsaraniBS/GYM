@@ -26,31 +26,31 @@ header p {
   color: whitesmoke;
 }
 
-.navbar {
+/* .navbar {
   /*background: transparent; */
-    background: black; 
+    /* background: black; 
     height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     /*font-size: 1.2rem;*/
-    font-size: 1.5rem;
+    /* font-size: 1.5rem;
     font-weight: bold;
     position: sticky;
     top: 0;
     z-index: 999;
-}
+} */ */
 
-.navbar-container{
+/* .navbar-container{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80px;
     max-width: 1500px;
     
-}
+} */
 
-.navbar-logo{
+/* .navbar-logo{
     color: #fff;
     justify-self: start;
     margin-left: 20px;
@@ -58,9 +58,9 @@ header p {
     font-size: 2rem;
     display: flex;
     align-items: center;
-}
+} */
 
-.navbar-logo img{
+/* .navbar-logo img{
     height: 70px;
     border-radius: 50%;
 
@@ -69,9 +69,9 @@ header p {
 .fa-typo3{
     margin-left: 0.5rem;
     font-size: 1.8rem;
-}
+} */
 
-.nav-menu{
+/* .nav-menu{
     display: grid;
     grid-template-columns: repeat(6, auto);
     grid-gap: 10px;
@@ -80,9 +80,9 @@ header p {
     width: 60vw;
     justify-content: center;
     margin-right: 2rem;
-}
+} */
 
-.nav-item{
+/* .nav-item{
     height: 80px;
 }
 
@@ -93,9 +93,9 @@ header p {
     text-decoration: none;
     padding: 0.5rem 1rem;
     height: 100%;
-}
+} */
 
-.nav-links:hover{
+/* .nav-links:hover{
     border-bottom: 4px solid #79a7c5;
     color: #79a7c5;
     transition: all 0.3s ease-out;
@@ -107,7 +107,7 @@ header p {
 
 .nav-links-mobile{
     display: none;
-}
+} */
 
 .menu-icon{
     display: none;
@@ -186,7 +186,7 @@ header p {
         color: #242424;
         transition: 250ms;
     }
-}
+} 
 
 .hero {
   min-height: 100vh;
