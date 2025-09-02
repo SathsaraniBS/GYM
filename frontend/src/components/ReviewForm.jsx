@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 
-function ReviewForm() {
-  const[isModalOpen, setIsModalOpen] = useState(false);
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+function ReviewForm({ onClose }) {
+  
+  const [name, setName] = useState('');  
+  const [stars, setStars] = useState(0);  
+  const [text, setText] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can later send this to a backend or add it to the review list
     console.log('New Review:', { name, stars, text });
-    onClose(); // Close the form after submission
+    onClose(); // Close the form after submission using prop
   };
 
   return (

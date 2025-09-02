@@ -41,12 +41,12 @@ function CustomerReview() {
       <div className="buttons">
         <button 
           className="write-review"
-          onClick={(handleClick) => setShowForm(true)} // Show the form
+          onClick={() => setIsModalOpen(true)}
         >
           WRITE A REVIEW
         </button>
 
-        {showForm && <ReviewForm/>}
+        {isModalOpen && <ReviewForm onClose={() => setIsModalOpen(false)} />}
         
 
         <button className="show-more">SHOW MORE REVIEWS</button>
