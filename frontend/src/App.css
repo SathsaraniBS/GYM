@@ -191,8 +191,12 @@ header p {
 .hero {
   min-height: 100vh;
   position: relative;
-  background: url(/img3.jpg) rgba(0, 0, 0, 0.75);
-  background-blend-mode: darken;
+  /* background: url(/img3.jpg) rgba(0, 0, 0, 0.75); */
+  /* background-blend-mode: darken; */
+  background-image: url(/img3.jpg);  /* FIXED: Use background-image for the URL */
+  background-color: rgba(0, 0, 0, 0.75);  /* FIXED: Add background-color for the overlay */
+  background-blend-mode: multiply;  /* FIXED: Use background-blend-mode */
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
