@@ -95,7 +95,7 @@ header p {
     height: 100%;
 } */
 
-/* .nav-links:hover{
+.nav-links:hover{
     border-bottom: 4px solid #79a7c5;
     color: #79a7c5;
     transition: all 0.3s ease-out;
@@ -107,7 +107,7 @@ header p {
 
 .nav-links-mobile{
     display: none;
-} */
+}
 
 .menu-icon{
     display: none;
