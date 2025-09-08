@@ -1,3 +1,4 @@
+// src/components/Hero.jsx (verified and fixed)
 import React from 'react';
 
 function Hero() {

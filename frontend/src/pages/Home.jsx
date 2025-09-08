@@ -8,6 +8,7 @@ import Contact from "../components/Contact";
 import CustomerReview from "../components/CustomerReview";
 import ReviewForm from "../components/ReviewForm ";
 import BMICalculater from "../components/BMICalculater";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
@@ -21,7 +22,7 @@ function Home() {
       <CustomerReview />
       <ReviewForm />
       <BMICalculater />
-      {/* <Footer /> */}
+      <Footer /> 
 
     </div>
   );
