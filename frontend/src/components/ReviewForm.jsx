@@ -1,32 +1,41 @@
 import React, { useState } from 'react';
 
 function ReviewForm({ onClose }) {
-  
-  const [name, setName] = useState('');  
-  const [stars, setStars] = useState(0);  
+  const [name, setName] = useState('');
+  const [stars, setStars] = useState(0);
   const [text, setText] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can later send this to a backend or add it to the review list
     console.log('New Review:', { name, stars, text });
-    onClose(); // Close the form after submission using prop
+    onClose();
   };
 
   return (
-    <div className="overlay">
-      <div className="review-modal">
-        <button className="close-btn" onClick={onClose}>✖</button>
-        <h2 className="modal-title">Write A Review</h2>
-        <form className="review-form" onSubmit={handleSubmit}>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md mx-4">
+        <button
+          className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl"
+          onClick={onClose}
+        >
+          ✕
+        </button>
+        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Write A Review</h2>
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            className="border border-gray-300 rounded-md p-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <select value={stars} onChange={(e) => setStars(Number(e.target.value))} required>
+          <select
+            value={stars}
+            onChange={(e) => setStars(Number(e.target.value))}
+            required
+            className="border border-gray-300 rounded-md p-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
             <option value={0}>Select rating</option>
             <option value={1}>1 Star</option>
             <option value={2}>2 Stars</option>
@@ -34,20 +43,24 @@ function ReviewForm({ onClose }) {
             <option value={4}>4 Stars</option>
             <option value={5}>5 Stars</option>
           </select>
-
-            <div className="stars-display">
-              {Array.from({ length: stars }, (_, i) => (
-                <span key={i}>⭐</span>
-              ))}
-            </div>
-            
+          <div className="flex gap-1 text-yellow-400 text-2xl">
+            {Array.from({ length: stars }, (_, i) => (
+              <span key={i}>⭐</span>
+            ))}
+          </div>
           <textarea
             placeholder="Write your review..."
             value={text}
             onChange={(e) => setText(e.target.value)}
             required
-          ></textarea>
-          <button type="submit" className="submit-btn">Submit Review</button>
+            className="border border-gray-300 rounded-md p-2 text-base h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            type="submit"
+            className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+          >
+            Submit Review
+          </button>
         </form>
       </div>
     </div>
