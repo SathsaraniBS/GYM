@@ -1,16 +1,12 @@
 import { useState } from 'react';
-import ReviewForm from './ReviewForm'; // Make sure the path is correct
+import ReviewForm from './ReviewForm'; // FIXED: Ensure path matches src/components/ReviewForm.jsx
 
 function CustomerReview() {
-  
-  const[isModalOpen, setIsModalOpen] = useState(false);
-  
-    const closeModal = () => {
-      setIsModalOpen(false);
-    };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-
-  
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const reviews = [
     { name: 'Amila Prabhath', stars: 4, text: "Fitness is a huge thing in everybody's life..." },
@@ -25,31 +21,36 @@ function CustomerReview() {
     Array.from({ length: stars }, (_, i) => <span key={i}>⭐</span>);
 
   return (
-    <section className="customer-reviews">
-      <h1>CUSTOMER REVIEWS</h1>
+    <section className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <h1 className="text-3xl font-bold text-gray-900 text-center mb-8">CUSTOMER REVIEWS</h1>
 
-      <div className="review-container">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {reviews.map((review, index) => (
-          <div key={index} className="review-book">
-            <h3>{review.name}</h3>
-            <div className="stars">{renderStars(review.stars)}</div>
-            <p>{review.text}</p>
+          <div
+            key={index}
+            className="bg-white border border-gray-300 rounded-lg p-6 shadow-md hover:shadow-lg transition duration-300"
+          >
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">{review.name}</h3>
+            <div className="flex gap-1 text-yellow-400 mb-2">{renderStars(review.stars)}</div>
+            <p className="text-gray-600">{review.text}</p>
           </div>
         ))}
       </div>
 
-      <div className="buttons">
-        <button 
-          className="write-review"
+      <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+        <button
+          className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
           onClick={() => setIsModalOpen(true)}
         >
           WRITE A REVIEW
         </button>
-
-        {isModalOpen && <ReviewForm onClose={() => setIsModalOpen(false)} />}
-        
-
-        <button className="show-more">SHOW MORE REVIEWS</button>
+        {isModalOpen && <ReviewForm onClose={closeModal} />}
+        <button
+          className="bg-gray-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-600 transition duration-300"
+          onClick={() => console.log('Show more reviews clicked')}
+        >
+          SHOW MORE REVIEWS
+        </button>
       </div>
     </section>
   );
