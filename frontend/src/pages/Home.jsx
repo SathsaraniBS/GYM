@@ -34,7 +34,7 @@
 import React from "react";
 import Navbar from "../components/Navbar"; // FIXED: Ensure path and case match src/components/Navbar.jsx
 import Hero from "../components/Hero"; // FIXED: Ensure path and case match src/components/Hero.jsx
-import WorkoutSessions from "../components/workoutsessions"; // FIXED: Use lowercase to match filename workoutsessions.jsx
+import WorkoutSessions from "../components/WorkoutSessions";
 import Footer from "../components/Footer"; // FIXED: Ensure path and case match src/components/Footer.jsx
 
 function Home() {
