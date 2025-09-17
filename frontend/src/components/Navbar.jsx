@@ -9,7 +9,9 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-800 py-10 px-4 text-white flex justify-between items-center shadow-md">
+    // <nav className="bg-gray-800 py-10 px-4 text-white flex justify-between items-center shadow-md">
+    <nav className="bg-gray-800 fixed w-full top-0 z-50  py-4 h-20 text-white flex justify-between items-center fixed top-0 z-10 shadow-md">
+
       <div className="max-w-7xl mx-auto flex justify-between items-center w-full">
         {/* Logo */}
         <div className="text-white text-3xl font-bold">
@@ -17,7 +19,7 @@ function Navbar() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6 items-center">
+        <div className="hidden md:flex space-x-10 items-center">
           <Link to="/" className="text-white hover:text-gray-200 transition duration-300">
             Home
           </Link>
@@ -27,10 +29,14 @@ function Navbar() {
           <Link to="/about" className="text-white hover:text-gray-200 transition duration-300">
             About
           </Link>
+
+        </div>
+        <div className="border-l border-gray-400 h-6">
           <Link
             to="/login"
             className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
           >
+          
             Login
           </Link>
           <Link
