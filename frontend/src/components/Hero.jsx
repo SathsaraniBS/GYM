@@ -1,7 +1,9 @@
+import BackgroundSlider from "./BackgroundSlider"
 function Hero() {
   return (
-     <section className='hero bg-[url("/img3.jpg")] bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center'>
-
+    //  <section className='hero bg-[url("/img3.jpg")] bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center'>
+    <div>
+    <BackgroundSlider />
       <div className="content text-left text-white p-5 ">
         <div className="title mb-4  font-bold">
           <div className="font-size  font-bold mb-4">
@@ -30,8 +32,9 @@ function Hero() {
         
 
       </div>
+    </div>
       
-    </section>
+    /* </section> */
       
     
   )
