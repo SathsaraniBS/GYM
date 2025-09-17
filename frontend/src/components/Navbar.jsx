@@ -1,20 +1,113 @@
-const Header = () => (
-  <header className="bg-black text-white p-4 flex justify-between items-center">
-    <div className="text-xl font-bold">FitTrack</div>
-    <nav className="space-x-6">
-      <a href="#" className="hover:text-red-500">HOME</a>
-      <a href="#" className="hover:text-red-500">ABOUT</a>
-      <a href="#" className="hover:text-red-500">COURSES</a>
-      <a href="#" className="hover:text-red-500">PRICING</a>
-      <a href="#" className="hover:text-red-500">GALLERY</a>
-      <a href="#" className="hover:text-red-500">BLOG</a>
-      <a href="#" className="hover:text-red-500">CONTACT</a>
-    </nav>
-    <div className="space-x-4">
-      <button className="bg-blue-600 text-white px-4 py-2 rounded">Login</button>
-      <button className="bg-green-600 text-white px-4 py-2 rounded">Signup</button>
-    </div>
-  </header>
-);
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-export default Header;
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <nav className="bg-gray-800 py-10 px-4 text-white flex justify-between items-center shadow-md">
+      <div className="max-w-7xl mx-auto flex justify-between items-center w-full">
+        {/* Logo */}
+        <div className="text-white text-3xl font-bold">
+          <Link to="/">FitTrack</Link>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-6 items-center">
+          <Link to="/" className="text-white hover:text-gray-200 transition duration-300">
+            Home
+          </Link>
+          <Link to="/pricing" className="text-white hover:text-gray-200 transition duration-300">
+            Pricing
+          </Link>
+          <Link to="/about" className="text-white hover:text-gray-200 transition duration-300">
+            About
+          </Link>
+          <Link
+            to="/login"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
+          >
+            Login
+          </Link>
+          <Link
+            to="/register"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
+          >
+            Register
+          </Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button
+            onClick={toggleMenu}
+            className="text-white focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden mt-4">
+          <Link
+            to="/"
+            className="block text-white hover:text-gray-200 py-2 px-4 transition duration-300"
+            onClick={toggleMenu}
+          >
+            Home
+          </Link>
+          <Link
+            to="/pricing"
+            className="block text-white hover:text-gray-200 py-2 px-4 transition duration-300"
+            onClick={toggleMenu}
+          >
+            Pricing
+          </Link>
+          <Link
+            to="/about"
+            className="block text-white hover:text-gray-200 py-2 px-4 transition duration-300"
+            onClick={toggleMenu}
+          >
+            About
+          </Link>
+          <Link
+            to="/login"
+            className="block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 mt-2"
+            onClick={toggleMenu}
+          >
+            Login
+          </Link>
+          <Link
+            to="/register"
+            className="block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 mt-2"
+            onClick={toggleMenu}
+          >
+            Register
+          </Link>
+        </div>
+      )}
+    </nav>
+  );
+}
+
+export default Navbar;
