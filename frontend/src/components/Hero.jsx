@@ -21,7 +21,7 @@ function Hero() {
           <p className="mb-2">BSS Creation</p>
         </div>
 
-        <div className='buttons flex justify-center gap-4 '>
+        <div className='mb-4 buttons flex justify-center gap-4 '>
           <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"> Start Your Journey</button>
           <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Discover Your Plan</button>
 
