@@ -1,43 +1,48 @@
-import BackgroundSlider from "./BackgroundSlider"
+import React from 'react';
+
 function Hero() {
   return (
-    //  <section className='hero bg-[url("/img3.jpg")] bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center'>
-    <div>
-    <BackgroundSlider />
-      <div className="content text-left text-white p-5 ">
-        <div className="title mb-4  font-bold">
-          <div className="font-size  font-bold mb-4">
-          <h1>LET'S</h1>
-          <h1>GET</h1>
-          <h1>MOVING</h1>
-          </div>
-          <div className="text-2xl font-normal">
-          <h2>Getting in shape isn't hard when you're in a supportive </h2>
-          <h2>environment. Lifetime Fitness is more than just a gym - it's</h2>
-          <h2>a caring family that's there to help you achieve your goals</h2>
-          </div>
-
+    <section className="min-h-screen relative bg-black/75 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="text-center text-white p-6 sm:p-8 max-w-3xl mx-auto">
+        <div className="title mb-6 font-bold">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-tight">
+            LET'S
+          </h1>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-tight">
+            GET
+          </h1>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-tight">
+            MOVING
+          </h1>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl mt-4 text-gray-200">
+            Getting in shape isn't hard when you're in a supportive
+          </h2>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-200">
+            environment. Lifetime Fitness is more than just a gym - it's
+          </h2>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-200">
+            a caring family that's there to help you achieve your goals
+          </h2>
         </div>
         <div className="sub-title mb-8">
-          <p className="mb-2">Your journey to fitness starts here</p>
-          <p className="mb-2">BSS Creation</p>
+          <p className="text-lg sm:text-xl text-gray-100 mb-2">
+            Your journey to fitness starts here
+          </p>
+          <p className="text-lg sm:text-xl text-blue-500">
+            BSS Creation
+          </p>
         </div>
-
-        <div className='mb-4 buttons flex justify-center gap-4 '>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"> Start Your Journey</button>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Discover Your Plan</button>
-
+        <div className="buttons flex flex-col sm:flex-row justify-center gap-4">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
+            Start Your Journey
+          </button>
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
+            Discover Your Plan
+          </button>
         </div>
-
-        
-
       </div>
-    </div>
-      
-    /* </section> */
-      
-    
-  )
+    </section>
+  );
 }
 
-export default Hero
+export default Hero;
