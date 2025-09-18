@@ -19,22 +19,22 @@ function Navbar() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-10 items-center">
-          <Link to="/" className="text-white hover:text-gray-200 transition duration-300">
-            Home
+        <div className=" gap-4 hidden md:flex space-x-10 items-center">
+          <Link to="/" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
+            HOME
           </Link>
-          <Link to="/pricing" className="text-white hover:text-gray-200 transition duration-300">
-            Pricing
+          <Link to="/pricing" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
+            PRICING
           </Link>
-          <Link to="/about" className="text-white hover:text-gray-200 transition duration-300">
-            About
+          <Link to="/about" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
+            ABOUT
           </Link>
-          <Link to="/contact" className="text-white hover:text-gray-200 transition duration-300">
-            Contact
+          <Link to="/contact" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
+            CONTACT
           </Link>
 
         </div>
-        <div >
+        <div className='flex gap-4 mr-4'>
           <Link
             to="/login"
             className="bg-red-500 px-4 py-2  rounded mr-4 "
