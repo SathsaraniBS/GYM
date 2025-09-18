@@ -12,17 +12,19 @@ function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="border shadow-lg p-6 w-80 bg-white rounded-lg">
-        <h2 className="text-2xl font-bold mb-6 text-gray-900">Login</h2>
-
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="border shadow-lg p-6 w-100 bg-white rounded-lg h-[450px] w-[400px]">
+        {/* <h2 className="text-2xl font-bold mb-6 text-gray-900">Login</h2> */}
+        <div className='flex justify-center mb-6 mt-10'>
+          <h2 className="text-3xl font-bold mb-6 mt-4 text-gray-900 text-center">Login</h2>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
             <label className="block text-gray-700 font-semibold mb-2">Email</label>
             <input
               type="email"
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent "
               placeholder="Enter Email"
             />
           </div>
@@ -32,7 +34,7 @@ function Login() {
             <input
               type="password"
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mt-2"
               placeholder="Enter Password"
             />
           </div>
