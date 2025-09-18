@@ -14,7 +14,7 @@ function Navbar() {
 
       <div className="max-w-7xl mx-auto flex justify-between items-center w-full">
         {/* Logo */}
-        <div className="text-white text-3xl font-bold">
+        <div className="text-white text-3xl font-bold ml-4">
           <Link to="/">FitTrack</Link>
         </div>
 
@@ -29,19 +29,22 @@ function Navbar() {
           <Link to="/about" className="text-white hover:text-gray-200 transition duration-300">
             About
           </Link>
+          <Link to="/contact" className="text-white hover:text-gray-200 transition duration-300">
+            Contact
+          </Link>
 
         </div>
-        <div className="border-l border-gray-400 h-6">
+        <div >
           <Link
             to="/login"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
+            className="bg-red-500 px-4 py-2  rounded mr-4 "
           >
           
             Login
           </Link>
           <Link
             to="/register"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
+            className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
           >
             Register
           </Link>
@@ -96,16 +99,25 @@ function Navbar() {
           >
             About
           </Link>
+          {/* <Link
+            to="/login"
+            className="block bg-red-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 mt-2"
+            onClick={toggleMenu}
+          >
+            Login
+          </Link> */}
+
           <Link
             to="/login"
-            className="block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 mt-2"
+            className="block bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 mt-2"
             onClick={toggleMenu}
           >
             Login
           </Link>
+
           <Link
             to="/register"
-            className="block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 mt-2"
+            className="block bg-red-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 mt-2"
             onClick={toggleMenu}
           >
             Register
@@ -116,4 +128,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbar;  
