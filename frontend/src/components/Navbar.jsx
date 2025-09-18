@@ -14,7 +14,7 @@ function Navbar() {
 
       <div className="max-w-7xl mx-auto flex justify-between items-center w-full">
         {/* Logo */}
-        <div className="text-white text-3xl font-bold ml-4">
+        <div className="text-3xl font-bold ml-8 text-white">
           <Link to="/">FitTrack</Link>
         </div>
 
@@ -26,11 +26,14 @@ function Navbar() {
           <Link to="/pricing" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
             PRICING
           </Link>
-          <Link to="/about" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
-            ABOUT
+          <Link to="/gallery" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
+            GALLERY
           </Link>
           <Link to="/contact" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
             CONTACT
+          </Link>
+          <Link to="/about" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
+            ABOUT
           </Link>
 
         </div>
