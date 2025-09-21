@@ -15,12 +15,12 @@ function Login() {
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="border shadow-lg p-6 w-100 bg-white rounded-lg h-[450px] w-[400px]">
         {/* <h2 className="text-2xl font-bold mb-6 text-gray-900">Login</h2> */}
-        <div className='flex justify-center mb-6 mt-10'>
+        {/* <div className='flex justify-center mb-6 mt-7'> */}
           <h2 className="text-3xl font-bold mb-6 mt-4 text-gray-900 text-center">Login</h2>
-        </div>
+        {/* </div> */}
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
-            <label className="block text-gray-700 font-semibold mb-2">Email</label>
+            <label className="text-xl block text-gray-700 font-semibold mb-2">Email</label>
             <input
               type="email"
               onChange={(e) => setEmail(e.target.value)}
@@ -30,7 +30,7 @@ function Login() {
           </div>
 
           <div className="mb-6">
-            <label className="block text-gray-700 font-semibold mb-2">Password</label>
+            <label className="text-xl block text-gray-700 font-semibold mb-2">Password</label>
             <input
               type="password"
               onChange={(e) => setPassword(e.target.value)}
@@ -42,13 +42,13 @@ function Login() {
           <div className="mb-4">
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
+              className="text-xl w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
             >
               Login
             </button>
             <p className="text-center mt-4 text-gray-600">
               Don't have an account?{' '}
-              <Link to="/register" className="text-blue-500 hover:underline font-medium">
+              <Link to="/register" className="text-bold text-blue-500 hover:underline font-medium">
                 Register
               </Link>
             </p>
