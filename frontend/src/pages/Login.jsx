@@ -42,7 +42,7 @@ function Login() {
           <div className="mb-4">
             <button
               type="submit"
-              className="text-xl w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
+              className="text-xl w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-200"
             >
               Login
             </button>

@@ -10,7 +10,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand/Logo Section */}
           <div className="flex flex-col items-center md:items-start">
-            <Link to="/" className="text-2xl font-bold text-blue-500 mb-4">
+            <Link to="/" className="text-2xl font-bold text-white hover:text-red-500 mb-4">
               FitTrack
             </Link>
             <p className="text-gray-400 text-sm text-center md:text-left">
@@ -20,12 +20,12 @@ function Footer() {
 
           {/* Navigation Links */}
           <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-lg font-semibold text-blue-500 mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-white hover:text-red-500 mb-4">Quick Links</h3>
             <ul className="flex flex-col gap-2">
               <li>
                 <Link
                   to="/"
-                  className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
+                  className="text-gray-300 hover:text-red-500 transition-colors duration-300"
                 >
                   Home
                 </Link>
@@ -33,7 +33,7 @@ function Footer() {
               <li>
                 <Link
                   to="/about"
-                  className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
+                  className="text-gray-300 hover:text-red-500 transition-colors duration-300"
                 >
                   About
                 </Link>
@@ -41,7 +41,7 @@ function Footer() {
               <li>
                 <Link
                   to="/pricing"
-                  className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
+                  className="text-gray-300 hover:text-red-500 transition-colors duration-300"
                 >
                   Pricing
                 </Link>
@@ -49,7 +49,7 @@ function Footer() {
               <li>
                 <Link
                   to="/gallery"
-                  className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
+                  className="text-gray-300 hover:text-red-500 transition-colors duration-300"
                 >
                   Gallery
                 </Link>
@@ -57,7 +57,7 @@ function Footer() {
               <li>
                 <Link
                   to="/contact"
-                  className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
+                  className="text-gray-300 hover:text-red-500 transition-colors duration-300"
                 >
                   Contact
                 </Link>
@@ -67,7 +67,7 @@ function Footer() {
 
           {/* Contact Info */}
           <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-lg font-semibold text-blue-500 mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold text-white hover:text-red-500 mb-4">Contact Us</h3>
             <p className="text-gray-300 text-sm mb-2">Email: support@fittrack.com</p>
             <p className="text-gray-300 text-sm mb-2">Phone: (123) 456-7890</p>
             <p className="text-gray-300 text-sm mb-4">Address: 123 Fitness St, Wellness City</p>
@@ -76,7 +76,7 @@ function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
+                className="text-gray-300 hover:text-red-500 transition-colors duration-300"
               >
                 <FaFacebook size={24} />
               </a>
@@ -84,7 +84,7 @@ function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
+                className="text-gray-300 hover:text-red-500 transition-colors duration-300"
               >
                 <FaTwitter size={24} />
               </a>
@@ -92,7 +92,7 @@ function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
+                className="text-gray-300 hover:text-red-500 transition-colors duration-300"
               >
                 <FaInstagram size={24} />
               </a>
@@ -100,7 +100,7 @@ function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
+                className="text-gray-300 hover:text-red-500 transition-colors duration-300"
               >
                 <FaLinkedin size={24} />
               </a>

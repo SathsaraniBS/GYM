@@ -42,7 +42,7 @@ const Signup = () => {
           </div>
           
           <div className='mb-4'>
-          <button  type='submit' className='text-center w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded'>Sign up</button>
+          <button  type='submit' className='text-center w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-5 rounded'>Sign up</button>
 
           <p className='text-center'>Already have an account? <Link to="/login" className='text-blue-500'>Login</Link></p>
           </div>

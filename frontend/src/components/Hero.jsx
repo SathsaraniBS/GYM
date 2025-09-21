@@ -2,7 +2,7 @@ import React from 'react';
 
 function Hero() {
   return (
-    <section className="min-h-screen relative bg-[url('/img3.jpg')] bg-black/75 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen relative bg-[url('/h1_hero.png')] bg-black/75 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="text-center text-white p-6 sm:p-8 max-w-3xl mx-auto">
         <div className="title mb-6 font-bold">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-tight">
@@ -33,10 +33,10 @@ function Hero() {
           </p>
         </div>
         <div className="buttons flex flex-col sm:flex-row justify-center gap-4">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
+          <button className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
             Start Your Journey
           </button>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
+          <button className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
             Discover Your Plan
           </button>
         </div>
