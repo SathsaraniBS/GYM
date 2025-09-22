@@ -8,14 +8,12 @@ function Hero() {
       <div className="text-center text-white p-6 sm:p-8 max-w-3xl mx-auto">
         <div className="title mb-6 font-bold">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-tight">
-            LET'S
+            Unleash Your Inner
           </h1>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-tight">
-            GET
+            Strength
           </h1>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-tight">
-            MOVING
-          </h1>
+          
           <h2 className="text-xl sm:text-2xl lg:text-3xl mt-4 text-gray-200">
             Getting in shape isn't hard when you're in a supportive
           </h2>
