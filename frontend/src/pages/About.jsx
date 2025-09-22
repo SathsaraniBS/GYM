@@ -45,6 +45,51 @@ function About() {
             </div>
           </div>
         </div>
+
+        <div className="bg-black text-white min-h-screen flex flex-col items-center justify-center p-6">
+          <div className="w-full max-w-6xl text-center">
+            <h2 className="text-sm text-orange-500 uppercase mb-2">Why Chose Us?</h2>
+            <h1 className="text-3xl font-bold mb-8">Push Your Limits Forward</h1>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-orange-500 text-2xl">🏋️</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Modern equipment</h3>
+                <p className="text-gray-400 text-sm">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore facilis.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-orange-500 text-2xl">🍎</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Healthy nutrition plan</h3>
+                <p className="text-gray-400 text-sm">
+                  Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-orange-500 text-2xl">💪</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Professional training plan</h3>
+                <p className="text-gray-400 text-sm">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore facilis.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-orange-500 text-2xl">❤️</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Unique to your needs</h3>
+                <p className="text-gray-400 text-sm">
+                  Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
             
     </div>
   )
