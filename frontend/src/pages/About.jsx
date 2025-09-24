@@ -5,10 +5,7 @@ function About() {
   return (
     <div className="bg-gray-100">
       <Navbar />
-      {/* Add pt-20 to account for fixed navbar height
-      <section className="min-h-screen relative bg-black/10 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20"> */}
-
-      <section className="min-h-screen relative bg-[url('/a3.jpg')] bg-black/10 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <section className="min-h-screen relative bg-black/10 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
         <div className="text-center text-white p-6 sm:p-8 max-w-3xl mx-auto">
           <div className="title mb-6 font-bold">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-tight">
@@ -46,7 +43,7 @@ function About() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                <span className="text-orange-500 text-2xl">🏋️</span>
+                <span className="text-orange-500 hover:text-orange-600 text-2xl">🏋️</span>
               </div>
               <h3 className="text-lg font-semibold mb-2">Modern equipment</h3>
               <p className="text-gray-400 text-sm">
@@ -55,7 +52,7 @@ function About() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                <span className="text-orange-500 text-2xl">🍎</span>
+                <span className="text-orange-500 hover:text-orange-600 text-2xl">🍎</span>
               </div>
               <h3 className="text-lg font-semibold mb-2">Healthy nutrition plan</h3>
               <p className="text-gray-400 text-sm">
@@ -64,7 +61,7 @@ function About() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                <span className="text-orange-500 text-2xl">💪</span>
+                <span className="text-orange-500 hover:text-orange-600 text-2xl">💪</span>
               </div>
               <h3 className="text-lg font-semibold mb-2">Professional training plan</h3>
               <p className="text-gray-400 text-sm">
@@ -73,7 +70,7 @@ function About() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                <span className="text-orange-500 text-2xl">❤️</span>
+                <span className="text-orange-500 hover:text-orange-600 text-2xl">❤️</span>
               </div>
               <h3 className="text-lg font-semibold mb-2">Unique to your needs</h3>
               <p className="text-gray-400 text-sm">
