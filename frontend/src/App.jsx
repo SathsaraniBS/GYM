@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import About from './pages/About'
+import Contact from './pages/Contact'
 function App() {
   return (
     <BrowserRouter>
@@ -12,6 +13,7 @@ function App() {
         <Route path='/register' element={<Signup />} ></Route>
         <Route path='/login' element={<Login />} ></Route>
         <Route path='/about' element={<About />} ></Route>
+        <Route path='/contact' element={<Contact />} ></Route>
 '
       </Routes>
     </BrowserRouter>
