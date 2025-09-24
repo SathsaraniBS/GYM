@@ -80,6 +80,38 @@ function About() {
           </div>
         </div>
       </div>
+      <div className="bg-black text-white min-h-screen flex flex-col items-center justify-center p-6">
+          <div className="w-full max-w-6xl text-center">
+            <h2 className="text-sm text-orange-500 uppercase mb-2">Our Team</h2>
+            <h1 className="text-3xl font-bold mb-8">Train With Experts</h1>
+            <div className="flex flex-col md:flex-row justify-around items-center gap-6">
+              <div className="relative">
+                <img src="img7.jpg" alt="Athart Rachel" className="w-full h-auto object-cover" />
+                <div className="absolute bottom-0 left-0 bg-black bg-opacity-70 p-4 w-full">
+                  <h3 className="text-lg font-semibold">Athart Rachel</h3>
+                  <p className="text-gray-400">Gym Trainer</p>
+                </div>
+              </div>
+              <div className="relative">
+                <img src="img5.jpg" alt="Trainer 2" className="w-full h-auto object-cover" />
+                <div className="absolute bottom-0 left-0 bg-black bg-opacity-70 p-4 w-full">
+                  <h3 className="text-lg font-semibold">Trainer 2</h3>
+                  <p className="text-gray-400">Fitness Coach</p>
+                </div>
+              </div>
+              <div className="relative">
+                <img src="img6.jpg" alt="Trainer 3" className="w-full h-auto object-cover" />
+                <div className="absolute bottom-0 left-0 bg-black bg-opacity-70 p-4 w-full">
+                  <h3 className="text-lg font-semibold">Trainer 3</h3>
+                  <p className="text-gray-400">Strength Coach</p>
+                </div>
+              </div>
+            </div>
+            <button className="mt-8 bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600">
+              Appointment
+            </button>
+          </div>
+        </div>
     </div>
   );
 }
