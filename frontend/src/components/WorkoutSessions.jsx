@@ -21,10 +21,27 @@ function WorkoutSessions() {
           </button>
         </div>
       </div>
-      <div className="mt-10 text-center">
-        <h1 className="text-6xl font-bold text-outline">WHAT I OFFER</h1>
+      <div className="flex flex-col md:flex-row justify-around w-full max-w-6xl px-4">
+        <div className="mb-10 md:mb-0 text-center">
+          <img src="https://via.placeholder.com/300x400" alt="Body Building" className="mb-4 mx-auto" />
+          <h2 className="text-3xl font-bold mb-4">BODY BUILDING</h2>
+          <p className="mb-6">You'll look at graphs and charts in Task One, how to approach the task.</p>
+        </div>
+        <div className="mb-10 md:mb-0 text-center">
+          <img src="https://via.placeholder.com/300x400" alt="Muscle Gain" className="mb-4 mx-auto" />
+          <h2 className="text-3xl font-bold mb-4">MUSCLE GAIN</h2>
+          <p className="mb-6">You'll look at graphs and charts in Task One, how to approach the task.</p>
+        </div>
+        <div className="text-center">
+          <img src="https://via.placeholder.com/300x400" alt="Weight Loss" className="mb-4 mx-auto" />
+          <h2 className="text-3xl font-bold mb-4">WEIGHT LOSS</h2>
+          <p className="mb-6">You'll look at graphs and charts in Task One, how to approach the task.</p>
+        </div>
       </div>
+
     </div>
+        
+
   )
 }
 
