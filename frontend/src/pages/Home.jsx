@@ -36,6 +36,7 @@ import Navbar from "../components/Navbar"; // FIXED: Ensure path and case match 
 import Hero from "../components/Hero"; // FIXED: Ensure path and case match src/components/Hero.jsx
 import WorkoutSessions from "../components/WorkoutSessions";
 import Footer from "../components/Footer"; // FIXED: Ensure path and case match src/components/Footer.jsx
+import Gallery from "../components/Gallery";
 
 function Home() {
   return (
@@ -43,6 +44,7 @@ function Home() {
       <Navbar />
       <Hero />
       <WorkoutSessions />
+      <Gallery />
       <Footer />
     </div>
   );
