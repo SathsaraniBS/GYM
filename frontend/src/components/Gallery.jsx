@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Gallery () {
+function Gallery() {
   return (
     <div className="bg-black text-white min-h-screen flex items-center justify-center p-6">
       <div className="flex flex-col md:flex-row justify-around w-full max-w-6xl">
@@ -24,7 +24,7 @@ function Gallery () {
             <h3 className="text-xl font-bold">Deadlifts</h3>
           </div>
         </div>
-        <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+        <div className="mb-4 md:mb-0 md:mr-4 bg-gray-800 rounded-lg shadow-lg overflow-hidden">
           <img 
             src="gallery3.png" 
             alt="Person on elliptical machine" 
@@ -34,44 +34,39 @@ function Gallery () {
             <h3 className="text-xl font-bold">Elliptical Machine</h3>
           </div>
         </div>
-
-        <div>
-            <div className="mt-4 md:mt-0 md:ml-4 bg-gray-800 rounded-lg shadow-lg overflow-hidden"> 
-                <img 
-                    src="gallery4.png" 
-                    alt="Person doing squats"
-                    className="object-cover w-full h-64"
-                />
-                <div className="p-4">
-                    <h3 className="text-xl font-bold">Squats</h3>
-                </div>
-            </div>
-
-            <div className="mt-4 md:mt-0 md:ml-4 bg-gray-800 rounded-lg shadow-lg overflow-hidden"> 
-                <img 
-                    src="gallery5.png" 
-                    alt="Person doing bench press"
-                    className="object-cover w-full h-64"
-                />
-                <div className="p-4">
-                    <h3 className="text-xl font-bold">Bench Press</h3>
-                </div>
-            </div>
-
-            <div className="mt-4 md:mt-0 md:ml-4 bg-gray-800 rounded-lg shadow-lg overflow-hidden"> 
-                <img 
-                    src="gallery6.png" 
-                    alt="Person doing yoga"
-                    className="object-cover w-full h-64"
-                />
-                <div className="p-4">
-                    <h3 className="text-xl font-bold">Yoga</h3>
-                </div>
-            </div>
+        <div className="mb-4 md:mb-0 md:mr-4 bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+          <img 
+            src="gallery4.png" 
+            alt="Person doing squats"
+            className="object-cover w-full h-64"
+          />
+          <div className="p-4">
+            <h3 className="text-xl font-bold">Squats</h3>
+          </div>
+        </div>
+        <div className="mb-4 md:mb-0 md:mr-4 bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+          <img 
+            src="gallery5.png" 
+            alt="Person doing bench press"
+            className="object-cover w-full h-64"
+          />
+          <div className="p-4">
+            <h3 className="text-xl font-bold">Bench Press</h3>
+          </div>
+        </div>
+        <div className="mb-4 md:mb-0 md:ml-4 bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+          <img 
+            src="gallery6.png" 
+            alt="Person doing yoga"
+            className="object-cover w-full h-64"
+          />
+          <div className="p-4">
+            <h3 className="text-xl font-bold">Yoga</h3>
+          </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Gallery;
