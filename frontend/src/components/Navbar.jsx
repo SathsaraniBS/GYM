@@ -23,8 +23,8 @@ function Navbar() {
           <Link to="/" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
             HOME
           </Link>
-          <Link to="/pricing" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
-            PRICING
+          <Link to="/course" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
+            COURSE
           </Link>
           <Link to="/gallery" className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300">
             GALLERY
@@ -89,11 +89,11 @@ function Navbar() {
             Home
           </Link>
           <Link
-            to="/pricing"
+            to="/course"
             className="block text-white hover:text-gray-200 py-2 px-4 transition duration-300"
             onClick={toggleMenu}
           >
-            Pricing
+            Courses
           </Link>
           <Link
             to="/about"
