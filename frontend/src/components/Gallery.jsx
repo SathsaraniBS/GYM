@@ -10,19 +10,14 @@ function Gallery() {
             alt="Person doing bicep curls" 
             className="object-cover w-full h-64"
           />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Bicep Curls</h3>
-          </div>
-        </div>
+          
         <div className="bg-gray-800  shadow-lg overflow-hidden">
           <img 
             src="gallery2.png" 
             alt="Person doing deadlifts" 
             className="object-cover w-full h-64"
           />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Deadlifts</h3>
-          </div>
+          
         </div>
         <div className="bg-gray-800  shadow-lg overflow-hidden">
           <img 
@@ -30,9 +25,7 @@ function Gallery() {
             alt="Person on elliptical machine" 
             className="object-cover w-full h-64"
           />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Elliptical Machine</h3>
-          </div>
+          
         </div>
         <div className="bg-gray-800  shadow-lg overflow-hidden">
           <img 
@@ -40,9 +33,7 @@ function Gallery() {
             alt="Person doing squats"
             className="object-cover w-full h-64"
           />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Squats</h3>
-          </div>
+          
         </div>
         <div className="bg-gray-800  shadow-lg overflow-hidden">
           <img 
@@ -50,9 +41,7 @@ function Gallery() {
             alt="Person doing bench press"
             className="object-cover w-full h-64"
           />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Bench Press</h3>
-          </div>
+          
         </div>
         <div className="bg-gray-800  shadow-lg overflow-hidden">
           <img 
@@ -60,9 +49,7 @@ function Gallery() {
             alt="Person doing yoga"
             className="object-cover w-full h-64"
           />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Yoga</h3>
-          </div>
+          
         </div>
         <div className="bg-gray-800  shadow-lg overflow-hidden">
           <img 
@@ -70,9 +57,7 @@ function Gallery() {
             alt=""
             className="object-cover w-full h-64"
           />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Push Ups</h3>
-          </div>
+          
         </div>
         <div className="bg-gray-800  shadow-lg overflow-hidden">
           <img 
@@ -80,9 +65,7 @@ function Gallery() {
             alt=""
             className="object-cover w-full h-64"
           />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Pull Ups</h3>
-          </div>
+          
         </div>
         <div className="bg-gray-800  shadow-lg overflow-hidden">
           <img 
@@ -90,9 +73,7 @@ function Gallery() {
             alt=""
             className="object-cover w-full h-64"
           />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Lunges</h3>
-          </div>
+          
         </div>
         <div className="bg-gray-800  shadow-lg overflow-hidden">
           <img 
@@ -100,9 +81,7 @@ function Gallery() {
             alt=""
             className="object-cover w-full h-64"
           />
-          <div className="p-4">
-            <h3 className="text-xl font-bold">Plank</h3>
-          </div>
+         
         </div>
         <div className="bg-gray-800  shadow-lg overflow-hidden">
           <img 
@@ -110,21 +89,17 @@ function Gallery() {
             alt=""
             className="object-cover w-full h-64"
           />
-          {/* <div className="p-4">
-            <h3 className="text-xl font-bold">Crunches</h3>
-          </div> */}
+          
         </div>
-        <div className="bg-gray-800  shadow-lg overflow-hidden">
+       
           <img 
             src="g8.jpg" 
             alt=""
             className="object-cover w-full h-64"
           />
-          {/* <div className="p-4">
-            <h3 className="text-xl font-bold">Jumping Jacks</h3>
-          </div> */}
-        </div>
+          
       </div>
+    </div>
     </div>
   );
 }
