@@ -26,11 +26,11 @@ function Gallery() {
     <div className="bg-black text-white min-h-screen flex items-center justify-center p-6">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl">
         {images.map((image, index) => (
-          <div key={index} className="bg-gray-800 shadow-lg overflow-hidden">
+          <div key={index} className="bg-gray-800 shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl ">
             <img
               src={image.src}
               alt={image.alt}
-              className="object-cover w-full h-64"
+              className="object-cover w-full h-64 transition-transform duration-300 hover:scale-110"
             />
           </div>
         ))}
