@@ -18,8 +18,8 @@ function Course() {
       </section>
       <div className="bg-gray-900 text-white min-h-screen">
         <div className="container mx-auto py-10">
-          <h1 className="text-4xl font-bold text-center text-orange-500 mb-6">OUR CLASSES</h1>
-          <h2 className="text-3xl font-bold text-center mb-10">WHAT WE CAN OFFER</h2>
+          <h1 className="text-xl font-bold text-center text-orange-500 mb-6">OUR CLASSES</h1>
+          <h2 className="text-2xl font-bold text-center mb-10">WHAT WE CAN OFFER</h2>
           {/* <div className="bg-black text-white min-h-screen flex items-center justify-center p-6"> */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl items-center mx-auto px-4">
           {classes.map((cls, index) => (

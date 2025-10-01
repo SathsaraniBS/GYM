@@ -14,6 +14,12 @@ function Gallery() {
     { src: 'g6.jpg', alt: 'Fitness activity' }, // Placeholder alt text
     { src: 'g7.jpg', alt: 'Fitness activity' }, // Placeholder alt text
     { src: 'g8.jpg', alt: 'Fitness activity' }, // Placeholder alt text
+    {src: 'img1.webp', alt: 'Fitness activity' }, // Placeholder alt text
+    {src: 'img2.jpg', alt: 'Fitness activity' }, // Placeholder alt text
+    {src: 'img3.jpg', alt: 'Fitness activity' }, // Placeholder alt text
+    {src: 'img4.jpg', alt: 'Fitness activity' }, // Placeholder alt text
+    {src: 'img8.jpg', alt: 'Fitness activity' }, // Placeholder alt text
+    {src: 'img6.jpg', alt: 'Fitness activity' }, // Placeholder alt text
   ];
 
   return (
