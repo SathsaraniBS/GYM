@@ -33,19 +33,30 @@ function Course() {
                 />
                 <div className="p-4 flex justify-between items-center">
                   <div>
-                  <h3 className="text-xl font-bold text-orange-500">{cls.title}</h3>
-                  <p className="text-gray-400">{cls.category}</p>
+                    <h3 className="text-xl font-bold text-orange-500">{cls.title}</h3>
+                    <p className="text-gray-400">{cls.category}</p>
                   </div>
-                   <button className="bg-gray-800 text-white p-2 rounded transition-colors duration-300 hover:bg-gray-700">&gt;</button>
+                  <button className="bg-gray-800 text-white p-2 rounded transition-colors duration-300 hover:bg-gray-700">&gt;</button>
                 </div>
               </div>
             ))}
           </div>
-          
+
         </div>
       </div>
-      <div className="bg-black text-white min-h-screen flex items-center justify-center p-6">
-        {/* Add content here if needed */}
+      <div className="bg-black text-white min-h-screen flex items-center justify-center p-6 relative">
+        <img
+          src="/img3.jpg" // Must be in public folder
+          alt="Fitness workout"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+        />
+        <div className="relative z-10 text-center text-white">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">REGISTRATION NOW TO GET MORE DEALS</h1>
+          <p className="text-lg md:text-xl mb-6">where health, beauty and fitness meet.</p>
+          <button className="bg-orange-500 text-white font-semibold py-2 px-6 rounded hover:bg-orange-600">
+            APPOINTMENT
+          </button>
+        </div>
       </div>
       <Footer />
     </div>
