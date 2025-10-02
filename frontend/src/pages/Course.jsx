@@ -11,6 +11,25 @@ function Course() {
     { title: "TRAINING", category: "BOXING", image: "/class-5.jpg" },
   ];
 
+   const plans = [
+    {
+      title: "Class drop-in",
+      price: "$39.0",
+      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+    },
+    {
+      title: "12 Month unlimited",
+      price: "$99.0",
+      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+    },
+    {
+      title: "6 Month unlimited",
+      price: "$59.0",
+      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+    },
+  ];
+
+
   return (
     <div className="bg-gray-100">
       <Navbar />
@@ -58,6 +77,30 @@ function Course() {
           </button>
         </div>
       </div>
+
+      <div className="bg-black min-h-screen flex flex-col items-center justify-center py-10 px-4">
+      <div className="text-center">
+        <h2 className="text-orange-500 text-lg font-bold mb-2">OUR PLAN</h2>
+        <h1 className="text-white text-4xl font-bold">CHOOSE YOUR PRICING PLAN</h1>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 w-full max-w-5xl">
+        {plans.map((plan, index) => (
+          <div key={index} className="bg-black rounded-lg p-6 shadow-lg text-white border-2 border-orange-500 transform hover:scale-105 transition-transform duration-300">
+            <h3 className="text-xl font-semibold mb-4">{plan.title}</h3>
+            <p className="text-4xl font-bold text-orange-500 mb-6">{plan.price}<span className="text-base font-normal"> SINGLE CLASS</span></p>
+            <ul className="text-gray-400 space-y-2 mb-6">
+              {plan.features.map((feature, i) => (
+                <li key={i}>{feature}</li>
+              ))}
+            </ul>
+            <button className="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-700 transition-colors duration-300">
+              ENROLL NOW
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+
       <Footer />
     </div>
   );
