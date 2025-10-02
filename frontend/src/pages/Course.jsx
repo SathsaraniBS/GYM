@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Gallery from '../components/Gallery';
 
 function Course() {
   const classes = [
@@ -100,8 +101,9 @@ function Course() {
         ))}
       </div>
     </div>
+    <Gallery />
 
-      <Footer />
+    <Footer />
     </div>
   );
 }
