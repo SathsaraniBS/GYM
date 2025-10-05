@@ -1,27 +1,36 @@
+
 import React from 'react';
 
 function BMI() {
   const [weight, setWeight] = React.useState('');
   const [height, setHeight] = React.useState('');
+  const [gender, setGender] = React.useState('');
   const [bmi, setBmi] = React.useState(null);
+  const [category, setCategory] = React.useState('');
 
   const calculateBMI = () => {
     const heightValue = parseFloat(height);
     const weightValue = parseFloat(weight);
 
-    // Validate inputs
-    if (!heightValue || !weightValue || heightValue <= 0 || weightValue <= 0) {
-      setBmi('Invalid input');
+    if (isNaN(heightValue) || isNaN(weightValue) || heightValue <= 0 || weightValue <= 0) {
+      setBmi('Invalid input. Please enter valid numbers.');
+      setCategory('');
       return;
     }
 
     const heightInMeters = heightValue / 100;
     const bmiValue = weightValue / (heightInMeters * heightInMeters);
     setBmi(bmiValue.toFixed(2));
+
+    // Determine BMI category
+    if (bmiValue < 18.5) setCategory('Underweight');
+    else if (bmiValue < 25) setCategory('Healthy');
+    else if (bmiValue < 30) setCategory('Overweight');
+    else setCategory('Obese');
   };
 
   return (
-    <div className="bg-black ">
+    <div className="bg-black">
       <section className="min-h-screen relative bg-[url('https://via.placeholder.com/1920x1080')] bg-black/10 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
         <div className="text-center text-white p-6 sm:p-8 max-w-3xl mx-auto">
           <div className="title mb-6 font-bold">
@@ -37,66 +46,82 @@ function BMI() {
         </div>
       </section>
 
-      <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl mx-auto p-4">
+      <div className="flex flex-col md:flex-row gap-8 w-full max-w-5xl mx-auto p-6">
         <div className="w-full md:w-1/2">
           <h2 className="text-orange-500 text-lg font-bold mb-4">CHECK YOUR BODY</h2>
           <h1 className="text-3xl font-bold mb-6 text-white">BMI CALCULATOR CHART</h1>
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-gray-800 text-white">
-                <th className="p-2 border-b border-gray-700">BMI</th>
-                <th className="p-2 border-b border-gray-700">WEIGHT STATUS</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="hover:bg-gray-900 text-white">
-                <td className="p-2 border-b border-gray-700">Below 18.5</td>
-                <td className="p-2 border-b border-gray-700">Underweight</td>
-              </tr>
-              <tr className="hover:bg-gray-900 text-white">
-                <td className="p-2 border-b border-gray-700">18.5 - 24.9</td>
-                <td className="p-2 border-b border-gray-700">Healthy</td>
-              </tr>
-              <tr className="hover:bg-gray-900 text-white">
-                <td className="p-2 border-b border-gray-700">25.0 - 29.9</td>
-                <td className="p-2 border-b border-gray-700">Overweight</td>
-              </tr>
-              <tr className="hover:bg-gray-900 text-white">
-                <td className="p-2 border-b border-gray-700">30.0 and Above</td>
-                <td className="p-2 border-b border-gray-700">Obese</td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse border border-orange-500">
+              <thead>
+                <tr className="bg-gray-800 text-white">
+                  <th className="p-4 border-b border-orange-500">BMI</th>
+                  <th className="p-4 border-b border-orange-500">WEIGHT STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="hover:bg-gray-900 text-white">
+                  <td className="p-4 border-b border-orange-500">Below 18.5</td>
+                  <td className="p-4 border-b border-orange-500">Underweight</td>
+                </tr>
+                <tr className="hover:bg-gray-900 text-white">
+                  <td className="p-4 border-b border-orange-500">18.5 - 24.9</td>
+                  <td className="p-4 border-b border-orange-500">Healthy</td>
+                </tr>
+                <tr className="hover:bg-gray-900 text-white">
+                  <td className="p-4 border-b border-orange-500">25.0 - 29.9</td>
+                  <td className="p-4 border-b border-orange-500">Overweight</td>
+                </tr>
+                <tr className="hover:bg-gray-900 text-white">
+                  <td className="p-4 border-b border-orange-500">30.0 and Above</td>
+                  <td className="p-4 border-b border-orange-500">Obese</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div className="w-full md:w-1/2">
           <h2 className="text-orange-500 text-lg font-bold mb-4">CHECK YOUR BODY</h2>
           <h1 className="text-3xl font-bold mb-6">CALCULATE YOUR BMI</h1>
-          <p className="text-gray-400 mb-6">
+          <p className="text-white mb-6">
             Calculate your Body Mass Index (BMI) to assess your weight status and take control of your health.
           </p>
-          <div className="space-y-4">
+          <div className="space-y-6 p-6 bg-gray-800 rounded-lg shadow-lg">
             <input
               type="number"
               placeholder="Height / cm"
               value={height}
               onChange={(e) => setHeight(e.target.value)}
-              className="w-full py-2 px-3 border border-gray rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent mb-4 text-white"
+              className="w-full py-3 px-4 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-900 text-white"
             />
             <input
               type="number"
               placeholder="Weight / kg"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
-              className="w-full py-2 px-3 border border-gray rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white  mb-4"
+              className="w-full py-3 px-4 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-900 text-white"
             />
+            <select
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              className="w-full py-3 px-4 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-900 text-white"
+              required
+            >
+              <option value="" disabled>Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
             <button
+              type="button"
               onClick={calculateBMI}
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white p-2 rounded"
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded"
             >
               CALCULATE
             </button>
             {bmi && (
-              <p className="text-center mt-4">Your BMI is: <span className="font-bold">{bmi}</span></p>
+              <p className="text-center mt-4 text-white">
+                Your BMI is: <span className="font-bold">{bmi}</span><br />
+                Category: <span className="font-bold">{category || 'N/A'}</span>
+              </p>
             )}
           </div>
         </div>
@@ -106,5 +131,3 @@ function BMI() {
 }
 
 export default BMI;
-
-
