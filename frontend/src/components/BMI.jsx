@@ -47,41 +47,10 @@ function BMI() {
       </section>
 
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-5xl mx-auto p-6">
+        {/* Calculator Section */}
         <div className="w-full md:w-1/2">
           <h2 className="text-orange-500 text-lg font-bold mb-4">CHECK YOUR BODY</h2>
-          <h1 className="text-3xl font-bold mb-6 text-white">BMI CALCULATOR CHART</h1>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse border border-orange-500">
-              <thead>
-                <tr className="bg-gray-800 text-white">
-                  <th className="p-4 border-b border-orange-500">BMI</th>
-                  <th className="p-4 border-b border-orange-500">WEIGHT STATUS</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="hover:bg-gray-900 text-white">
-                  <td className="p-4 border-b border-orange-500">Below 18.5</td>
-                  <td className="p-4 border-b border-orange-500">Underweight</td>
-                </tr>
-                <tr className="hover:bg-gray-900 text-white">
-                  <td className="p-4 border-b border-orange-500">18.5 - 24.9</td>
-                  <td className="p-4 border-b border-orange-500">Healthy</td>
-                </tr>
-                <tr className="hover:bg-gray-900 text-white">
-                  <td className="p-4 border-b border-orange-500">25.0 - 29.9</td>
-                  <td className="p-4 border-b border-orange-500">Overweight</td>
-                </tr>
-                <tr className="hover:bg-gray-900 text-white">
-                  <td className="p-4 border-b border-orange-500">30.0 and Above</td>
-                  <td className="p-4 border-b border-orange-500">Obese</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className="w-full md:w-1/2">
-          <h2 className="text-orange-500 text-lg font-bold mb-4">CHECK YOUR BODY</h2>
-          <h1 className="text-3xl font-bold mb-6">CALCULATE YOUR BMI</h1>
+          <h1 className="text-3xl font-bold mb-6 text-white">CALCULATE YOUR BMI</h1>
           <p className="text-white mb-6">
             Calculate your Body Mass Index (BMI) to assess your weight status and take control of your health.
           </p>
@@ -117,13 +86,69 @@ function BMI() {
             >
               CALCULATE
             </button>
-            {bmi && (
-              <p className="text-center mt-4 text-white">
-                Your BMI is: <span className="font-bold">{bmi}</span><br />
-                Category: <span className="font-bold">{category || 'N/A'}</span>
-              </p>
-            )}
           </div>
+        </div>
+
+        {/* Result Section */}
+        <div className="w-full md:w-1/2 bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold mb-4 text-white">Your Result</h2>
+          <div className="bg-gray-900 p-6 rounded-lg text-center">
+            {bmi && (
+              <>
+                <p className="text-lg text-white">Your BMI is</p>
+                <p className="text-4xl font-bold text-red-500">{bmi}</p>
+                <p className="text-lg font-bold">{category}</p>
+              </>
+            )}
+            {!bmi && <p className="text-lg">Please calculate your BMI.</p>}
+          </div>
+          {bmi && (
+            <p className="mt-4 text-white text-sm">
+              This falls within the {category.toLowerCase()} range. Maintaining a balanced diet and regular exercise routine can help you stay within this range.
+            </p>
+          )}
+
+          <h3 className="text-xl font-bold mt-6 mb-2 text-white">BMI Categories</h3>
+          <ul className="space-y-2 text-white">
+            <li>Underweight <span className="float-right">Below 18.5</span></li>
+            <li>Normal weight <span className="float-right">18.5 - 24.9</span></li>
+            <li>Overweight <span className="float-right">25.0 - 29.9</span></li>
+            <li>Obese <span className="float-right">30.0 and above</span></li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Chart Section (Moved to bottom for consistency with reference image) */}
+      <div className="max-w-5xl mx-auto mt-8">
+        <h2 className="text-orange-500 text-lg font-bold mb-4">CHECK YOUR BODY</h2>
+        <h1 className="text-3xl font-bold mb-6 text-white">BMI CALCULATOR CHART</h1>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse border border-orange-500">
+            <thead>
+              <tr className="bg-gray-800 text-white">
+                <th className="p-4 border-b border-orange-500">BMI</th>
+                <th className="p-4 border-b border-orange-500">WEIGHT STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="hover:bg-gray-900 text-white">
+                <td className="p-4 border-b border-orange-500">Below 18.5</td>
+                <td className="p-4 border-b border-orange-500">Underweight</td>
+              </tr>
+              <tr className="hover:bg-gray-900 text-white">
+                <td className="p-4 border-b border-orange-500">18.5 - 24.9</td>
+                <td className="p-4 border-b border-orange-500">Healthy</td>
+              </tr>
+              <tr className="hover:bg-gray-900 text-white">
+                <td className="p-4 border-b border-orange-500">25.0 - 29.9</td>
+                <td className="p-4 border-b border-orange-500">Overweight</td>
+              </tr>
+              <tr className="hover:bg-gray-900 text-white">
+                <td className="p-4 border-b border-orange-500">30.0 and Above</td>
+                <td className="p-4 border-b border-orange-500">Obese</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
