@@ -36,67 +36,7 @@ function ContactPage() {
               CONTACT US
             </h1>
           </div>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto mt-8">
-            <div>
-              <label htmlFor="name" className="sr-only">Your Name</label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                className="p-3 rounded-md border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-500 w-full"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="sr-only">Your Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your Email"
-                className="p-3 rounded-md border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-500 w-full"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="subject" className="sr-only">Subject</label>
-              <input
-                id="subject"
-                name="subject"
-                type="text"
-                value={formData.subject}
-                onChange={handleChange}
-                placeholder="Subject"
-                className="p-3 rounded-md border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-500 w-full"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="sr-only">Your Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your Message"
-                rows="5"
-                className="p-3 rounded-md border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-500 w-full"
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-orange-600 transition duration-300"
-            >
-              Send Message
-            </button>
-            {submissionMessage && <p className="mt-4 text-green-400">{submissionMessage}</p>}
-          </form>
+          
           <div className="text-center mt-8">
             <p className="text-gray-200 mb-4">Or reach us directly at:</p>
             <p className="text-gray-100 font-semibold">Email: info@yourgym.com</p>
@@ -112,7 +52,7 @@ function ContactPage() {
             <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
             <p className="mb-6">We're here to help! Reach out to us with any questions or feedback.</p>
             {/* This form is commented out to avoid duplication */}
-            {/* <form onSubmit={handleSubmit} className="space-y-4">
+             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
                 name="name"
@@ -146,7 +86,7 @@ function ContactPage() {
               ></textarea>
               <button type="submit" className="w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition duration-300">Send Message</button>
               {submissionMessage && <p className="mt-4 text-green-400">{submissionMessage}</p>}
-            </form> */}
+            </form> 
           </div>
 
           {/* Right Section - Location and Contact Info */}
