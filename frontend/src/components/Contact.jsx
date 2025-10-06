@@ -2,12 +2,35 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-function ContactPage() {
-  // Handle form submission (example)
+// function ContactPage() {
+//   // Handle form submission (example)
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     // Add logic to handle form data (e.g., send to an API)
+//     console.log('Form submitted');
+//   };
+
+  const ContactForm = () => {
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [submissionMessage, setSubmissionMessage] = React.useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add logic to handle form data (e.g., send to an API)
-    console.log('Form submitted');
+    setSubmissionMessage(`Thank you, ${formData.name}! Your message has been received.`);
+    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   return (
@@ -80,6 +103,67 @@ function ContactPage() {
           </div>
         </div>
       </section>
+
+      <div className="flex flex-col md:flex-row justify-between p-10 bg-gray-900 text-white min-h-screen">
+      {/* Left Section - Contact Form */}
+      <div className="md:w-1/2 p-6">
+        <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
+        <p className="mb-6">We're here to help! Reach out to us with any questions or feedback.</p>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Your Name"
+            className="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Your Email"
+            className="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <input
+            type="text"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            placeholder="Subject"
+            className="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Your Message"
+            className="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 h-32"
+          ></textarea>
+          <button type="submit" className="w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition duration-300">Send Message</button>
+          {submissionMessage && <p className="mt-4 text-green-400">{submissionMessage}</p>}
+        </form>
+      </div>
+
+      {/* Right Section - Location and Contact Info */}
+      <div className="md:w-1/2 p-6 space-y-6">
+        <div className="bg-gray-800 p-4 rounded-lg">
+          <h2 className="text-2xl font-bold mb-2">Our Location</h2>
+          <div className="bg-gray-700 h-64 rounded-lg overflow-hidden">
+            {/* Placeholder for map image */}
+            <img src="https://via.placeholder.com/400x200" alt="Map" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="bg-gray-800 p-4 rounded-lg">
+          <h2 className="text-2xl font-bold mb-2">Contact Information</h2>
+          <p className="flex items-center mb-2"><span className="text-red-500 mr-2">📍</span> Address: 123 Fitness Lane, New York, NY 10001</p>
+          <p className="flex items-center mb-2"><span className="text-red-500 mr-2">📞</span> Phone: (555) 123-4567</p>
+          <p className="flex items-center"><span className="text-red-500 mr-2">📧</span> Email: info@fitnesspro.com</p>
+        </div>
+      </div>
+    </div>
+  
       <Footer />
     </div>
   );
