@@ -94,7 +94,7 @@ function Course() {
                 <li key={i}>{feature}</li>
               ))}
             </ul>
-            <button className="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-700 transition-colors duration-300">
+            <button className="w-full bg-black border-2 border-orange-500 text-white py-2 rounded hover:bg-orange-500 transition-colors duration-300">
               ENROLL NOW
             </button>
           </div>

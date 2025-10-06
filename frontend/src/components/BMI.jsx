@@ -31,7 +31,7 @@ function BMI() {
 
   return (
     <div className="bg-black">
-      <section className="min-h-screen relative bg-[url('https://via.placeholder.com/1920x1080')] bg-black/10 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
+      <section className="min-h-screen relative bg-[url('/img9.jpg')] bg-black/10 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
         <div className="text-center text-white p-6 sm:p-8 max-w-3xl mx-auto">
           <div className="title mb-6 font-bold">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-tight">
@@ -100,7 +100,7 @@ function BMI() {
                 <p className="text-lg font-bold">{category}</p>
               </>
             )}
-            {!bmi && <p className="text-lg">Please calculate your BMI.</p>}
+            {!bmi && <p className="text-lg text-white">Please calculate your BMI.</p>}
           </div>
           {bmi && (
             <p className="mt-4 text-white text-sm">
