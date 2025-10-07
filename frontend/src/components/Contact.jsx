@@ -1,29 +1,56 @@
-
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 function ContactPage() {
   const [formData, setFormData] = React.useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
   });
   const [submissionMessage, setSubmissionMessage] = React.useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmissionMessage(`Thank you, ${formData.name}! Your message has been received at 10:15 PM +0530 on Monday, October 06, 2025.`);
+    const currentTime = new Date().toLocaleString('en-US', {
+      timeZone: 'Asia/Kolkata',
+      hour12: true,
+      hour: '2-digit',
+      minute: '2-digit',
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+      timeZoneName: 'short',
+    });
+    setSubmissionMessage(
+      `Thank you, ${formData.name}! Your message has been received at ${currentTime}.`
+    );
     setFormData({ name: '', email: '', subject: '', message: '' });
+  };
+
+  // Map configuration
+  const mapContainerStyle = {
+    height: '100%',
+    width: '100%',
+  };
+  const center = {
+    lat: 40.7128, // Latitude for New York, NY
+    lng: -74.0060, // Longitude for New York, NY
+  };
+  const position = {
+    lat: 40.7128,
+    lng: -74.0060,
   };
 
   return (
@@ -36,7 +63,6 @@ function ContactPage() {
               CONTACT US
             </h1>
           </div>
-          
           <div className="text-center mt-8">
             <p className="text-gray-200 mb-4">Or reach us directly at:</p>
             <p className="text-gray-100 font-semibold">Email: info@yourgym.com</p>
@@ -51,8 +77,7 @@ function ContactPage() {
           <div className="md:w-1/2 p-6">
             <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
             <p className="mb-6">We're here to help! Reach out to us with any questions or feedback.</p>
-            {/* This form is commented out to avoid duplication */}
-             <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
                 name="name"
@@ -84,24 +109,43 @@ function ContactPage() {
                 placeholder="Your Message"
                 className="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 h-32"
               ></textarea>
-              <button type="submit" className="w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition duration-300">Send Message</button>
+              <button
+                type="submit"
+                className="w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition duration-300"
+              >
+                Send Message
+              </button>
               {submissionMessage && <p className="mt-4 text-green-400">{submissionMessage}</p>}
-            </form> 
+            </form>
           </div>
 
           {/* Right Section - Location and Contact Info */}
           <div className="md:w-1/2 p-6 space-y-6">
-            <div className="bg-gray-800 p-4 rounded-lg">
+            <div className="bg-gray-800 p-4 rounded-lg h-64">
               <h2 className="text-2xl font-bold mb-2">Our Location</h2>
-              <div className="bg-gray-700 h-64 rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/400x200" alt="Map" className="w-full h-full object-cover" />
-              </div>
+              <LoadScript googleMapsApiKey="YOUR_ACTUAL_GOOGLE_MAPS_API_KEY">
+                <GoogleMap
+                  mapContainerStyle={mapContainerStyle}
+                  center={center}
+                  zoom={10}
+                  className="h-full w-full rounded-lg"
+                >
+                  <Marker position={position} />
+                </GoogleMap>
+              </LoadScript>
             </div>
-            <div className="bg-gray-800 p-4 rounded-lg">
+            {/* Contact Information */}
+            <div className="bg-gray-800 p-6 rounded-lg space-y-6">
               <h2 className="text-2xl font-bold mb-2">Contact Information</h2>
-              <p className="flex items-center mb-2"><span className="text-red-500 mr-2">📍</span> Address: 123 Fitness Lane, New York, NY 10001</p>
-              <p className="flex items-center mb-2"><span className="text-red-500 mr-2">📞</span> Phone: (555) 123-4567</p>
-              <p className="flex items-center"><span className="text-red-500 mr-2">📧</span> Email: info@fitnesspro.com</p>
+              <p className="flex items-center mb-2">
+                <FaMapMarkerAlt className="text-red-500 mr-2" /> Address: 123 Fitness Lane, New York, NY 10001
+              </p>
+              <p className="flex items-center mb-2">
+                <FaPhone className="text-red-500 mr-2" /> Phone: (555) 123-4567
+              </p>
+              <p className="flex items-center">
+                <FaEnvelope className="text-red-500 mr-2" /> Email: info@fitnesspro.com
+              </p>
             </div>
           </div>
         </div>

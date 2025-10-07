@@ -25,7 +25,7 @@ function Login() {
               <input
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full py-2 px-3 border border-gray rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent "
+                className="w-full py-2 px-3 border border-gray rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent "
                 placeholder="Enter Email"
               />
             </div>
@@ -35,7 +35,7 @@ function Login() {
               <input
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full py-2 px-3 border border-gray rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mt-2"
+                className="w-full py-2 px-3 border border-gray rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent mt-2"
                 placeholder="Enter Password"
               />
             </div>
