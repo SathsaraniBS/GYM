@@ -10,7 +10,9 @@ function Navbar() {
 
   return (
     // <nav className="bg-gray-800 py-10 px-4 text-white flex justify-between items-center shadow-md">
-    <nav className="bg-gray-800 fixed w-full top-0 z-50  py-4 h-20 text-white flex justify-between items-center fixed top-0 z-10 shadow-md">
+    // <nav className="bg-gray-800 fixed w-full top-0 z-50  py-4 h-20 text-white flex justify-between items-center fixed top-0 z-10 shadow-md">
+    <nav className="bg-transparent fixed w-full top-0 z-50  py-4 h-20 text-white flex justify-between items-center fixed top-0 z-10 shadow-md">
+
 
       <div className="max-w-7xl mx-auto flex justify-between items-center w-full">
         {/* Logo */}
