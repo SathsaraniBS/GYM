@@ -63,11 +63,11 @@ function ContactPage() {
               CONTACT US
             </h1>
           </div>
-          <div className="text-center mt-8">
+          {/* <div className="text-center mt-8">
             <p className="text-gray-200 mb-4">Or reach us directly at:</p>
             <p className="text-gray-100 font-semibold">Email: info@yourgym.com</p>
             <p className="text-gray-100 font-semibold">Phone: +1 (123) 456-7890</p>
-          </div>
+          </div> */}
         </div>
       </section>
 

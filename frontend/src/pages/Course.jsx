@@ -30,12 +30,9 @@ function Course() {
     },
   ];
 
-
   return (
     <div className="bg-gray-100">
       <Navbar />
-      {/* <section className="min-h-screen relative bg-[url('/p2.jpg')] bg-black/10 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
-      </section> */}
       <section className="min-h-screen relative flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 overflow-hidden">
         <video
           autoPlay
@@ -44,7 +41,7 @@ function Course() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
         >
-          <source src="video1.mp4" type="video/mp4" />
+          <source src="/video1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/10 mix-blend-multiply z-10"></div>
@@ -76,7 +73,6 @@ function Course() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
       <div className="bg-black text-white min-h-screen flex items-center justify-center p-6 relative">
@@ -93,7 +89,6 @@ function Course() {
           </button>
         </div>
       </div>
-
       <div className="bg-black min-h-screen flex flex-col items-center justify-center py-10 px-4">
         <div className="text-center">
           <h2 className="text-orange-500 text-lg font-bold mb-2">OUR PLAN</h2>
@@ -117,7 +112,6 @@ function Course() {
         </div>
       </div>
       <Gallery />
-
       <Footer />
     </div>
   );
