@@ -12,7 +12,7 @@ function Course() {
     { title: "TRAINING", category: "BOXING", image: "/class-5.jpg" },
   ];
 
-   const plans = [
+  const plans = [
     {
       title: "Class drop-in",
       price: "$39.0",
@@ -34,8 +34,23 @@ function Course() {
   return (
     <div className="bg-gray-100">
       <Navbar />
-      <section className="min-h-screen relative bg-[url('/p2.jpg')] bg-black/10 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
-        {/* Add content here if needed */}
+      {/* <section className="min-h-screen relative bg-[url('/p2.jpg')] bg-black/10 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
+      </section> */}
+      <section className="min-h-screen relative flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="video1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-black/10 mix-blend-multiply z-10"></div>
+        <div className="relative z-20">
+          {/* Add content here if needed */}
+        </div>
       </section>
       <div className="bg-gray-900 text-white min-h-screen">
         <div className="container mx-auto py-10">
@@ -80,30 +95,30 @@ function Course() {
       </div>
 
       <div className="bg-black min-h-screen flex flex-col items-center justify-center py-10 px-4">
-      <div className="text-center">
-        <h2 className="text-orange-500 text-lg font-bold mb-2">OUR PLAN</h2>
-        <h1 className="text-white text-4xl font-bold">CHOOSE YOUR PRICING PLAN</h1>
+        <div className="text-center">
+          <h2 className="text-orange-500 text-lg font-bold mb-2">OUR PLAN</h2>
+          <h1 className="text-white text-4xl font-bold">CHOOSE YOUR PRICING PLAN</h1>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 w-full max-w-5xl">
+          {plans.map((plan, index) => (
+            <div key={index} className="bg-black rounded-lg p-6 shadow-lg text-white border-2 border-orange-500 transform hover:scale-105 transition-transform duration-300">
+              <h3 className="text-xl font-semibold mb-4">{plan.title}</h3>
+              <p className="text-4xl font-bold text-orange-500 mb-6">{plan.price}<span className="text-base font-normal"> SINGLE CLASS</span></p>
+              <ul className="text-gray-400 space-y-2 mb-6">
+                {plan.features.map((feature, i) => (
+                  <li key={i}>{feature}</li>
+                ))}
+              </ul>
+              <button className="w-full bg-black border-2 border-orange-500 text-white py-2 rounded hover:bg-orange-500 transition-colors duration-300">
+                ENROLL NOW
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 w-full max-w-5xl">
-        {plans.map((plan, index) => (
-          <div key={index} className="bg-black rounded-lg p-6 shadow-lg text-white border-2 border-orange-500 transform hover:scale-105 transition-transform duration-300">
-            <h3 className="text-xl font-semibold mb-4">{plan.title}</h3>
-            <p className="text-4xl font-bold text-orange-500 mb-6">{plan.price}<span className="text-base font-normal"> SINGLE CLASS</span></p>
-            <ul className="text-gray-400 space-y-2 mb-6">
-              {plan.features.map((feature, i) => (
-                <li key={i}>{feature}</li>
-              ))}
-            </ul>
-            <button className="w-full bg-black border-2 border-orange-500 text-white py-2 rounded hover:bg-orange-500 transition-colors duration-300">
-              ENROLL NOW
-            </button>
-          </div>
-        ))}
-      </div>
-    </div>
-    <Gallery />
+      <Gallery />
 
-    <Footer />
+      <Footer />
     </div>
   );
 }
