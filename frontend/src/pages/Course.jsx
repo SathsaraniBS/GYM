@@ -84,8 +84,8 @@ function Course() {
         <div className="relative z-10 text-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">REGISTRATION NOW TO GET MORE DEALS</h1>
           <p className="text-lg md:text-xl mb-6">where health, beauty and fitness meet.</p>
-          <button className="bg-orange-500 text-white font-semibold py-2 px-6 rounded hover:bg-orange-600">
-            APPOINTMENT
+          <button className="bg-transparent border-2 border-orange-500 text-white font-semibold py-2 px-6 rounded hover:bg-orange-600">
+            BECOME A MEMBER
           </button>
         </div>
       </div>

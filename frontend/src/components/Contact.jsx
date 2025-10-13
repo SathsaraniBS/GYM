@@ -71,7 +71,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <div className="p-10">
+      <div className="bg-black p-10">
         <div className="flex flex-col md:flex-row justify-between max-w-5xl mx-auto">
           {/* Left Section - Contact Form */}
           <div className="md:w-1/2 p-6">
@@ -111,7 +111,7 @@ function ContactPage() {
               ></textarea>
               <button
                 type="submit"
-                className="w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition duration-300"
+                className="bg-transparent border-2 border-orange-500 w-full bg-red-600 text-white p-3 rounded-lg hover:bg-orange-500 transition duration-300"
               >
                 Send Message
               </button>

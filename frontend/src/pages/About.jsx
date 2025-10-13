@@ -112,7 +112,7 @@ function About() {
                 </div>
               ))}
             </div>
-            <button className="mt-8 bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600">
+            <button className="bg-transparent border-2 border-orange-500  mt-8 bg-red-500 text-white px-6 py-2 rounded hover:bg-orange-500 transition duration-300">
               Appointment
             </button>
           </div>
