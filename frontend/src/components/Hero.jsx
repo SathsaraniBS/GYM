@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Hero() {
+  const navigate = useNavigate();
+
   return (
     // <section className="min-h-screen relative bg-[url('/h1_hero.png')] bg-black/75 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8">
     <section className="h-screen relative bg-[url('/h1_hero.png')] bg-black/75  bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -33,12 +36,14 @@ function Hero() {
           </p>
         </div>
         <div className="buttons flex flex-col sm:flex-row justify-center gap-4">
-          <button className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
+          <button className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300"
+          onClick={() => navigate('/course')}
+          >
             Start Your Journey
           </button>
-          <button className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
+          {/* <button className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
             Discover Your Plan
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

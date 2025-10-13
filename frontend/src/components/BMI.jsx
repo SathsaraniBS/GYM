@@ -75,7 +75,7 @@ function BMI() {
               className="w-full py-3 px-4 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-900 text-white"
               required
             >
-              <option value="" disabled>Select Gender</option>
+              {/* <option value="" disabled>Select Gender</option> */}
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
