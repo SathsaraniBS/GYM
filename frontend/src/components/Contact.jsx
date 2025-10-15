@@ -111,7 +111,7 @@ function ContactPage() {
               ></textarea>
               <button
                 type="submit"
-                className="bg-transparent border-2 border-orange-500 w-full bg-red-600 text-white p-3 rounded-lg hover:bg-orange-500 transition duration-300"
+                className="bg-red-500 w-full bg-red-600 text-lg font-semibold text-white p-3 rounded-lg hover:bg-red-700 transition duration-300"
               >
                 Send Message
               </button>

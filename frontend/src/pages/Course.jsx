@@ -49,15 +49,15 @@ function Course() {
           {/* Add content here if needed */}
         </div>
       </section>
-      <div className="bg-gray-900 text-white min-h-screen">
+      <div className="bg-black text-white min-h-screen">
         <div className="container mx-auto py-10">
-          <h1 className="text-xl font-bold text-center text-orange-500 mb-6">OUR CLASSES</h1>
+          <h1 className="text-xl font-bold text-center text-red-500 mb-6">OUR CLASSES</h1>
           <h2 className="text-2xl font-bold text-center mb-10">WHAT WE CAN OFFER</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl mx-auto px-4">
             {classes.map((cls, index) => (
               <div
                 key={index}
-                className="bg-gray-800 shadow-lg overflow-hidden rounded-lg transition-shadow duration-300 hover:shadow-xl">
+                className="bg-black shadow-lg overflow-hidden rounded-lg transition-shadow duration-300 hover:shadow-xl">
                 <img
                   src={cls.image}
                   alt={`${cls.title} - ${cls.category} class`}
@@ -65,10 +65,10 @@ function Course() {
                 />
                 <div className="p-4 flex justify-between items-center">
                   <div>
-                    <h3 className="text-xl font-bold text-orange-500">{cls.title}</h3>
+                    <h3 className="text-xl font-bold text-red-500">{cls.title}</h3>
                     <p className="text-gray-400">{cls.category}</p>
                   </div>
-                  <button className="bg-gray-800 text-white p-2 rounded transition-colors duration-300 hover:bg-gray-700">&gt;</button>
+                  <button className="bg-transparent border-2 border-red-500 text-lg font-bold text-white p-2 rounded transition-colors duration-300 hover:bg-red-500">&gt;</button>
                 </div>
               </div>
             ))}
@@ -84,7 +84,7 @@ function Course() {
         <div className="relative z-10 text-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">REGISTRATION NOW TO GET MORE DEALS</h1>
           <p className="text-lg md:text-xl mb-6">where health, beauty and fitness meet.</p>
-          <button className="bg-transparent border-2 border-orange-500 text-white font-semibold py-2 px-6 rounded hover:bg-orange-600">
+          <button className="bg-red-500 text-white font-semibold py-2 px-6 rounded hover:bg-red-600">
             BECOME A MEMBER
           </button>
         </div>
@@ -104,7 +104,7 @@ function Course() {
                   <li key={i}>{feature}</li>
                 ))}
               </ul>
-              <button className="w-full bg-black border-3 border-orange-500 text-white py-2 rounded hover:bg-orange-500 transition-colors duration-300">
+              <button className="w-full bg-black bg-transparent border-2 border-red-500 text-lg font-semibold text-white py-2 rounded hover:bg-red-500 transition-colors duration-300">
                 ENROLL NOW
               </button>
             </div>
