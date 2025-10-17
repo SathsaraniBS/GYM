@@ -77,13 +77,13 @@ function Navbar() {
         <div className="flex gap-4 mr-4">
           <Link
             to="/login"
-            className="bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 transition duration-300" // FIXED: Consistent styling
+            className="bg-red-500 border-2 border-white text-white font-semibold py-2 px-4  hover:bg-red-600 transition duration-300" // FIXED: Consistent styling
           >
             Login
           </Link>
           <Link
             to="/register"
-            className="bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 transition duration-300"
+            className="bg-red-500 border-2 border-white text-white font-semibold py-2 px-4  hover:bg-red-600 transition duration-300"
           >
             Register
           </Link>

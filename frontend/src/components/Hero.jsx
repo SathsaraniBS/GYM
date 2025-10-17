@@ -36,7 +36,7 @@ function Hero() {
           </p>
         </div>
         <div className="buttons flex flex-col sm:flex-row justify-center gap-4">
-          <button className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300"
+          <button className="bg-red-500 hover:bg-red-700 text-white text-lg font-bold py-3 px-6 rounded-md transition duration-300"
           onClick={() => navigate('/course')}
           >
             Start Your Journey

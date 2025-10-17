@@ -30,30 +30,30 @@ function About() {
           </div>
         </div>
       </section>
-      <div className="bg-gray-900 text-white min-h-[600px] flex flex-col items-center justify-center p-6">
-        <div className="flex flex-col md:flex-row gap-12 w-full max-w-4xl">
+      <div className="bg-black text-white min-h-[600px] flex flex-col items-center justify-center p-6">
+        <div className="bg-black text-white min-h-[600px] flex flex-col md:flex-row gap-12 w-full max-w-4xl">
           <div className="flex-1">
-            <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-            <p className="text-gray-300">
+            <h2 className="text-5xl text-white font-bold mb-4 text-center">Our Mission</h2>
+            <p className="text-lg text-gray-300">
               At FitTrack, our mission is to empower individuals to achieve their fitness goals through personalized training, cutting-edge facilities, and a supportive community. We believe in fostering a culture of health and wellness, where every member feels motivated and inspired to reach their full potential.
             </p>
           </div>
-          <div className="flex-1">
+          {/* <div className="flex-1">
             <h2 className="text-3xl font-bold mb-4">Our Values</h2>
             <p className="text-gray-300">
               We are committed to excellence in every aspect of our services. Our core values include integrity, respect, innovation, and continuous improvement. We strive to create a positive and inclusive environment where members can thrive and achieve their fitness aspirations.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="bg-black text-white min-h-[600px] flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-6xl text-center">
-          <h2 className="text-xl font-bold text-orange-500 uppercase mb-2">Why Choose Us?</h2>
+          <h2 className="text-xl font-bold text-red-500 uppercase mb-2">Why Choose Us?</h2>
           <h1 className="text-3xl font-bold mb-8">Push Your Limits Forward</h1>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4 hover:scale-110 hover:bg-red-500 transition-transform duration-300 group">
-                <FaDumbbell className="text-orange-500 group-hover:text-white text-2xl" />
+              <div className="w-16 h-16 mx-auto bg-black rounded-full flex items-center justify-center mb-4 hover:scale-110 hover:bg-red-500 transition-transform duration-300 group">
+                <FaDumbbell className="text-red-500 group-hover:text-white text-2xl" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Modern equipment</h3>
               <p className="text-gray-400 text-sm">
@@ -61,8 +61,8 @@ function About() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4 hover:scale-110 hover:bg-red-500 transition-transform duration-300 group">
-                <FaAppleAlt className="text-orange-500 group-hover:text-white text-2xl" />
+              <div className="w-16 h-16 mx-auto bg-black rounded-full flex items-center justify-center mb-4 hover:scale-110 hover:bg-red-500 transition-transform duration-300 group">
+                <FaAppleAlt className="text-red-500 group-hover:text-white text-2xl" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Healthy nutrition plan</h3>
               <p className="text-gray-400 text-sm">
@@ -70,9 +70,9 @@ function About() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4 hover:scale-110 hover:bg-red-500 transition-transform duration-300 group">
+              <div className="w-16 h-16 mx-auto bg-black rounded-full flex items-center justify-center mb-4 hover:scale-110 hover:bg-red-500 transition-transform duration-300 group">
                 {/* <FaClipboardList className="text-orange-500 group-hover:text-orange-600 text-2xl" /> */}
-                <FaClipboardList className="text-orange-500 group-hover:text-white text-2xl" />
+                <FaClipboardList className="text-red-500 group-hover:text-white text-2xl" />
 
               </div>
               <h3 className="text-lg font-semibold mb-2">Professional training plan</h3>
@@ -81,8 +81,8 @@ function About() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4 hover:scale-110 hover:bg-red-500 transition-transform duration-300 group">
-                <FaHeart className="text-orange-500 group-hover:text-white text-2xl" />
+              <div className="w-20 h-20 mx-auto bg-black rounded-full flex items-center justify-center mb-4 hover:scale-110 hover:bg-red-500 transition-transform duration-300 group">
+                <FaHeart className="text-red-500 group-hover:text-white text-2xl" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Unique to your needs</h3>
               <p className="text-gray-400 text-sm">
