@@ -68,10 +68,10 @@ function Navbar() {
             ABOUT
           </Link>
           <Link
-            to="/reviews"
+            to="/ourteam"
             className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300"
           >
-            REVIEWS
+            OUR TEAM
           </Link>
         </div>
         <div className="flex gap-4 mr-4">
