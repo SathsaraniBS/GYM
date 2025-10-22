@@ -1,14 +1,29 @@
+import axios from 'axios';
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom' 
 
-const Signup = () => {
+function Signup () {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
+    try {
+
+      const response = await axios('http://localhost:5000/api/auth/register', {
+       
+        name,
+        email,
+        password
+
+      })
+      console.log(response)
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
