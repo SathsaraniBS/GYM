@@ -7,6 +7,7 @@ import About from './pages/About'
 import Contactpage from './pages/Contactpage'
 import Course from './pages/Course'
 import Ourteam from './pages/Ourteam'
+import GalleryPage from './pages/GalleryPage'
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
         <Route path='/about' element={<About />} ></Route>
         <Route path='/contact' element={<Contactpage />} ></Route>
         <Route path='/course' element={<Course />} ></Route>
+        <Route path='/gallery' element={<GalleryPage />} ></Route>
         <Route path='/ourteam' element={<Ourteam />} ></Route>
 '
       </Routes>
