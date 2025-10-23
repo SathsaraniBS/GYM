@@ -12,7 +12,8 @@ const AdminDashboard = () => {
   ];
 
   return (
-    <div className="flex min-h-screen bg-gray-900 text-white">
+    <div className="bg-gray-100">
+    <Navbar />
       {/* Sidebar */}
       <div className="w-64 bg-gray-800 p-4 fixed h-full">
         <h2 className="text-xl font-bold mb-6">Admin Panel</h2>
@@ -61,7 +62,7 @@ const AdminDashboard = () => {
           </div>
           <div className="bg-gray-800 p-6 rounded-lg shadow-md flex items-center justify-center">
             <img
-              src="https://via.placeholder.com/300x200?text=Gym+Equipment"
+              src=""
               alt="Gym Equipment"
               className="w-full h-auto rounded-lg"
             />
@@ -73,7 +74,7 @@ const AdminDashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-gray-800 p-6 rounded-lg shadow-md text-center">
             <img
-              src="https://via.placeholder.com/200x150?text=Trophy"
+              src=""
               alt="Trophy"
               className="mx-auto mb-4"
             />
@@ -81,7 +82,7 @@ const AdminDashboard = () => {
           </div>
           <div className="bg-gray-800 p-6 rounded-lg shadow-md text-center">
             <img
-              src="https://via.placeholder.com/200x150?text=Fire"
+              src=""
               alt="Fire"
               className="mx-auto mb-4"
             />
@@ -89,7 +90,7 @@ const AdminDashboard = () => {
           </div>
           <div className="bg-gray-800 p-6 rounded-lg shadow-md text-center">
             <img
-              src="https://via.placeholder.com/200x150?text=Calendar"
+              src=""
               alt="Calendar"
               className="mx-auto mb-4"
             />
