@@ -1,5 +1,5 @@
 import express from 'express'
-import Note from '../models/Note.js';
+import Review from '../models/review.js';
 import middleware from '../middleware/middleware.js'
 
 const router = express.Router()
@@ -11,12 +11,12 @@ router.post('/add', middleware, async (req, res) => {
     if (!title || !description) {
       return res.status(400).json({ success: false, message: "Title and description are required" });
     }
-    const newNote = new Note({
+    const newReview = new Note({
       title,
       description,
       userId: req.user.id
     })
-    await newNote.save()
+    await newReview.save()
     return res.status(200).json({ success: true, message: "Note created successfully" })
   } catch (error) {
     // FIX: Detailed error logging
@@ -27,7 +27,7 @@ router.post('/add', middleware, async (req, res) => {
 
 router.get("/", middleware, async (req, res) => {
   try {
-    const notes = await Note.find({ userId: req.user.id })
+    const notes = await Review.find({ userId: req.user.id })
     return res.status(200).json({ success: true, notes })
   } catch (error) {
     // FIX: Detailed error logging
@@ -44,13 +44,13 @@ router.put("/:id", middleware, async (req, res) => { // FIX: Added middleware
     if (!title || !description) {
       return res.status(400).json({ success: false, message: "Title and description are required" });
     }
-    const updatedNote = await Note.findByIdAndUpdate(
+    const updatedReview = await Review.findByIdAndUpdate(
       id,
       { title, description },
       { new: true, runValidators: true }
     )
     // FIX: Check if note exists
-    if (!updatedNote) {
+    if (!updatedReview) {
       return res.status(404).json({ success: false, message: "Note not found" });
     }
     return res.status(200).json({ success: true, updatedNote })
