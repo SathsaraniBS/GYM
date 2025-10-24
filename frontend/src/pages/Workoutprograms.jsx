@@ -2,12 +2,12 @@ import React from 'react';
 
 function Workouts() {
   const workouts = [
-    { title: 'Full Body Strength', category: 'Strength', image: 'https://via.placeholder.com/300x200/1F2937/FFFFFF?text=Full+Body' },
-    { title: 'Cardio Blast', category: 'Cardio', image: 'https://via.placeholder.com/300x200/1F2937/FFFFFF?text=Cardio+Blast' },
-    { title: 'Morning Yoga Flow', category: 'Yoga', image: 'https://via.placeholder.com/300x200/1F2937/FFFFFF?text=Yoga+Flow' },
-    { title: 'Core Crusher', category: 'Strength', image: 'https://via.placeholder.com/300x200/1F2937/FFFFFF?text=Core+Crusher' },
-    { title: 'Leg Day Challenge', category: 'Strength', image: 'https://via.placeholder.com/300x200/1F2937/FFFFFF?text=Leg+Day' },
-    { title: 'HIIT It Hard', category: 'Cardio', image: 'https://via.placeholder.com/300x200/1F2937/FFFFFF?text=HIIT' },
+    { title: 'Full Body Strength', category: 'Strength', image: '' },
+    { title: 'Cardio Blast', category: 'Cardio', image: '' },
+    { title: 'Morning Yoga Flow', category: 'Yoga', image: '' },
+    { title: 'Core Crusher', category: 'Strength', image: '' },
+    { title: 'Leg Day Challenge', category: 'Strength', image: '' },
+    { title: 'HIIT It Hard', category: 'Cardio', image: '' },
   ];
 
   return (
@@ -33,7 +33,7 @@ function Workouts() {
             </svg>
           </button>
           <button aria-label="Profile" className="w-8 h-8 rounded-full overflow-hidden">
-            <img src="https://via.placeholder.com/32" alt="Profile" className="w-full h-full object-cover" />
+            <img src="" alt="Profile" className="w-full h-full object-cover" />
           </button>
         </div>
       </header>
