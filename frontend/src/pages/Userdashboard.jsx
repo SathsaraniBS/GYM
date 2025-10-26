@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'; // Import Recharts for the line chart
 
-const AdminDashboard = () => {
+const UserDashboard = () => {
   // Mock data for the line chart
   const chartData = [
     { week: 'W1', frequency: 2.5 },
@@ -98,24 +98,10 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        {/* Progress Overview */}
-        <h2 className="text-2xl font-bold mb-4">Progress Overview</h2>
-        <div className="bg-gray-800 p-6 rounded-lg shadow-md mb-4">
-          <h3 className="text-lg font-semibold mb-2">Workout Frequency</h3>
-          <p className="text-2xl font-bold">3 workouts/week</p>
-          <p className="text-green-500">Last 4 weeks +10%</p>
-          <ResponsiveContainer width="100%" height={200}>
-            <LineChart data={chartData}>
-              <XAxis dataKey="week" stroke="#888" />
-              <YAxis stroke="#888" />
-              <Tooltip />
-              <Line type="monotone" dataKey="frequency" stroke="#ff0000" strokeWidth={2} />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
+        
       </div>
     </div>
   );
 };
 
-export default AdminDashboard;
+export default UserDashboard;
