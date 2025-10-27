@@ -7,13 +7,7 @@ function AdminDashboard() {
     { title: 'New Signups', value: '120' },
   ];
 
-  const activities = [
-    { user: 'Ethan Carter', activity: 'Signed up for a new membership', date: '2023-09-15' },
-    { user: 'Olivia Bennett', activity: 'Updated profile information', date: '2023-09-14' },
-    { user: 'Liam Harper', activity: 'Completed a workout session', date: '2023-09-13' },
-    { user: 'Ava Morgan', activity: 'Purchased a personal training package', date: '2023-09-12' },
-    { user: 'Noah Foster', activity: 'Renewed membership', date: '2023-09-11' },
-  ];
+  
 
   return (
     <div className="flex min-h-screen bg-gray-900 text-white">

@@ -98,7 +98,7 @@ function Ourteam() {
                 </div>
               ))}
             </div>
-            <button className="bg-transparent border-2 border-orange-500  mt-8 bg-red-500 text-white px-6 py-2 rounded hover:bg-orange-500 transition duration-300">
+            <button className="bg-red-500   mt-8 bg-red-600 text-white text-lg font-bold px-6 py-2 rounded hover:bg-red-600 transition duration-300">
               Appointment
             </button>
           </div>
