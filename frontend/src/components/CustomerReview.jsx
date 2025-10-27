@@ -8,18 +8,18 @@ function CustomerReview() {
   const [sentiments, setSentiments] = useState({}); // Store sentiment for each review
 
   // Expanded list of reviews
-  const reviews = [
-    { name: 'Amila Prabhath', stars: 4, text: "Fitness is a huge thing in everybody's life, and FitTrack makes it fun and accessible!" },
-    { name: 'Dinith Athukorala', stars: 5, text: "Amazing staff and support, always there to help you succeed." },
-    { name: 'Chithmi Ranawaka', stars: 5, text: "One of the best fitness places I've been to, highly recommend!" },
-    { name: 'Esala Sumanasena', stars: 5, text: "Best place to go if you consider your fitness seriously." },
-    { name: 'Shafraz Asnavi', stars: 5, text: "A fitness club with a vision, love the community vibe." },
-    { name: 'K Chinthaka', stars: 4, text: "Used this gym on a day membership, great equipment but crowded at times." },
-    { name: 'Nimali Silva', stars: 3, text: "Good facilities, but the classes could be more varied." },
-    { name: 'Ravi Fernando', stars: 5, text: "Top-notch trainers and a motivating environment!" },
-    { name: 'Sanjana Perera', stars: 4, text: "Really enjoy the workouts, but parking is a hassle." },
-    { name: 'Tharindu Wijesinghe', stars: 5, text: "Transformed my fitness journey, best gym ever!" },
-  ];
+  // const reviews = [
+  //   { name: 'Amila Prabhath', stars: 4, text: "Fitness is a huge thing in everybody's life, and FitTrack makes it fun and accessible!" },
+  //   { name: 'Dinith Athukorala', stars: 5, text: "Amazing staff and support, always there to help you succeed." },
+  //   { name: 'Chithmi Ranawaka', stars: 5, text: "One of the best fitness places I've been to, highly recommend!" },
+  //   { name: 'Esala Sumanasena', stars: 5, text: "Best place to go if you consider your fitness seriously." },
+  //   { name: 'Shafraz Asnavi', stars: 5, text: "A fitness club with a vision, love the community vibe." },
+  //   { name: 'K Chinthaka', stars: 4, text: "Used this gym on a day membership, great equipment but crowded at times." },
+  //   { name: 'Nimali Silva', stars: 3, text: "Good facilities, but the classes could be more varied." },
+  //   { name: 'Ravi Fernando', stars: 5, text: "Top-notch trainers and a motivating environment!" },
+  //   { name: 'Sanjana Perera', stars: 4, text: "Really enjoy the workouts, but parking is a hassle." },
+  //   { name: 'Tharindu Wijesinghe', stars: 5, text: "Transformed my fitness journey, best gym ever!" },
+  // ];
 
   // Simple sentiment analysis model (mocked for demonstration)
   useEffect(() => {
