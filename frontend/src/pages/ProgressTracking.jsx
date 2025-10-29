@@ -15,7 +15,7 @@ function ProgressTracking() {
   return (
     <div className="min-h-screen flex bg-gray-200">
       {/* Sidebar */}
-      <aside className="w-64 bg-gray-900 text-white p-6 fixed h-full">
+      {/* <aside className="w-64 bg-gray-900 text-white p-6 fixed h-full">
         <div className="mb-8">
           <img src="https://via.placeholder.com/40" alt="User Avatar" className="rounded-full mr-2 inline-block" />
           <span className="font-semibold">Alex</span>
@@ -38,7 +38,7 @@ function ProgressTracking() {
             <span className="mr-2">⚙️</span> Settings
           </a>
         </nav>
-      </aside>
+      </aside> */}
 
       {/* Main Content */}
       <main className="ml-64 p-6 flex-1">
