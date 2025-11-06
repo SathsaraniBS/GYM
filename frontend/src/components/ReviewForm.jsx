@@ -57,9 +57,9 @@ function ReviewForm({ onClose }) {
           />
           <button
             type="submit"
-            className="bg-red-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-red-600 transition duration-300"
+            className="block bg-red-500 text-white font-bold py-2 px-4 rounded-md hover:bg-red-600 transition duration-300 mt-2"
           >
-            Submit Review
+            Submit
           </button>
         </form>
       </div>
