@@ -1,26 +1,49 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 function ReviewForm({ onClose }) {
   const [name, setName] = useState('');
   const [stars, setStars] = useState(0);
   const [text, setText] = useState('');
+  const [loading, setLoading] = useState(false); // Optional: for better UX
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {  // Added async here
     e.preventDefault();
-    console.log('New Review:', { name, stars, text });
-    onClose();
+    
+    if (!name || !stars || !text) return;
+
+    setLoading(true);
+    try {
+      const response = await axios.post('http://localhost:5000/api/reviews', {
+        name,
+        stars,
+        text,
+      });
+
+      console.log(response);
+      alert('Thank you! Your review has been submitted.');
+      onClose(); // Close modal on success
+
+    } catch (error) {
+      console.log(error);
+      alert('Failed to submit review. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-black rounded-lg shadow-xl p-6 w-full max-w-md mx-4 relative">
         <button
-          className="absolute top-4 right-4 text-white hover:text-red-500 text-2xl transition duration-300"
           onClick={onClose}
+          className="absolute top-4 right-4 text-white hover:text-red-500 text-2xl transition duration-300"
         >
-          ✕
+          X
         </button>
-        <h2 className="text-2xl font-bold text-white mb-6 text-center">Write A Review</h2>
+
+        <h2 className="text-2xl font-bold text-white mb-6 text-center">Write a Review</h2>
+
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -28,8 +51,9 @@ function ReviewForm({ onClose }) {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="border-2 border-red-500 rounded-lg p-3 bg-black text-white placeholder:text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="border-2 border-red-500 rounded-lg p-3 bg-black text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
           />
+
           <select
             value={stars}
             onChange={(e) => setStars(Number(e.target.value))}
@@ -37,29 +61,36 @@ function ReviewForm({ onClose }) {
             className="border-2 border-red-500 rounded-lg p-3 bg-black text-white focus:outline-none focus:ring-2 focus:ring-red-500"
           >
             <option value={0} disabled>Select rating</option>
-            <option value={1}>1 Star</option>
-            <option value={2}>2 Stars</option>
-            <option value={3}>3 Stars</option>
-            <option value={4}>4 Stars</option>
-            <option value={5}>5 Stars</option>
+            {[1, 2, 3, 4, 5].map(n => (
+              <option key={n} value={n}>{n} Star{n > 1 ? 's' : ''}</option>
+            ))}
           </select>
-          <div className="flex gap-1 text-yellow-400 text-2xl">
+
+          <div className="flex gap-1 text-yellow-400 text-2xl justify-center">
             {Array.from({ length: stars }, (_, i) => (
-              <span key={i}>⭐</span>
+              <span key={i}>Star</span>
             ))}
           </div>
+
           <textarea
             placeholder="Write your review..."
             value={text}
             onChange={(e) => setText(e.target.value)}
             required
-            className="border-2 border-red-500 rounded-lg p-3 bg-black text-white placeholder:text-white focus:outline-none focus:ring-2 focus:ring-red-500 h-32 resize-none"
+            rows={5}
+            className="border-2 border-red-500 rounded-lg p-3 bg-black text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
           />
+
           <button
             type="submit"
-            className="block bg-red-500 text-white font-bold py-2 px-4 rounded-md hover:bg-red-600 transition duration-300 mt-2"
+            disabled={loading}
+            className={`block font-bold py-3 px-4 rounded-md transition duration-300 mt-4 ${
+              loading 
+                ? 'bg-gray-600 cursor-not-allowed' 
+                : 'bg-red-500 hover:bg-red-600 text-white'
+            }`}
           >
-            Submit
+            {loading ? 'Submitting...' : 'Submit Review'}
           </button>
         </form>
       </div>
