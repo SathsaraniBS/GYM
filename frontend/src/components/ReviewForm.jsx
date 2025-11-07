@@ -15,10 +15,21 @@ function ReviewForm({ onClose }) {
     setLoading(true);
     try {
       const response = await axios.post('http://localhost:5000/api/reviews', {
-        name,
-        stars,
-        text,
+        name: name.trim(),
+        stars:Number(stars),
+        text: text.trim(),
+        date: new Date().toISOString(),
+
       });
+
+        setName('');
+        setStars(0);
+        setText('');
+
+        if (onSuccess) onSuccess();
+
+        onClose();
+      
 
       console.log(response);
       alert('Thank you! Your review has been submitted.');
