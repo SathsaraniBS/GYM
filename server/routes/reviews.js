@@ -1,21 +1,21 @@
+// backend/routes/reviews.js
 import express from 'express';
 import Review from '../models/Review.js';
 
 const router = express.Router();
 
-// POST - Create new review
+// Create review
 router.post('/', async (req, res) => {
   try {
-    const { name, stars, text } = req.body;
-    const review = new Review({ name, stars, text });
+    const review = new Review(req.body);
     await review.save();
-    res.status(201).json({ message: 'Review saved', review });
+    res.status(201).json(review);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 });
 
-// GET - All reviews (latest first)
+// Get all reviews
 router.get('/', async (req, res) => {
   try {
     const reviews = await Review.find().sort({ date: -1 });
