@@ -34,25 +34,12 @@ function ReviewForm({ onClose, onSuccess }) {
     }
   };
 
-  // Star click handler
-  const handleStarClick = (rating) => {
-    setStars(rating);
-  };
-
-  // Get star color
-  const getStarColor = (rating) => {
-    if (rating <= 2) return 'text-red-500';
-    if (rating === 3) return 'text-yellow-500';
-    if (rating >= 4) return 'text-green-400';
-    return 'text-gray-600';
-  };
-
   return (
     <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
-      <div className="bg-gray-900 rounded-2xl shadow-2xl p-8 w-full max-w-lg border border-red-800 relative">
+      <div className="bg-gray-900 rounded-2xl shadow-2xl p-8 w-full max-w-lg border border-red-800">
         <button
           onClick={onClose}
-          className="absolute top-6 right-8 text-gray-400 hover:text-red-500 text-4xl font-light transition"
+          className="absolute top-6 right-8 text-gray-400 hover:text-red-500 text-4xl font-light"
         >
           ×
         </button>
@@ -71,37 +58,22 @@ function ReviewForm({ onClose, onSuccess }) {
             className="w-full px-5 py-4 bg-black border-2 border-red-600 rounded-xl text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition"
           />
 
-          {/* Interactive Star Rating */}
-          <div className="text-center">
-            <p className="text-gray-400 mb-3 text-sm">Rate your experience</p>
-            <div className="flex justify-center gap-3 text-5xl">
-              {[1, 2, 3, 4, 5].map((rating) => (
-                <button
-                  key={rating}
-                  type="button"
-                  onClick={() => handleStarClick(rating)}
-                  className="transition transform hover:scale-125 focus:outline-none"
-                >
-                  <span
-                    className={`drop-shadow-lg transition-all ${
-                      rating <= stars
-                        ? getStarColor(rating)
-                        : 'text-gray-700'
-                    }`}
-                  >
-                    Filled Star
-                  </span>
-                </button>
-              ))}
-            </div>
-            <p className="text-sm text-gray-500 mt-3">
-              {stars === 0 && 'Click to rate'}
-              {stars === 1 && 'Very Poor'}
-              {stars === 2 && 'Poor'}
-              {stars === 3 && 'Average'}
-              {stars === 4 && 'Good'}
-              {stars === 5 && 'Excellent!'}
-            </p>
+           <select
+            value={stars}
+            onChange={(e) => setStars(Number(e.target.value))}
+            required
+            className="w-full px-5 py-4 border-2 border-red-500 rounded-lg p-3 bg-black text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+          >
+            <option value={0} disabled className='bg-red-500'>Select rating</option>
+            {[1, 2, 3, 4, 5].map(n => (
+              <option key={n} value={n} >{n} Star{n > 1 ? 's' : '' }</option>
+            ))}
+          </select>
+
+          <div className="flex gap-1 text-yellow-400 text-2xl justify-center">
+            {Array.from({ length: stars }, (_, i) => (
+              <span key={i}>Star</span>
+            ))}
           </div>
 
           <textarea
@@ -115,10 +87,8 @@ function ReviewForm({ onClose, onSuccess }) {
 
           <button
             type="submit"
-            disabled={loading || stars === 0}
-            className={`w-full bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white font-bold py-5 rounded-xl transition transform hover:scale-105 shadow-xl ${
-              loading || stars === 0 ? 'opacity-70 cursor-not-allowed' : ''
-            }`}
+            disabled={loading}
+            className="w-full bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white font-bold py-5 rounded-xl transition transform hover:scale-105 disabled:opacity-70 shadow-xl"
           >
             {loading ? 'Submitting...' : 'Submit Review'}
           </button>
