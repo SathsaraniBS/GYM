@@ -58,25 +58,22 @@ function ReviewForm({ onClose, onSuccess }) {
             className="w-full px-5 py-4 bg-black border-2 border-red-600 rounded-xl text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition"
           />
 
-          <div>
-            <select
-              value={stars}
-              onChange={(e) => setStars(Number(e.target.value))}
-              required
-              className="w-full px-5 py-4 bg-black border-2 border-red-600 rounded-xl text-white focus:outline-none"
-            >
-              <option value={0} disabled>Select Rating</option>
-              {[1, 2, 3, 4, 5].map((n) => (
-                <option key={n} value={n}>{n} Star{n > 1 ? 's' : ''}</option>
-              ))}
-            </select>
-            
-            {/* FIXED: Real stars! */}
-            <div className="flex justify-center gap-2 mt-4 text-5xl">
-              {Array.from({ length: stars }, (_, i) => (
-                <span key={i} className="text-yellow-400 drop-shadow-lg">Star</span>
-              ))}
-            </div>
+           <select
+            value={stars}
+            onChange={(e) => setStars(Number(e.target.value))}
+            required
+            className="border-2 border-red-500 rounded-lg p-3 bg-black text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+          >
+            <option value={0} disabled>Select rating</option>
+            {[1, 2, 3, 4, 5].map(n => (
+              <option key={n} value={n}>{n} Star{n > 1 ? 's' : ''}</option>
+            ))}
+          </select>
+
+          <div className="flex gap-1 text-yellow-400 text-2xl justify-center">
+            {Array.from({ length: stars }, (_, i) => (
+              <span key={i}>Star</span>
+            ))}
           </div>
 
           <textarea
