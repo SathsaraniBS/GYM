@@ -4,7 +4,7 @@ function ProgressTracking() {
   const workouts = [
     { category: 'Today', type: 'Strength Training', name: 'Full Body Blast', duration: '45 min', exercises: 5, image: 'https://via.placeholder.com/150x100' },
     { category: 'Upcoming', type: 'Cardio', name: 'High-Intensity Interval Training', duration: '30 min', exercises: 3, image: 'https://via.placeholder.com/150x100' },
-    { category: 'Upcoming', type: 'Yoga', name: 'Morning Flow', duration '20 min', exercises: 4, image: 'https://via.placeholder.com/150x100' },
+    { category: 'Upcoming', type: 'Yoga', name: 'Morning Flow', duration :'20 min', exercises: 4, image: 'https://via.placeholder.com/150x100' },
   ];
 
   const handleNewWorkout = () => {
@@ -14,31 +14,7 @@ function ProgressTracking() {
 
   return (
     <div className="min-h-screen flex bg-gray-200">
-      {/* Sidebar */}
-      {/* <aside className="w-64 bg-gray-900 text-white p-6 fixed h-full">
-        <div className="mb-8">
-          <img src="https://via.placeholder.com/40" alt="User Avatar" className="rounded-full mr-2 inline-block" />
-          <span className="font-semibold">Alex</span>
-          <span className="text-sm text-gray-400 block">Premium</span>
-        </div>
-        <nav className="space-y-4">
-          <a href="#" className="flex items-center text-gray-400 hover:text-white">
-            <span className="mr-2">🏠</span> Dashboard
-          </a>
-          <a href="#" className="flex items-center text-red-500 bg-gray-800 p-2 rounded">
-            <span className="mr-2">💪</span> Workouts
-          </a>
-          <a href="#" className="flex items-center text-gray-400 hover:text-white">
-            <span className="mr-2">🍽️</span> Nutrition
-          </a>
-          <a href="#" className="flex items-center text-gray-400 hover:text-white">
-            <span className="mr-2">📈</span> Progress
-          </a>
-          <a href="#" className="flex items-center text-gray-400 hover:text-white">
-            <span className="mr-2">⚙️</span> Settings
-          </a>
-        </nav>
-      </aside> */}
+      
 
       {/* Main Content */}
       <main className="ml-64 p-6 flex-1">
