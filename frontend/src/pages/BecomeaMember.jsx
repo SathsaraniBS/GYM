@@ -1,28 +1,11 @@
 import React from 'react'
+import Navbar from "../components/Navbar"; 
 
 function BecomeaMember() {
   return (
     
     <div className="min-h-screen bg-gray-950 text-white">
-      {/* Navbar */}
-      <nav className="fixed top-0 w-full bg-black/50 backdrop-blur-lg z-50 border-b border-red-900/30">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-pink-600 rounded-lg"></div>
-            <span className="text-xl font-bold">Gym Logo</span>
-          </div>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#" className="hover:text-red-400 transition">Home</a>
-            <a href="#" className="hover:text-red-400 transition">Classes</a>
-            <a href="#" className="hover:text-red-400 transition">Trainers</a>
-            <a href="#" className="hover:text-red-400 transition">Contact</a>
-            <button className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-full font-semibold transition shadow-lg">
-              Join Now
-            </button>
-          </div>
-        </div>
-      </nav>
-
+        <Navbar />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90 z-10"></div>
