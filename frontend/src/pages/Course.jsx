@@ -2,8 +2,11 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Gallery from '../components/Gallery';
+import { useNavigate } from 'react-router-dom';
 
 function Course() {
+  
+  const navigate = useNavigate();
   const classes = [
     { title: "STRENGTH", category: "WEIGHTLIFTING", image: "/class-1.jpg" },
     { title: "CARDIO", category: "INDOOR CYCLING", image: "/class-2.jpg" },
@@ -84,7 +87,10 @@ function Course() {
         <div className="relative z-10 text-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">REGISTRATION NOW TO GET MORE DEALS</h1>
           <p className="text-lg md:text-xl mb-6">where health, beauty and fitness meet.</p>
-          <button className="bg-red-500 text-white font-semibold py-2 px-6 rounded hover:bg-red-600">
+          <button className="bg-red-500 text-white font-semibold py-2 px-6 rounded hover:bg-red-600"
+            onClick={() => navigate('/BecomeaMember')}
+
+          >
             BECOME A MEMBER
           </button>
         </div>
