@@ -5,7 +5,7 @@ import Gallery from '../components/Gallery';
 import { useNavigate } from 'react-router-dom';
 
 function Course() {
-  
+
   const navigate = useNavigate();
   const classes = [
     { title: "STRENGTH", category: "WEIGHTLIFTING", image: "/class-1.jpg" },
