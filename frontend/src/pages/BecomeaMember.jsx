@@ -4,30 +4,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 function BecomeaMember() {
-  const plans = [
-    {
-      title: "Basic",
-      price: "$29",
-      period: "/month",
-      features: ["24/7 Gym Access", "Locker Rooms with Showers", "Basic Equipment Access"],
-      buttonStyle: "bg-gray-800 hover:bg-gray-700"
-    },
-    {
-      title: "Premium",
-      price: "$49",
-      period: "/month",
-      features: ["All Basic Features", "Unlimited Group Classes", "Access to Sauna"],
-      popular: true,
-      buttonStyle: "bg-red-600 hover:bg-red-700"
-    },
-    {
-      title: "VIP",
-      price: "$79",
-      period: "/month",
-      features: ["All Premium Features", "2 Personal Training Sessions/Month", "Towel Service"],
-      buttonStyle: "bg-gray-800 hover:bg-gray-700"
-    }
-  ];
+  
+      
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
