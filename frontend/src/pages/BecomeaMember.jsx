@@ -5,8 +5,24 @@ import Footer from "../components/Footer";
 
 function BecomeaMember() {
   
+  const plans = [
+    {
+      title: "Class drop-in",
+      price: "$39.0",
+      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+    },
+    {
+      title: "12 Month unlimited",
+      price: "$99.0",
+      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+    },
+    {
+      title: "6 Month unlimited",
+      price: "$59.0",
+      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+    },
+  ];
       
-
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       <Navbar />
