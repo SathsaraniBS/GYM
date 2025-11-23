@@ -38,7 +38,7 @@ function BecomeaMember() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90 z-10"></div>
         <div className="bg-gray-900 w-full h-full absolute inset-0 opacity-60"></div>
         <img 
-          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1920&h=1080&fit=crop" 
+          src="" 
           alt="Gym hero" 
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -92,38 +92,9 @@ function BecomeaMember() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Find Your Perfect Fit</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
-            <div 
-              key={index}
-              className={`relative bg-gray-900/60 backdrop-blur border ${plan.popular ? 'border-red-600 scale-105 shadow-2xl' : 'border-gray-800'} rounded-3xl p-8 hover:border-red-800 transition-all duration-300`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 -right-4 bg-red-600 text-white px-6 py-2 rounded-full text-sm font-bold">
-                  Most Popular
-                </div>
-              )}
-              <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${plan.popular ? 'text-3xl' : ''}`}>
-                {plan.title}
-              </h3>
-              <div className="text-5xl md:text-6xl font-black mb-6">
-                {plan.price}
-                <span className="text-xl text-gray-400">{plan.period}</span>
-              </div>
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <span className="text-red-500 text-xl">Check</span>
-                    <span className="text-gray-300">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <button className={`w-full ${plan.buttonStyle} py-5 rounded-xl font-bold text-lg shadow-xl transform hover:scale-105 transition`}>
-                Select Plan
-              </button>
-            </div>
-          ))}
-        </div>
+        
+          
+      
       </section>
 
       {/* Join Steps */}
