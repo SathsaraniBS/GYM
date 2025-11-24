@@ -129,10 +129,10 @@ function BecomeaMember() {
           </div>
 
           <div className="bg-gray-900/70 backdrop-blur border border-red-900/30 rounded-3xl p-10 max-w-2xl mx-auto">
-            <input type="text" placeholder="Full Name" className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400" />
-            <input type="email" placeholder="Email address" className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400" />
-            <input type="tel" placeholder="Phone Number" className="w-full mb-8 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400" />
-            <button className="w-full bg-red-600 hover:bg-red-700 py-5 rounded-xl font-bold text-xl shadow-xl transform hover:scale-105 transition">
+            <input type="text" placeholder="Full Name" className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border  focus:outline-none text-white placeholder-gray-400" />
+            <input type="email" placeholder="Email address" className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl  focus:outline-none text-white placeholder-gray-400" />
+            <input type="tel" placeholder="Phone Number" className="w-full mb-8 px-6 py-4 bg-gray-800/70 rounded-xl  focus:outline-none text-white placeholder-gray-400" />
+            <button className="w-full bg-red-600 hover:bg-red-700 py-5 rounded-xl font-bold text-xl ">
               Continue to Plan Selection
             </button>
           </div>
