@@ -62,7 +62,7 @@ function BecomeaMember() {
           <p className="text-xl text-gray-400">Discover the benefits that set our gym apart from the rest.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {[
             { icon: "Clock", title: "24/7 Access", desc: "Workout on your schedule, anytime, day or night." },
             { icon: "User", title: "Personal Training", desc: "Get guidance from our certified expert trainers." },
@@ -77,7 +77,7 @@ function BecomeaMember() {
               <p className="text-gray-400">{feature.desc}</p>
             </div>
           ))}
-        </div>
+        </div> */}
       </section>
 
       {/* Pricing Section */}
