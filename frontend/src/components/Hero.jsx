@@ -41,9 +41,7 @@ function Hero() {
           >
             Start Your Journey
           </button>
-          {/* <button className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
-            Discover Your Plan
-          </button> */}
+          
         </div>
       </div>
     </section>

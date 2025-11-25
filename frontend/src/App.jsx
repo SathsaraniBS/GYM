@@ -8,6 +8,7 @@ import Contactpage from './pages/Contactpage'
 import Course from './pages/Course'
 import Ourteam from './pages/Ourteam'
 import GalleryPage from './pages/GalleryPage'
+import BecomeaMember from './pages/BecomeaMember'
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,8 @@ function App() {
         <Route path='/course' element={<Course />} ></Route>
         <Route path='/gallery' element={<GalleryPage />} ></Route>
         <Route path='/ourteam' element={<Ourteam />} ></Route>
+        {/* THIS LINE FIXES THE ERROR */}
+        <Route path="/become-a-member" element={<BecomeaMember />} />
 '
       </Routes>
     </BrowserRouter>
