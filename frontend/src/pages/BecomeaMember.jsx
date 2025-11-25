@@ -62,22 +62,7 @@ function BecomeaMember() {
           <p className="text-xl text-gray-400">Discover the benefits that set our gym apart from the rest.</p>
         </div>
 
-        {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {[
-            { icon: "Clock", title: "24/7 Access", desc: "Workout on your schedule, anytime, day or night." },
-            { icon: "User", title: "Personal Training", desc: "Get guidance from our certified expert trainers." },
-            { icon: "Dumbbell", title: "State-of-the-Art Equipment", desc: "Top-tier machines and free weights for every workout." },
-            { icon: "Users", title: "Supportive Community", desc: "Join a motivating and friendly fitness family." },
-          ].map((feature, i) => (
-            <div key={i} className="bg-gray-900/50 backdrop-blur border border-red-900/30 rounded-2xl p-8 text-center hover:border-red-600 transition">
-              <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-pink-600 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-gray-400">{feature.desc}</p>
-            </div>
-          ))}
-        </div> */}
+        
       </section>
 
       {/* Pricing Section */}
