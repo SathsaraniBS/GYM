@@ -38,12 +38,7 @@ function About() {
               At FitTrack, our mission is to empower individuals to achieve their fitness goals through personalized training, cutting-edge facilities, and a supportive community. We believe in fostering a culture of health and wellness, where every member feels motivated and inspired to reach their full potential.
             </p>
           </div>
-          {/* <div className="flex-1">
-            <h2 className="text-3xl font-bold mb-4">Our Values</h2>
-            <p className="text-gray-300">
-              We are committed to excellence in every aspect of our services. Our core values include integrity, respect, innovation, and continuous improvement. We strive to create a positive and inclusive environment where members can thrive and achieve their fitness aspirations.
-            </p>
-          </div> */}
+          
         </div>
       </div>
       <div className="bg-black text-white min-h-[600px] flex flex-col items-center justify-center p-6">

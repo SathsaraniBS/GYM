@@ -29,8 +29,6 @@ function Signup () {
   return (
     <div className="bg-black text-white min-h-screen flex items-center justify-center p-6">
 
-      {/* <div className='flex justify-center items-center h-screen bg-gray-100'> */}
-        {/* <div className='border shadow p-6 w-100 bg-white'> */}
         <div className='border-2 border-orange-500 shadow-lg p-6 w-100 bg-black rounded-lg h-[550px] w-[400px]'>
           <h2 className='text-3xl font-bold mb-6 mt-3 text-white text-center'>Sign up</h2>
           <form onSubmit={handleSubmit}>
