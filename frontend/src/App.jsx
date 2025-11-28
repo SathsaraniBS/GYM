@@ -22,7 +22,7 @@ function App() {
         <Route path='/gallery' element={<GalleryPage />} ></Route>
         <Route path='/ourteam' element={<Ourteam />} ></Route>
         {/* THIS LINE FIXES THE ERROR */}
-        <Route path="/become-a-member" element={<BecomeaMember />} />
+        <Route path="/becomeamember" element={<BecomeaMember />} />
 '
       </Routes>
     </BrowserRouter>

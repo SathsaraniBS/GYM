@@ -66,30 +66,10 @@ function BecomeaMember() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 px-6 bg-black/50">
-        <div className="max-w-6xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Find Your Perfect Fit</h2>
-        </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 w-full max-w-5xl">
-          {plans.map((plan, index) => (
-            <div key={index} className="bg-black rounded-lg p-6 shadow-lg text-white border-2 border-orange-500 transform hover:scale-105 transition-transform duration-300">
-              <h3 className="text-xl font-semibold mb-4">{plan.title}</h3>
-              <p className="text-4xl font-bold text-orange-500 mb-6">{plan.price}<span className="text-base font-normal"> SINGLE CLASS</span></p>
-              <ul className="text-gray-400 space-y-2 mb-6">
-                {plan.features.map((feature, i) => (
-                  <li key={i}>{feature}</li>
-                ))}
-              </ul>
-              <button className="w-full bg-black bg-transparent border-2 border-red-500 text-lg font-semibold text-white py-2 rounded hover:bg-red-500 transition-colors duration-300">
-                ENROLL NOW
-              </button>
-            </div>
-          ))}
-        </div>
+      
         
           
       
-      </section>
 
       {/* Join Steps */}
       <section className="py-20 px-6">
