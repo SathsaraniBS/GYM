@@ -88,7 +88,7 @@ function BecomeaMember() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Choose Your Perfect Plan</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        {/* <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <div 
               key={index}
@@ -116,7 +116,7 @@ function BecomeaMember() {
               </button>
             </div>
           ))}
-        </div>
+        </div> */}
       </section>
 
       {/* Join Steps */}
