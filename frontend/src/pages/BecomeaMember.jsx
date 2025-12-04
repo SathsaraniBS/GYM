@@ -38,11 +38,11 @@ function BecomeaMember() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90 z-10"></div>
-        <img 
+        {/* <img 
           src="" 
           alt="Gym hero" 
           className="absolute inset-0 w-full h-full object-cover"
-        />
+        /> */}
         
         <div className="relative z-20 text-center px-6 max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
@@ -140,7 +140,7 @@ function BecomeaMember() {
       {/* Join Steps */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">Join the Family in 3 Easy Steps</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8">Join the FitTrack Family in 3 Easy Steps</h2>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
             <div className="flex items-center gap-4">
