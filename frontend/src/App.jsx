@@ -9,6 +9,8 @@ import Course from './pages/Course'
 import Ourteam from './pages/Ourteam'
 import GalleryPage from './pages/GalleryPage'
 import BecomeaMember from './pages/BecomeaMember'
+import AdminDashboard from "./pages/admin/Dashboard";
+import UserDashboard from "./pages/user/Dashboard";
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +25,9 @@ function App() {
         <Route path='/ourteam' element={<Ourteam />} ></Route>
         {/* THIS LINE FIXES THE ERROR */}
         <Route path="/becomeamember" element={<BecomeaMember />} />
+
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/user/dashboard" element={<UserDashboard />} />
 '
       </Routes>
     </BrowserRouter>
