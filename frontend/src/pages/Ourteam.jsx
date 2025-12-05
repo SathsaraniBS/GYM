@@ -71,14 +71,14 @@ function Ourteam() {
       {/* Why Choose Us Section */}
       <section className="bg-black text-white py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-orange-500 uppercase mb-2">Why Choose Us?</h2>
+          <h2 className="text-3xl font-bold text-red-500 uppercase mb-2">Why Choose Us?</h2>
           <h1 className="text-5xl font-bold mb-12">Push Your Limits Forward</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {features.map((item, index) => (
               <div key={index} className="text-center group">
                 <div className={`w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-2xl ${
-                  item.color === 'red' ? 'bg-red-900 group-hover:bg-red-600' : 'bg-gray-900 group-hover:bg-orange-600'
+                  item.color === 'red' ? 'bg-red-900 group-hover:bg-red-600' : 'bg-gray-900 group-hover:bg-orange-500'
                 }`}>
                   <item.icon className={`text-3xl transition-colors ${
                     item.color === 'red' ? 'text-red-500 group-hover:text-white' : 'text-orange-500 group-hover:text-white'
