@@ -12,6 +12,8 @@ function Ourteam() {
     { id: 5, image: "img4.jpg", title: "Card 5" },
   ];
 
+  
+
   return (
     <div className="bg-gray-100">
       <Navbar />
@@ -34,12 +36,12 @@ function Ourteam() {
       
       <div className="bg-black text-white min-h-[600px] flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-6xl text-center">
-          <h2 className="text-xl font-bold text-orange-500 uppercase mb-2">Why Choose Us?</h2>
-          <h1 className="text-3xl font-bold mb-8">Push Your Limits Forward</h1>
+          <h2 className="text-3xl font-bold text-orange-500 uppercase mb-2">Why Choose Us?</h2>
+          <h1 className="text-4xl font-bold mb-8">Push Your Limits Forward</h1>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4 hover:scale-110 hover:bg-red-500 transition-transform duration-300 group">
-                <FaDumbbell className="text-orange-500 group-hover:text-white text-2xl" />
+              <div className="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4 hover:scale-110 hover:bg-red-600 transition-transform duration-300 group">
+                <FaDumbbell className="text-red-500 group-hover:text-white text-2xl" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Modern equipment</h3>
               <p className="text-gray-400 text-sm">

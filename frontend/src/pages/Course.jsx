@@ -54,8 +54,8 @@ function Course() {
       </section>
       <div className="bg-black text-white min-h-screen">
         <div className="container mx-auto py-10">
-          <h1 className="text-xl font-bold text-center text-red-500 mb-6">OUR CLASSES</h1>
-          <h2 className="text-2xl font-bold text-center mb-10">WHAT WE CAN OFFER</h2>
+          <h1 className="text-5xl font-bold text-center text-red-500 mb-6">OUR CLASSES</h1>
+          <h2 className="text-4xl font-bold text-center mb-10">WHAT WE CAN OFFER</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl mx-auto px-4">
             {classes.map((cls, index) => (
               <div
@@ -97,7 +97,7 @@ function Course() {
       </div>
       <div className="bg-black min-h-screen flex flex-col items-center justify-center py-10 px-4">
         <div className="text-center">
-          <h2 className="text-orange-500 text-lg font-bold mb-2">OUR PLAN</h2>
+          <h2 className="text-orange-500 text-4xl font-bold mb-2">OUR PLANS</h2>
           <h1 className="text-white text-4xl font-bold">CHOOSE YOUR PRICING PLAN</h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 w-full max-w-5xl">
