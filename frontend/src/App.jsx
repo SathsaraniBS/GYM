@@ -9,8 +9,8 @@ import Course from './pages/Course'
 import Ourteam from './pages/Ourteam'
 import GalleryPage from './pages/GalleryPage'
 import BecomeaMember from './pages/BecomeaMember'
-import AdminDashboard from "./pages/admin/Dashboard";
-import UserDashboard from "./pages/user/Dashboard";
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import UserDashboard from "./pages/Userdashboard";
 function App() {
   return (
     <BrowserRouter>
