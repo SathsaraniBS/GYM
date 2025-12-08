@@ -1,40 +1,45 @@
-import React, { createContext, useState, useEffect } from "react";
-import axios from "axios";
+// src/context/AuthContext.jsx
+import { createContext, useContext, useState } from "react";
 
-export const AuthContext = createContext();
+const AuthContext = createContext(null);
 
-export const AuthProvider = ({ children }) => {
+export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [token, setToken] = useState(null);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      // fetch user profile or decode token
-      const payload = JSON.parse(atob(token.split(".")[1]));
-      setUser(payload);
-    }
-    setLoading(false);
-  }, []);
-
-  const login = (token, userData) => {
-    localStorage.setItem("token", token);
-    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  // This function is called after successful login
+  const login = (newToken, userData) => {
+    setToken(newToken);
     setUser(userData);
+    // Save to localStorage so it survives page refresh
+    localStorage.setItem("token", newToken);
+    localStorage.setItem("user", JSON.stringify(userData));
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
-    delete axios.defaults.headers.common["Authorization"];
+    setToken(null);
     setUser(null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
   };
 
-  return (
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
-      {children}
-    </AuthContext.Provider>
-  );
-};
+  // Optional: load user from localStorage when page loads
+  const value = {
+    user,
+    token,
+    login,
+    logout,
+    isAuthenticated: !!token,
+  };
 
-export const useAuth = () => useContext(AuthContext);
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
+
+// Custom hook to use auth
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within AuthProvider");
+  }
+  return context;
+}
