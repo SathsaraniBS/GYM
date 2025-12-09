@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReviewForm from './ReviewForm';
 import { FaStar } from 'react-icons/fa';
+import SeeAllReviewsButton from './SeeAllReviewsButton';
 
 const CustomerReview = () => {
   const [reviews, setReviews] = useState([]);
@@ -45,14 +46,11 @@ const CustomerReview = () => {
           </button>
         </div>
 
-        {/* Reviews Grid */}
+        </SeeAllReviewsButton>
         {loading ? (
-          <p className="text-center text-gray-400 text-xl">Loading reviews...</p>
-        ) : reviews.length === 0 ? (
-          <div className="text-center py-20">
-            <p className="text-2xl text-gray-400">No reviews yet. Be the first one!</p>
-          </div>
+          <p>Loading...</p>
         ) : (
+          // Display reviews
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {reviews.map((review) => (
               <div

@@ -39,6 +39,7 @@ import Footer from "../components/Footer"; // FIXED: Ensure path and case match 
 import Gallery from "../components/Gallery"; // FIXED: Ensure path and case match src/components/Gallery.jsx
 import BMI from "../components/BMI"; // FIXED: Ensure path and case match src/components/BMI.jsx
 import CustomerReview from "../components/CustomerReview";
+import SeeAllReviewsButton from "../components/SeeAllReviewsButton";
 function Home() {
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -47,7 +48,8 @@ function Home() {
       <WorkoutSessions />
       <BMI />    
       <Gallery />
-      <CustomerReview />
+      <CustomerReview />  
+      <SeeAllReviewsButton />
       <Footer />
     </div>
   );
