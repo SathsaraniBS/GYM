@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import UserNavbar from '../components/User/UserNavbar'
 
 function Userdashboard() {
   return (
     <div className='bg-black min-h-screen'>
-      <Navbar />
+      <UserNavbar />
       <div className='bg-black text-white p-8'>
       
 
