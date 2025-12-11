@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const connectToMongoDB = async ()=>{
     try{
-        await mongoose.connect("mongodb://localhost:27017/gym-app",
+        await mongoose.connect("mongodb://localhost:27017/gym_app",
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
