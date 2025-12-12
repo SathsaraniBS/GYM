@@ -1,8 +1,10 @@
 // src/components/User/UserNavbar.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 function UserNavbar() {
+  const {user,logout} = useAuth()
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -54,6 +56,23 @@ function UserNavbar() {
           <Link to="/reviews" className="hover:text-red-400 transition">
             REVIEWS
           </Link>
+
+           <div>
+            {!user ?(
+                <>
+                <Link to="/login" className='bg-blue-500 px-4 py-2 rounded mr-4'>Login</Link>
+                <Link to="/register" className='bg-green-500 px-4 py-2 rounded mr-4'>Signup</Link>
+                </>
+
+            ) : (
+                <>
+                <span className='mr-4'>{user.name}</span>
+            
+                 <button className='bg-red-500 px-4 py-2 rounded' onClick={logout}>Logout</button>
+                </>
+            )}
+            
+        </div>
         </div>
 
         {/* Mobile Menu Toggle */}
