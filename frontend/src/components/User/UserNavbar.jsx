@@ -57,9 +57,21 @@ function UserNavbar() {
             REVIEWS
           </Link>
 
+          {user ? (
           <div className="flex gap-4 mr-4">
             <Link to="/login" className="bg-red-500 border-2 border-white text-white font-semibold py-2 px-4  hover:bg-red-600 transition duration-300" >Login</Link> 
+            
+            <Link to="/register"className="bg-red-500 border-2 border-white text-white font-semibold py-2 px-4  hover:bg-red-600 transition duration-300">Register
+            </Link>
+          
           </div>
+          ) : (
+
+            <>
+                <span className='mr-4'>{user.name}</span>
+                <button onClick={logout} className="bg-red-500 border-2 border-white text-white font-semibold py-2 px-4  hover:bg-red-600 transition duration-300">Logout</button>
+        
+            </>)}
         </div>
 
         {/* Mobile Menu Toggle */}
