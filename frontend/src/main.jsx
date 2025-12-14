@@ -12,12 +12,12 @@
 
 
 // src/main.jsx
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'           // ← THIS LINE WAS MISSING!
-import './index.css'
-import './App.css'
-import App from './App.jsx'
-import { AuthProvider } from './context/AuthContext.jsx' // ← your auth context
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';           // Correct import
+import './index.css';
+import './App.css';
+import App from './App.jsx';
+import { AuthProvider } from './context/AuthContext.jsx'; // Correct import
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -25,4 +25,4 @@ createRoot(document.getElementById('root')).render(
       <App />
     </AuthProvider>
   </StrictMode>
-)
+);
