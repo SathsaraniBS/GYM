@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReviewForm from './ReviewForm';
-import SeeAllReviewsButton from './SeeAllReviewsButton'; // Import the button
+import SeeAllReviewsButton from './SeeAllReviewsButton';
 import { FaStar } from 'react-icons/fa';
 
 const CustomerReview = () => {
@@ -33,24 +33,24 @@ const CustomerReview = () => {
   return (
     <section className="bg-black py-20 px-4" id="reviews">
       <div className="max-w-7xl mx-auto">
-
         {/* Title */}
         <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
           Customer Reviews
         </h2>
 
-        {/* Write Review Button */}
-        <div className="text-center mb-12">
+        {/* Buttons in one line - Flex row, centered */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-8 mb-16">
+          {/* Write a Review Button */}
           <button
             onClick={() => setIsModalOpen(true)}
-            className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-bold py-4 px-12 rounded-full text-xl transition transform hover:scale-110 shadow-2xl"
+            className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-bold py-4 px-12  text-xl transition transform hover:scale-110 shadow-2xl"
           >
             Write a Review
           </button>
-        </div>
 
-        {/* SEE ALL REVIEWS BUTTON - FIXED */}
-        <SeeAllReviewsButton />   {/* This is correct! Just write the tag like this */}
+          {/* See All Reviews Button */}
+          <SeeAllReviewsButton />
+        </div>
 
         {/* Reviews Grid */}
         {loading ? (
@@ -60,7 +60,7 @@ const CustomerReview = () => {
             No reviews yet. Be the first to share your experience!
           </p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {reviews.map((review) => (
               <div
                 key={review._id}
@@ -87,7 +87,7 @@ const CustomerReview = () => {
                   {new Date(review.date).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
-                    day: 'numeric'
+                    day: 'numeric',
                   })}
                 </p>
               </div>
@@ -98,16 +98,13 @@ const CustomerReview = () => {
         {/* Review Form Modal */}
         {isModalOpen && (
           <ReviewForm
-          onClose={() => setIsModalOpen(false)}
-          onSuccess={handleReviewSubmitted}
-        />
+            onClose={() => setIsModalOpen(false)}
+            onSuccess={handleReviewSubmitted}
+          />
         )}
-        
-
       </div>
     </section>
   );
 };
-
 
 export default CustomerReview;

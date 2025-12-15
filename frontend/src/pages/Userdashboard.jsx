@@ -57,6 +57,13 @@ function Userdashboard() {
 
             <div className="bg-gradient-to-r from-red-900 to-orange-900 rounded-xl p-6 text-center">
               <h4 className="text-xl font-bold mb-4">Quick Actions</h4>
+              <div>
+              <button className="w-full bg-white text-black py-3 rounded-lg font-bold mb-3 hover:bg-gray-200">
+                Personal Information
+                <button className="bg-transparent border-2 border-red-500 text-lg font-bold text-white p-2 rounded transition-colors duration-300 hover:bg-red-500">&gt;</button>
+
+              </button>
+              </div>
               <button className="w-full bg-white text-black py-3 rounded-lg font-bold mb-3 hover:bg-gray-200">
                 Book Class
               </button>
