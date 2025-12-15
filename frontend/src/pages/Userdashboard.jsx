@@ -5,6 +5,7 @@ import { useAuth } from '../hooks/useAuth';
 import { FaUserCircle, FaWhatsapp } from 'react-icons/fa';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom'; // For navigation
+import PersonalInfoForm from '../components/User/PresonalInfo';
 
 function Userdashboard() {
   const { user } = useAuth();
@@ -121,7 +122,14 @@ function Userdashboard() {
                 </div>
               </div>
             </div>
+
+            {/* Personal Information Form */}
+            <div className="bg-gray-900 rounded-2xl p-8 border border-red-800">
+              <h3 className="text-3xl font-bold mb-6">Personal Information</h3>
+              <PersonalInfoForm />
+            </div>
           </div>
+
         </div>
       </div>
 

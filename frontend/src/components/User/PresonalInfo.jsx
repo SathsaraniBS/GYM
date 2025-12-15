@@ -1,7 +1,6 @@
-// src/components/PersonalInfoForm.jsx
 import React, { useState } from 'react';
 
-const PersonalInfo = () => {
+const PersonalInfoForm = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -17,24 +16,20 @@ const PersonalInfo = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSaving(true);
     setSaveMessage('');
 
-    // Simulate API call
     setTimeout(() => {
-      console.log('Saved profile data:', formData);
+      console.log('Profile saved:', formData);
       setIsSaving(false);
       setSaveMessage('Profile updated successfully!');
       setTimeout(() => setSaveMessage(''), 3000);
-    }, 1500);
+    }, 1000);
   };
 
   return (
@@ -42,7 +37,6 @@ const PersonalInfo = () => {
       <h2 className="text-3xl font-bold text-gray-800 mb-10">Personal Information</h2>
 
       <form onSubmit={handleSubmit} className="space-y-8">
-        {/* First Name */}
         <div>
           <label className="block text-gray-700 font-medium mb-2">First Name</label>
           <input
@@ -55,7 +49,6 @@ const PersonalInfo = () => {
           />
         </div>
 
-        {/* Last Name */}
         <div>
           <label className="block text-gray-700 font-medium mb-2">Last Name</label>
           <input
@@ -68,7 +61,6 @@ const PersonalInfo = () => {
           />
         </div>
 
-        {/* Gender */}
         <div>
           <label className="block text-gray-700 font-medium mb-2">Gender</label>
           <select
@@ -76,16 +68,13 @@ const PersonalInfo = () => {
             value={formData.gender}
             onChange={handleChange}
             className="w-full border-2 border-gray-300 rounded-lg py-3 px-4 bg-white focus:outline-none focus:border-red-600 text-lg"
-            required
           >
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-            <option value="Prefer not to say">Prefer not to say</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
           </select>
         </div>
 
-        {/* Date of Birth */}
         <div>
           <label className="block text-gray-700 font-medium mb-2">Date of Birth</label>
           <input
@@ -97,7 +86,6 @@ const PersonalInfo = () => {
           />
         </div>
 
-        {/* Country */}
         <div>
           <label className="block text-gray-700 font-medium mb-2">Country</label>
           <select
@@ -105,21 +93,17 @@ const PersonalInfo = () => {
             value={formData.country}
             onChange={handleChange}
             className="w-full border-2 border-gray-300 rounded-lg py-3 px-4 bg-white focus:outline-none focus:border-red-600 text-lg"
-            required
           >
-            <option value="Sri Lanka">Sri Lanka</option>
-            <option value="India">India</option>
-            <option value="United States">United States</option>
-            <option value="United Kingdom">United Kingdom</option>
-            <option value="Australia">Australia</option>
-            {/* Add more countries as needed */}
+            <option>Sri Lanka</option>
+            <option>India</option>
+            <option>United States</option>
+            {/* Add more as needed */}
           </select>
         </div>
 
-        {/* Height & Weight */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="border-2 border-red-600 rounded-lg p-4">
-            <label className="block text-gray-700 font-medium mb-2 text-center">Height (CM)</label>
+          <div className="border-2 border-red-600 rounded-lg p-4 text-center">
+            <label className="block text-gray-700 font-medium mb-2">Height (CM)</label>
             <input
               type="number"
               name="height"
@@ -131,9 +115,8 @@ const PersonalInfo = () => {
               max="250"
             />
           </div>
-
-          <div className="border-2 border-red-600 rounded-lg p-4">
-            <label className="block text-gray-700 font-medium mb-2 text-center">Weight (KG)</label>
+          <div className="border-2 border-red-600 rounded-lg p-4 text-center">
+            <label className="block text-gray-700 font-medium mb-2">Weight (KG)</label>
             <input
               type="number"
               name="weight"
@@ -148,18 +131,16 @@ const PersonalInfo = () => {
           </div>
         </div>
 
-        {/* Save Button */}
         <div className="text-center mt-10">
           <button
             type="submit"
             disabled={isSaving}
-            className="bg-red-600 hover:bg-red-700 disabled:bg-red-800 text-white font-bold text-xl py-4 px-16 rounded-lg transition transform hover:scale-105 shadow-lg"
+            className="bg-red-600 hover:bg-red-700 disabled:bg-red-800 text-white font-bold text-xl py-4 px-16 rounded-lg transition"
           >
             {isSaving ? 'Saving...' : 'SAVE'}
           </button>
         </div>
 
-        {/* Success Message */}
         {saveMessage && (
           <div className="text-center mt-6 text-green-600 font-semibold text-xl">
             {saveMessage}
@@ -170,4 +151,4 @@ const PersonalInfo = () => {
   );
 };
 
-export default PersonalInfo;
+export default PersonalInfoForm;
