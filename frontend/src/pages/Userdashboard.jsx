@@ -5,8 +5,11 @@ import { useAuth } from '../hooks/useAuth';
 import axios from 'axios';
 import { FaUserCircle, FaWhatsapp } from 'react-icons/fa';
 import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
+
 
 function Userdashboard() {
+  const navigate = useNavigate();
   const { user, token } = useAuth();
   const [loading, setLoading] = useState(true);
 
@@ -66,7 +69,8 @@ function Userdashboard() {
                 {/* Personal Information */}
                 <div className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition">
                   <span>Personal Information</span>
-                  <button className="bg-transparent border-2 border-red-500 text-lg font-bold text-red-500 w-10 h-10 rounded flex items-center justify-center transition-colors duration-300 hover:bg-red-500 hover:text-white">
+                  <button className="bg-transparent border-2 border-red-500 text-lg font-bold text-red-500 w-10 h-10 rounded flex items-center justify-center transition-colors duration-300 hover:bg-red-500 hover:text-white"
+                  onClick={() => navigate('/User/PersonalInfo')}>
                     &gt;
                   </button>
                 </div>
