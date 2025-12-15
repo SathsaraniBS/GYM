@@ -2,19 +2,16 @@
 import React, { useEffect, useState } from 'react';
 import UserNavbar from '../components/User/UserNavbar';
 import { useAuth } from '../hooks/useAuth';
-import axios from 'axios';
 import { FaUserCircle, FaWhatsapp } from 'react-icons/fa';
 import Footer from '../components/Footer';
-import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom'; // For navigation
 
 function Userdashboard() {
-  const navigate = useNavigate();
-  const { user, token } = useAuth();
+  const { user } = useAuth();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (user) setLoading(false);
+    if (user !== undefined) setLoading(false);
   }, [user]);
 
   if (loading) {
@@ -62,34 +59,41 @@ function Userdashboard() {
 
             {/* Quick Actions */}
             <div className="bg-gradient-to-r from-red-900 to-orange-900 rounded-xl p-6 text-center">
-              <h4 className="text-xl font-bold mb-6">Quick Actions</h4>
+              <h4 className="text-xl font-bold mb-6 text-white">Quick Actions</h4>
 
-              {/* Each Action with Proper Spacing */}
               <div className="space-y-4">
                 {/* Personal Information */}
-                <div className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition">
+                <Link
+                  to="/user/personalinfo"
+                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full"
+                >
                   <span>Personal Information</span>
-                  <button className="bg-transparent border-2 border-red-500 text-lg font-bold text-red-500 w-10 h-10 rounded flex items-center justify-center transition-colors duration-300 hover:bg-red-500 hover:text-white"
-                  onClick={() => navigate('/User/PersonalInfo')}>
+                  <span className="bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold">
                     &gt;
-                  </button>
-                </div>
+                  </span>
+                </Link>
 
                 {/* Book Class */}
-                <div className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition">
+                <Link
+                  to="/user/bookclass"
+                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full"
+                >
                   <span>Book Class</span>
-                  <button className="bg-transparent border-2 border-red-500 text-lg font-bold text-red-500 w-10 h-10 rounded flex items-center justify-center transition-colors duration-300 hover:bg-red-500 hover:text-white">
+                  <span className="bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold">
                     &gt;
-                  </button>
-                </div>
+                  </span>
+                </Link>
 
                 {/* View Schedule */}
-                <div className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition">
+                <Link
+                  to="/user/schedule"
+                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full"
+                >
                   <span>View Schedule</span>
-                  <button className="bg-transparent border-2 border-red-500 text-lg font-bold text-red-500 w-10 h-10 rounded flex items-center justify-center transition-colors duration-300 hover:bg-red-500 hover:text-white">
+                  <span className="bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold">
                     &gt;
-                  </button>
-                </div>
+                  </span>
+                </Link>
               </div>
             </div>
           </div>
@@ -121,7 +125,7 @@ function Userdashboard() {
         </div>
       </div>
 
-      {/* Floating WhatsApp Button */}
+      {/* Floating WhatsApp */}
       <a
         href="https://wa.me/94743357593"
         target="_blank"
