@@ -4,12 +4,13 @@ import UserNavbar from '../components/User/UserNavbar';
 import { useAuth } from '../hooks/useAuth';
 import { FaUserCircle, FaWhatsapp } from 'react-icons/fa';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom'; // For navigation
+import { Link } from 'react-router-dom';
 import PersonalInfoForm from '../components/User/PresonalInfo';
 
 function Userdashboard() {
   const { user } = useAuth();
   const [loading, setLoading] = useState(true);
+  const [showPersonalInfo, setShowPersonalInfo] = useState(false);
 
   useEffect(() => {
     if (user !== undefined) setLoading(false);
@@ -63,16 +64,21 @@ function Userdashboard() {
               <h4 className="text-xl font-bold mb-6 text-white">Quick Actions</h4>
 
               <div className="space-y-4">
-                {/* Personal Information */}
-                <Link
-                  to="/user/personalinfo"
-                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full"
+                {/* Personal Information - Toggle */}
+                <button
+                  type="button"
+                  onClick={() => setShowPersonalInfo(!showPersonalInfo)}
+                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full text-left"
                 >
                   <span>Personal Information</span>
-                  <span className="bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold">
+                  <span
+                    className={`bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold transition-transform ${
+                      showPersonalInfo ? 'rotate-180' : ''
+                    }`}
+                  >
                     &gt;
                   </span>
-                </Link>
+                </button>
 
                 {/* Book Class */}
                 <Link
@@ -99,8 +105,9 @@ function Userdashboard() {
             </div>
           </div>
 
-          {/* Right Side - Progress */}
+          {/* Right Side - Progress & Personal Info */}
           <div className="lg:col-span-2 space-y-8">
+            {/* Progress Stats */}
             <div className="bg-gray-900 rounded-2xl p-8 border border-red-800">
               <h3 className="text-3xl font-bold mb-6">Your Progress</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -123,13 +130,14 @@ function Userdashboard() {
               </div>
             </div>
 
-            {/* Personal Information Form */}
-            <div className="bg-gray-900 rounded-2xl p-8 border border-red-800">
-              <h3 className="text-3xl font-bold mb-6">Personal Information</h3>
-              <PersonalInfoForm />
-            </div>
+            {/* Personal Information Form - Only shown when toggled */}
+            {showPersonalInfo && (
+              <div className="bg-gray-900 rounded-2xl p-8 border border-red-800">
+                <h3 className="text-3xl font-bold mb-6">Personal Information</h3>
+                <PersonalInfoForm />
+              </div>
+            )}
           </div>
-
         </div>
       </div>
 
@@ -140,7 +148,7 @@ function Userdashboard() {
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 p-5 rounded-full shadow-2xl z-50 transition"
       >
-        <FaWhatsapp className="text-5xl" />
+        <FaWhatsapp className="text-5xl text-white" />
       </a>
 
       <Footer />
