@@ -69,9 +69,9 @@ const PersonalInfoForm = () => {
             onChange={handleChange}
             className="w-full border-2 border-gray-300 rounded-lg py-3 px-4 bg-white focus:outline-none focus:border-red-600 text-lg"
           >
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
+            <option className="text-lg font-semibold text-black">Male</option>
+            <option className="text-lg font-semibold text-black">Female</option>
+            <option className="text-lg font-semibold text-black">Other</option>
           </select>
         </div>
 
@@ -82,7 +82,7 @@ const PersonalInfoForm = () => {
             name="dateOfBirth"
             value={formData.dateOfBirth}
             onChange={handleChange}
-            className="w-full border-b-2 border-gray-300 py-3 px-1 focus:outline-none focus:border-red-600 text-lg"
+            className="w-full border-b-2 border-black py-3 px-1 focus:outline-none focus:border-red-600 text-lg"
           />
         </div>
 
@@ -103,14 +103,14 @@ const PersonalInfoForm = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border-2 border-red-600 rounded-lg p-4 text-center">
-            <label className="block text-gray-700 font-medium mb-2">Height (CM)</label>
+            <label className="block text-black font-medium mb-2">Height (CM)</label>
             <input
               type="number"
               name="height"
               value={formData.height}
               onChange={handleChange}
               placeholder="0"
-              className="w-full text-center text-2xl font-semibold outline-none bg-transparent"
+              className="w-full text-center text-2xl font-semibold outline-none bg-transparent text-black"
               min="100"
               max="250"
             />
@@ -123,7 +123,7 @@ const PersonalInfoForm = () => {
               value={formData.weight}
               onChange={handleChange}
               placeholder="0"
-              className="w-full text-center text-2xl font-semibold outline-none bg-transparent"
+              className="w-full text-center text-2xl font-semibold outline-none bg-transparent text-black"
               min="30"
               max="300"
               step="0.1"
