@@ -6,11 +6,15 @@ import { FaUserCircle, FaWhatsapp } from 'react-icons/fa';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import PersonalInfoForm from '../components/User/PresonalInfo';
+import ChangePasswordForm from '../components/ChangePasswordForm';
 
 function Userdashboard() {
   const { user } = useAuth();
   const [loading, setLoading] = useState(true);
   const [showPersonalInfo, setShowPersonalInfo] = useState(false);
+  const handleShowChangePassword = () => {
+    setShowChangePassword(true);
+  };
 
   useEffect(() => {
     if (user !== undefined) setLoading(false);
@@ -133,7 +137,7 @@ function Userdashboard() {
                 {/* Change Password */}
                 <button
                   type="button"
-                  onClick={() => setShowChangePassword(!setShowChangePassword)}
+                  onClick={(handleShowChangePassword) => setShowChangePassword(!setShowChangePassword)}
                   className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full"
 
                 >
@@ -192,6 +196,38 @@ function Userdashboard() {
               <div className="bg-gray-900 rounded-2xl p-8 border border-red-800">
                 <h3 className="text-3xl font-bold mb-6">Personal Information</h3>
                 <PersonalInfoForm />
+              </div>
+            )}
+
+            {/* Book a Class - Only shown when toggled */}
+            {showBookClass && (
+              <div className="bg-gray-900 rounded-2xl p-8 border border-red-800">
+                <h3 className="text-3xl font-bold mb-6">Book a Class</h3>
+                <BookClass />
+              </div>
+            )}
+
+            {/* View Schedule - Only shown when toggled */}
+            {showViewSchedule && (
+              <div className="bg-gray-900 rounded-2xl p-8 border border-red-800">
+                <h3 className="text-3xl font-bold mb-6">View Schedule</h3>
+                <ViewSchedule />
+              </div>
+            )}
+
+            {/* Membership Details - Only shown when toggled */}
+            {showMembership && (
+              <div className="bg-gray-900 rounded-2xl p-8 border border-red-800">
+                <h3 className="text-3xl font-bold mb-6">Membership Details</h3>
+                <MembershipDetails />
+              </div>
+            )}
+
+            {/* Change Password - Only shown when toggled */}
+            {showChangePassword && (
+              <div className="bg-gray-900 rounded-2xl p-8 border border-red-800">
+                <h3 className="text-3xl font-bold mb-6">Change Password</h3>
+                <ChangePassword />
               </div>
             )}
           </div>

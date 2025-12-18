@@ -73,4 +73,23 @@ router.get('/profile', protect, async (req, res) => {
   }
 });
 
+// Add this route in auth.js
+router.post('/change-password', protect, async (req, res) => {
+  try {
+    const { oldPassword, newPassword } = req.body;
+    const user = await User.findById(req.user.id);
+
+    const match = await bcrypt.compare(oldPassword, user.password);
+    if (!match) return res.status(400).json({ message: 'Old password is incorrect' });
+
+    const hashed = await bcrypt.hash(newPassword, 12);
+    user.password = hashed;
+    await user.save();
+
+    res.json({ message: 'Password changed successfully' });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 export default router;
