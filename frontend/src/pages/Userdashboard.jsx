@@ -81,22 +81,79 @@ function Userdashboard() {
                 </button>
 
                 {/* Book Class */}
-                <Link
-                  to="/user/bookclass"
-                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full"
+                <button
+                  type="button"
+                  onClick={() => setShowBookClass(!ShowBookClass)}
+                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full text-left"
+
                 >
                   <span>Book Class</span>
-                  <span className="bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold">
+                  <span
+                    className={`bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold transition-transform ${
+                      ShowBookClass ? 'rotate-180' : ''
+                    }`}
+                  >
                     &gt;
                   </span>
-                </Link>
+                </button>
 
                 {/* View Schedule */}
-                <Link
-                  to="/user/schedule"
-                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full"
+                <button
+                  type="button"
+                  onClick={() => setShowViewSchedule(!setShowViewSchedule)}
+                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full text-left"
+
                 >
                   <span>View Schedule</span>
+                  <span
+                    className={`bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold transition-transform ${
+                      ShowBookClass ? 'rotate-180' : ''
+                    }`}
+                  >
+                    &gt;
+                  </span>
+                </button>
+
+                {/* Membership Details */}
+                <button
+                  type="button"
+                  onClick={() => setShowMembership(!setShowMembership)}
+                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full"
+                >
+                  <span>Membership Details</span>
+                  <span
+                    className={`bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold transition-transform ${
+                      showMembership ? 'rotate-180' : ''
+                    }`}
+                  >
+                    &gt;
+                  </span>
+                </button>
+
+                {/* Change Password */}
+                <button
+                  type="button"
+                  onClick={() => setShowChangePassword(!setShowChangePassword)}
+                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full"
+
+                >
+                  <span>Change Password</span>
+                  <span
+                    className={`bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold transition-transform ${
+                      ShowBookClass ? 'rotate-180' : ''
+                    }`}
+                  >
+                    &gt;
+                  </span>
+                  
+                </button>
+
+                {/* Logout */}
+                <Link
+                  to="/"
+                  className="flex items-center justify-between bg-white text-black py-4 px-6 rounded-lg font-bold hover:bg-gray-200 transition w-full"
+                >
+                  <span>Logout</span>
                   <span className="bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold">
                     &gt;
                   </span>
