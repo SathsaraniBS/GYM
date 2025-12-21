@@ -9,7 +9,7 @@ const PersonalInfoForm = () => {
     country: '',
     height: '',
     weight: '',
-  });
+  })
 
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState('');
