@@ -6,7 +6,7 @@ import { FaUserCircle, FaWhatsapp } from 'react-icons/fa';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import PersonalInfoForm from '../components/User/PresonalInfo';
-import ChangePasswordForm from '../components/ChangePasswordForm';
+import ChangePasswordForm from '../components/User/ChangePasswordForm';
 
 function Userdashboard() {
   const { user } = useAuth();
@@ -15,6 +15,11 @@ function Userdashboard() {
   const handleShowChangePassword = () => {
     setShowChangePassword(true);
   };
+
+  const [showChangePassword, setShowChangePassword] = useState(false);
+  const [showMembership, setShowMembership] = useState(false);
+  const [showBookClass, setShowBookClass] = useState(false);
+  const [showViewSchedule, setShowViewSchedule] = useState(false);
 
   useEffect(() => {
     if (user !== undefined) setLoading(false);
@@ -94,7 +99,7 @@ function Userdashboard() {
                   <span>Book Class</span>
                   <span
                     className={`bg-transparent border-2 border-red-500 text-red-500 w-10 h-10 rounded flex items-center justify-center text-lg font-bold transition-transform ${
-                      ShowBookClass ? 'rotate-180' : ''
+                      showBookClass ? 'rotate-180' : ''
                     }`}
                   >
                     &gt;

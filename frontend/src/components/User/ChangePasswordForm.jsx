@@ -1,7 +1,7 @@
 // src/components/ChangePasswordForm.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 
 const ChangePasswordForm = () => {
   const { token } = useAuth(); // Get JWT token from auth context
