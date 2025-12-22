@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaSun, FaMoon } from 'react-icons/fa'; // ← Added icons from react-icons
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false); // FIXED: Track scroll state
-  const [isLightMode, setIsLightMode] = useState(false); // Light mode state
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  const toggleLightMode = () => 
-    setIsLightMode(!isLightMode);
 
   // FIXED: Add scroll event listener
   useEffect(() => {
@@ -27,17 +22,6 @@ function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll); // Cleanup
   }, []);
-
-  // Dynamic classes based on mode
-  const navBg = isLightMode
-    ? 'bg-white/90 backdrop-blur-md shadow-lg'
-    : isScrolled
-    ? 'bg-gradient-to-r from-black to-red-900'
-    : 'bg-transparent';
-
-  const textColor = isLightMode ? 'text-gray-900' : 'text-white';
-  const hoverColor = isLightMode ? 'hover:text-red-600' : 'hover:text-red-400';
-  const mobileBg = isLightMode ? 'bg-white/95' : 'bg-red-900';
 
   return (
     <nav
@@ -103,20 +87,7 @@ function Navbar() {
           >
             Register
           </Link>
-
         </div>
-
-        {/* Light/Dark Mode Toggle + Mobile Menu Button */}
-        <div className="flex items-center gap-4">
-          {/* Theme Toggle Button with React Icons */}
-          <button
-            onClick={toggleLightMode}
-            className={`p-2 rounded-full ${isLightMode ? 'bg-gray-200 text-gray-900' : 'bg-gray-800 text-yellow-400'} transition flex items-center justify-center`}
-            aria-label="Toggle theme"
-          >
-            {isLightMode ? <FaMoon size={20} /> : <FaSun size={20} />}
-          </button>
-
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
@@ -204,7 +175,6 @@ function Navbar() {
         </div>
       )}
     </nav>
-    
   );
 }
 
