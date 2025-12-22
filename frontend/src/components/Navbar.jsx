@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaSun, FaMoon } from 'react-icons/fa'; // ← Added icons from react-icons
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,7 +9,6 @@ function Navbar() {
   const [isLightMode, setIsLightMode] = useState(false); // Light mode state
 
   const toggleMenu = () => setIsOpen(!isOpen);
-
   const toggleLightMode = () => setIsLightMode(!isLightMode);
 
   useEffect(() => {
@@ -68,13 +68,13 @@ function Navbar() {
 
           <Link
             to="/login"
-            className={`bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition`}
+            className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition"
           >
             Login
           </Link>
           <Link
             to="/register"
-            className={`bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition`}
+            className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-md transition"
           >
             Register
           </Link>
@@ -82,13 +82,13 @@ function Navbar() {
 
         {/* Light/Dark Mode Toggle + Mobile Menu Button */}
         <div className="flex items-center gap-4">
-          {/* Theme Toggle Button */}
+          {/* Theme Toggle Button with React Icons */}
           <button
             onClick={toggleLightMode}
-            className={`p-2 rounded-full ${isLightMode ? 'bg-gray-200' : 'bg-gray-800'} transition`}
-            aria-label="Toggle light mode"
+            className={`p-2 rounded-full ${isLightMode ? 'bg-gray-200 text-gray-900' : 'bg-gray-800 text-yellow-400'} transition flex items-center justify-center`}
+            aria-label="Toggle theme"
           >
-            {isLightMode ? '🌙' : '☀️'}
+            {isLightMode ? <FaMoon size={20} /> : <FaSun size={20} />}
           </button>
 
           {/* Mobile Menu Toggle */}
