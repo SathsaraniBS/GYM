@@ -4,7 +4,7 @@ import UserNavbar from '../components/User/UserNavbar';
 import { useAuth } from '../hooks/useAuth';
 import { FaUserCircle, FaWhatsapp } from 'react-icons/fa';
 import Footer from '../components/Footer';
-import PersonalInfoForm from '../components/User/PersonalInfoForm';
+import PersonalInfoForm from '../components/User/PresonalInfo'
 import ChangePasswordForm from '../components/User/ChangePasswordForm';
 
 function UserDashboard() {
