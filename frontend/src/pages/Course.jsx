@@ -110,7 +110,8 @@ function Course() {
                   <li key={i}>{feature}</li>
                 ))}
               </ul>
-              <button className="w-full bg-black bg-transparent border-2 border-red-500 text-lg font-semibold text-white py-2 rounded hover:bg-red-500 transition-colors duration-300">
+              <button className="w-full bg-black bg-transparent border-2 border-red-500 text-lg font-semibold text-white py-2 rounded hover:bg-red-500 transition-colors duration-300"
+                onClick={() => navigate('/BecomeaMember ')}>
                 ENROLL NOW
               </button>
             </div>

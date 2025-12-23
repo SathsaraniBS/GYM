@@ -47,7 +47,7 @@ function Navbar() {
             to="/course"
             className="font-roboto font-bold text-2xl text-white hover:text-red-500 transition duration-300"
           >
-            COURSE
+            CLASSES
           </Link>
           <Link
             to="/gallery"
@@ -129,7 +129,7 @@ function Navbar() {
             className="block text-white hover:text-gray-200 py-2 px-4 transition duration-300"
             onClick={toggleMenu}
           >
-            Course
+            CLASS
           </Link>
           <Link
             to="/gallery"
