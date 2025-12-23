@@ -1,11 +1,30 @@
 // src/pages/BecomeaMember.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Clock, User, Dumbbell, Users, Check } from 'lucide-react';
+import { Clock, User, Dumbbell, Users } from 'lucide-react';
 
 function BecomeaMember() {
-  
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    age: '',
+    gender: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // In future: Send to backend or proceed to plan selection
+    alert('Form submitted successfully! (Check console for data)');
+  };
+
   const plans = [
     {
       title: "Class drop-in",
@@ -38,11 +57,6 @@ function BecomeaMember() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90 z-10"></div>
-        {/* <img 
-          src="" 
-          alt="Gym hero" 
-          className="absolute inset-0 w-full h-full object-cover"
-        /> */}
         
         <div className="relative z-20 text-center px-6 max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
@@ -88,7 +102,6 @@ function BecomeaMember() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Choose Your Perfect Plan</h2>
         </div>
 
-         {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 w-full max-w-5xl"> */}
         <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <div key={index} className="bg-black rounded-lg p-6 shadow-lg text-white border-2 border-orange-500 transform hover:scale-105 transition-transform duration-300">
@@ -99,42 +112,12 @@ function BecomeaMember() {
                   <li key={i}>{feature}</li>
                 ))}
               </ul>
-              <button className="w-full bg-black bg-transparent border-2 border-red-500 text-lg font-semibold text-white py-2 rounded hover:bg-red-500 transition-colors duration-300">
+              <button className="w-full bg-transparent border-2 border-red-500 text-lg font-semibold text-white py-2 rounded hover:bg-red-500 transition-colors duration-300">
                 ENROLL NOW
               </button>
             </div>
           ))}
         </div>
-
-        {/* <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
-            <div 
-              key={index}
-              className={`bg-gray-900/80 backdrop-blur border-2 ${index === 1 ? 'border-orange-500 scale-105 shadow-2xl' : 'border-gray-700'} rounded-3xl p-8 text-center hover:border-red-600 transition-all duration-300`}
-            >
-              {index === 1 && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-6 py-2 rounded-full text-sm font-bold">
-                  MOST POPULAR
-                </div>
-              )}
-              <h3 className="text-2xl font-bold mb-4">{plan.title}</h3>
-              <div className="text-6xl font-black text-orange-500 mb-8">
-                {plan.price}
-              </div>
-              <ul className="space-y-4 mb-10">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center justify-center gap-3">
-                    <Check className="w-6 h-6 text-green-400" />
-                    <span className="text-gray-300">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <button className="w-full bg-red-600 hover:bg-red-700 py-5 rounded-xl font-bold text-lg shadow-xl transform hover:scale-105 transition">
-                ENROLL NOW
-              </button>
-            </div>
-          ))}
-        </div> */}
       </section>
 
       {/* Join Steps */}
@@ -159,15 +142,64 @@ function BecomeaMember() {
             </div>
           </div>
 
-          <div className="bg-gray-900/70 backdrop-blur border border-red-900/30 rounded-3xl p-10 max-w-2xl mx-auto">
-            <input type="text" placeholder="Full Name" className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400" />
-            <input type="email" placeholder="Email address" className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400" />
-            <input type="tel" placeholder="Phone Number" className="w-full mb-8 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400" />
-            <input type="gender" placeholder="Gender" className="w-full mb-8 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400" />
-            <button className="w-full bg-red-600 hover:bg-red-700 py-5 rounded-xl font-bold text-xl shadow-xl transform hover:scale-105 transition">
+          <form onSubmit={handleSubmit} className="bg-gray-900/70 backdrop-blur border border-red-900/30 rounded-3xl p-10 max-w-2xl mx-auto">
+            <input
+              type="text"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              placeholder="Full Name"
+              required
+              className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400"
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email address"
+              required
+              className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400"
+            />
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Phone Number"
+              required
+              className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400"
+            />
+            <input
+              type="number"
+              name="age"
+              value={formData.age}
+              onChange={handleChange}
+              placeholder="Age"
+              required
+              min="18"
+              className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400"
+            />
+            <select
+              name="gender"
+              value={formData.gender}
+              onChange={handleChange}
+              required
+              className="w-full mb-8 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white"
+            >
+              <option value="" className="bg-red-600 text-gray-400" disabled>Select Gender</option>
+              <option value="male" className="bg-red-600">Male</option>
+              <option value="female" className="bg-red-600">Female</option>
+              <option value="prefer-not" className="bg-red-600" >Prefer not to say</option>
+            </select>
+
+            <button
+              type="submit"
+              className="w-full bg-red-600 hover:bg-red-700 py-5 rounded-xl font-bold text-xl shadow-xl transform hover:scale-105 transition"
+            >
               Continue to Plan Selection
             </button>
-          </div>
+          </form>
         </div>
       </section>
 
