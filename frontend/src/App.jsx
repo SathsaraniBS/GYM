@@ -13,6 +13,7 @@ import GalleryPage from './pages/GalleryPage';
 import BecomeaMember from './pages/BecomeaMember';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import UserDashboard from './pages/Userdashboard';
+import Membership from './pages/Membership';
 
 const router = createBrowserRouter(
   [
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
     { path: '/gallery', element: <GalleryPage /> },
     { path: '/ourteam', element: <Ourteam /> },
     { path: '/becomeamember', element: <BecomeaMember /> },
+    { path: '/membership', element: <Membership /> },
 
     // Protected routes
     { path: '/admin/dashboard', element: <AdminDashboard /> },

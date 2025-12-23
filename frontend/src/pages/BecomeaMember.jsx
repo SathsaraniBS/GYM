@@ -21,7 +21,6 @@ function BecomeaMember() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // In future: Send to backend or proceed to plan selection
     alert('Form submitted successfully! (Check console for data)');
   };
 
@@ -180,18 +179,39 @@ function BecomeaMember() {
               min="18"
               className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400"
             />
-            <select
-              name="gender"
-              value={formData.gender}
-              onChange={handleChange}
-              required
-              className="w-full mb-8 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white"
-            >
-              <option value="" className="bg-red-600 text-gray-400" disabled>Select Gender</option>
-              <option value="male" className="bg-red-600">Male</option>
-              <option value="female" className="bg-red-600">Female</option>
-              <option value="prefer-not" className="bg-red-600" >Prefer not to say</option>
-            </select>
+            
+            {/* Gender Select with Red Theme */}
+            <div className="relative mb-8">
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                required
+                className="w-full px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white appearance-none cursor-pointer pr-12"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ef4444' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+                  backgroundPosition: 'right 1.5rem center',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: '1.5em'
+                }}
+              >
+                <option value="" disabled className="bg-gray-800 text-gray-400">
+                  Select Gender
+                </option>
+                <option value="male" className="bg-red-600 text-white hover:bg-red-700">
+                  Male
+                </option>
+                <option value="female" className="bg-red-600 text-white hover:bg-red-700">
+                  Female
+                </option>
+                <option value="other" className="bg-red-600 text-white hover:bg-red-700">
+                  Other
+                </option>
+                <option value="prefer-not" className="bg-red-600 text-white hover:bg-red-700">
+                  Prefer not to say
+                </option>
+              </select>
+            </div>
 
             <button
               type="submit"

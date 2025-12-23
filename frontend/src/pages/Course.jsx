@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Gallery from '../components/Gallery';
 import { useNavigate } from 'react-router-dom';
 
+
 function Course() {
 
   const navigate = useNavigate();
@@ -32,6 +33,10 @@ function Course() {
       features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
     },
   ];
+
+  const handleEnrollClick = () => {
+    navigate('/membership');
+  };
 
   return (
     <div className="bg-gray-100">
@@ -111,7 +116,7 @@ function Course() {
                 ))}
               </ul>
               <button className="w-full bg-black bg-transparent border-2 border-red-500 text-lg font-semibold text-white py-2 rounded hover:bg-red-500 transition-colors duration-300"
-                onClick={() => navigate('/BecomeaMember ')}>
+                onClick={handleEnrollClick}>
                 ENROLL NOW
               </button>
             </div>
