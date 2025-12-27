@@ -106,7 +106,7 @@ function Signup() {
 
       // 3. Redirect based on role
       if (res.data.user.role === "admin") {
-        navigate("/admin/dashboard");
+        navigate("/admin");
       } else {
         navigate("/user/dashboard");
       }

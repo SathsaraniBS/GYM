@@ -92,7 +92,7 @@ function Login() {
       login(res.data.token, res.data.user);
 
       if (res.data.user.role === "admin") {
-        navigate("/admin/dashboard");
+        navigate("/admin");
       } else {
         navigate("/user/dashboard");
       }
