@@ -29,7 +29,8 @@ const router = createBrowserRouter(
     { path: '/membership', element: <Membership /> },
 
     // Protected routes
-    { path: '/admin/dashboard', element: <AdminDashboard /> },
+    // { path: '/admin/dashboard', element: <AdminDashboard /> },
+    { path: '/admin', element: <AdminDashboard /> },
     { path: '/user/dashboard', element: <UserDashboard /> },
   ],
   {
