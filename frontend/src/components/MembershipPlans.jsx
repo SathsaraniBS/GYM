@@ -37,7 +37,52 @@ function MembershipPlans() {
         <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">
           Choose a Membership
         </h1>
-    </div>
+
+        {/* Filter Section */}
+        <div className="mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <label className="text-gray-700 font-medium">Filter by Club:</label>
+          <select className="w-full sm:w-64 px-4 py-3 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option>All</option>
+            {/* Add more options if needed */}
+          </select>
+        </div>
+
+        {/* Discount Code */}
+        <div className="mb-12">
+          <a href="#" className="text-blue-600 hover:underline font-medium">
+            Apply Discount Code
+          </a>
+        </div>
+
+        {/* Plans Grid */}
+        <div className="space-y-8">
+          {plans.map((plan, index) => (
+            <div
+              key={index}
+              className={`rounded-lg overflow-hidden shadow-lg flex flex-col lg:flex-row justify-between items-stretch ${
+                plan.highlight ? 'bg-green-500 text-white' : 'bg-black text-white'
+              }`}
+            >
+              {/* Left Section - Title & Details */}
+              <div className="p-8 flex-1">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">{plan.title}</h2>
+                {plan.description && (
+                  <p className="text-lg whitespace-pre-line mb-4 opacity-90">
+                    {plan.description}
+                  </p>
+                )}
+                <p className="text-lg opacity-90">{plan.signupFee}</p>
+              </div>
+
+              {/* Right Section - Price */}
+              <div className="p-8 flex flex-col justify-center items-start lg:items-end">
+                <p className="text-3xl md:text-4xl font-bold">{plan.fullCost}</p>
+                <p className="text-lg mt-2">Full Cost</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 

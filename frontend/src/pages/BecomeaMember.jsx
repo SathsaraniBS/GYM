@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Clock, User, Dumbbell, Users } from 'lucide-react';
+import MembershipPlans from '../components/MembershipPlans';
 
 function BecomeaMember() {
   const [formData, setFormData] = useState({
@@ -73,7 +74,11 @@ function BecomeaMember() {
             Choose Your Plan
           </button>
         </div>
+
       </section>
+
+      <MembershipPlans />
+
 
       {/* Features Section */}
       <section className="py-20 px-6 bg-gray-950">
