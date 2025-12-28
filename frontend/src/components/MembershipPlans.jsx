@@ -34,15 +34,18 @@ function MembershipPlans() {
     <div>
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">
           Choose a Membership
         </h1>
 
         {/* Filter Section */}
-        <div className="mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-          <label className="text-gray-700 font-medium">Filter by Club:</label>
-          <select className="w-full sm:w-64 px-4 py-3 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <div className="mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-6 justify-center">
+          <label className="text-2xl text-white font-semibold">Filter by Club:</label>
+          <select className="w-full sm:w-64 px-4 py-3 border border-red-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
             <option>All</option>
+            <option>Individual</option>
+            <option>Couples</option>
+            <option>Family</option>
             {/* Add more options if needed */}
           </select>
         </div>
