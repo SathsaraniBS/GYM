@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { FaDumbbell, FaAppleAlt, FaClipboardList, FaHeart, FaEnvelope, FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 function Ourteam() {
   const features = [
@@ -16,19 +17,19 @@ function Ourteam() {
       icon: FaAppleAlt,
       title: "Healthy Nutrition Plan",
       desc: "Expert-guided nutrition plans tailored to fuel your body and support your fitness journey with balanced meals.",
-      color: "orange"
+      color: "red"
     },
     {
       icon: FaClipboardList,
       title: "Professional Training Plan",
       desc: "Certified trainers create personalized workout plans to maximize your strength, endurance, and progress.",
-      color: "orange"
+      color: "red"
     },
     {
       icon: FaHeart,
       title: "Unique to Your Needs",
       desc: "Customized fitness solutions that adapt to your lifestyle, preferences, and goals for a personal experience.",
-      color: "orange"
+      color: "red"
     }
   ];
 
@@ -49,6 +50,10 @@ function Ourteam() {
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop"
     }
   ];
+
+  const handleEnrollClick = () => {
+    navigate('/membership');
+  };
 
   return (
     <div className="bg-gray-100">
@@ -78,10 +83,10 @@ function Ourteam() {
             {features.map((item, index) => (
               <div key={index} className="text-center group">
                 <div className={`w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-2xl ${
-                  item.color === 'red' ? 'bg-red-900 group-hover:bg-red-600' : 'bg-gray-900 group-hover:bg-orange-500'
+                  item.color === 'white' ? 'bg-red-900 group-hover:bg-red-600' : 'bg-gray-900 group-hover:bg-red-500'
                 }`}>
                   <item.icon className={`text-3xl transition-colors ${
-                    item.color === 'red' ? 'text-red-500 group-hover:text-white' : 'text-orange-500 group-hover:text-white'
+                    item.color === 'white' ? 'text-red-500 group-hover:text-white' : 'text-red-500 group-hover:text-white'
                   }`} />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
@@ -102,7 +107,7 @@ function Ourteam() {
             {trainers.map((trainer, index) => (
               <div
                 key={index}
-                className="relative bg-gray-900 rounded-3xl overflow-hidden shadow-2xl border border-gray-800 hover:border-red-600 transition-all duration-500 group"
+                className="relative bg-transparent rounded-3xl overflow-hidden shadow-2xl border border-gray-800 hover:border-red-600 transition-all duration-500 group"
               >
                 {/* Trainer Image */}
                 <div className="relative h-96 overflow-hidden">
@@ -120,9 +125,9 @@ function Ourteam() {
                 </div>
 
                 {/* Trainer Info */}
-                <div className="p-8 text-center">
+                <div className=" p-6 sm:p-8 text-center">
                   <h3 className="text-2xl font-bold mb-3">{trainer.name}</h3>
-                  <p className="text-red-400 font-medium mb-6">{trainer.specialty}</p>
+                  <p className="text-gray-400 font-medium mb-6">{trainer.specialty}</p>
 
                   {/* Social Icons */}
                   <div className="flex justify-center gap-6">
@@ -142,7 +147,10 @@ function Ourteam() {
           </div>
 
           {/* Appointment Button */}
-          <button className="mt-16 bg-red-600 hover:bg-red-700 text-white font-bold text-xl px-12 py-5 rounded-full shadow-2xl transform hover:scale-105 transition duration-300">
+          <button className="mt-16 bg-red-600 hover:bg-red-700 text-white font-bold text-xl px-12 py-5 rounded-full shadow-2xl transform hover:scale-105 transition duration-300"
+          onClick={() => navigate('/BecomeaMember')}
+
+          >
             Book Appointment
           </button>
         </div>

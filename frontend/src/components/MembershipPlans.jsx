@@ -48,7 +48,7 @@ function MembershipPlans() {
             <option>Family</option>
             {/* Add more options if needed */}
           {/* </select> */}
-        {/* </div> */} */
+        {/* </div> */} 
 
        
 
@@ -58,7 +58,7 @@ function MembershipPlans() {
             <div
               key={index}
               className={`rounded-lg overflow-hidden shadow-lg flex flex-col lg:flex-row justify-between items-stretch ${
-                plan.highlight ? 'bg-green-500 text-white' : 'bg-black text-white'
+                plan.highlight ? 'bg-black text-white' : 'bg-black text-white'
               }`}
             >
               {/* Left Section - Title & Details */}
