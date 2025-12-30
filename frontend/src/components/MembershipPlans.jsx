@@ -38,7 +38,7 @@ function MembershipPlans() {
           Choose a Membership
         </h1>
 
-        {/* Filter Section */}
+        {/* Filter Section
         <div className="mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-6 justify-center">
           <label className="text-2xl text-white font-semibold">Filter by Club:</label>
           <select className="w-full sm:w-64 px-4 py-3 border border-red-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
@@ -47,15 +47,10 @@ function MembershipPlans() {
             <option>Couples</option>
             <option>Family</option>
             {/* Add more options if needed */}
-          </select>
-        </div>
+          {/* </select> */}
+        {/* </div> */} */
 
-        {/* Discount Code */}
-        <div className="mb-12">
-          <a href="#" className="text-blue-600 hover:underline font-medium">
-            Apply Discount Code
-          </a>
-        </div>
+       
 
         {/* Plans Grid */}
         <div className="space-y-8">
