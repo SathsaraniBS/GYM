@@ -63,11 +63,7 @@ function ContactPage() {
               CONTACT US
             </h1>
           </div>
-          {/* <div className="text-center mt-8">
-            <p className="text-gray-200 mb-4">Or reach us directly at:</p>
-            <p className="text-gray-100 font-semibold">Email: info@yourgym.com</p>
-            <p className="text-gray-100 font-semibold">Phone: +1 (123) 456-7890</p>
-          </div> */}
+          
         </div>
       </section>
 
@@ -77,6 +73,8 @@ function ContactPage() {
           <div className="md:w-1/2 p-6">
             <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
             <p className="mb-6">We're here to help! Reach out to us with any questions or feedback.</p>
+
+            
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
@@ -120,34 +118,9 @@ function ContactPage() {
           </div>
 
           {/* Right Section - Location and Contact Info */}
-          <div className="md:w-1/2 p-6 space-y-6">
-            <div className="bg-gray-800 p-4 rounded-lg h-64">
-              <h2 className="text-2xl font-bold mb-2">Our Location</h2>
-              <LoadScript googleMapsApiKey="YOUR_ACTUAL_GOOGLE_MAPS_API_KEY">
-                <GoogleMap
-                  mapContainerStyle={mapContainerStyle}
-                  center={center}
-                  zoom={10}
-                  className="h-full w-full rounded-lg"
-                >
-                  <Marker position={position} />
-                </GoogleMap>
-              </LoadScript>
-            </div>
-            {/* Contact Information */}
-            <div className="bg-gray-800 p-6 rounded-lg space-y-6">
-              <h2 className="text-2xl font-bold mb-2">Contact Information</h2>
-              <p className="flex items-center mb-2">
-                <FaMapMarkerAlt className="text-red-500 mr-2" /> Address: 123 Fitness Lane, New York, NY 10001
-              </p>
-              <p className="flex items-center mb-2">
-                <FaPhone className="text-red-500 mr-2" /> Phone: (555) 123-4567
-              </p>
-              <p className="flex items-center">
-                <FaEnvelope className="text-red-500 mr-2" /> Email: info@fitnesspro.com
-              </p>
-            </div>
-          </div>
+          
+          
+           
         </div>
       </div>
 

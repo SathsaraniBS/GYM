@@ -1,6 +1,7 @@
 // src/pages/Membership.jsx
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 function Membership() {
   const [branch, setBranch] = useState('');
@@ -177,6 +178,7 @@ function Membership() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
