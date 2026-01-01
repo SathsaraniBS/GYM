@@ -10,13 +10,13 @@ function Membership() {
 
   const pricingData = {
     '2 Gents (Buddy Offer)': {  monthly: 10000, half_year: 55000 ,annual: 110000},
-    'Buddy Gents': { annual: 85000, monthly: 7500 },
-    'Buddy Ladies': { annual: 85000, monthly: 7500 },
-    'Individual Ladies': { annual: 90000, monthly: 8000 },
+    'Buddy Gents': { annual: 85000, half_year: 42500, monthly: 7500 },
+    'Buddy Ladies': { annual: 85000, half_year: 42500, monthly: 7500 },
+    'Individual Ladies': { annual: 90000,half_year: 45000, monthly: 8000 ,daily:1000 },
     'Individual Gents': { annual: 95000, half_year: 47500, monthly: 8500,daily:1000 },
-    'Couple': { annual: 160000, monthly: 14000 },
+    'Couple': { annual: 160000,half_year: 80000, monthly: 14000 },
     'Family': { annual: 250000, half_year: 125000, monthly: 22000 },
-    'Student': { daily: 700, annual: 60000, monthly: 5500 },
+    'Student': { daily: 700, half_year: 35000, annual: 60000, monthly: 5500 },
   };
 
   const calculateTotal = () => {
@@ -125,8 +125,7 @@ function Membership() {
                     <span>{time}</span>
                     <span></span>
                     {/* <span>{duration === 'annual' ? 'Annual' : 'Monthly'}</span> */}
-                    <span>{duration === 'annual' ? 'Annual' : 'Monthly'}</span>
-                    <span>{duration === 'annual' ? 'Annual' : 'Half Yearly'}</span>
+                    <span>{duration === 'annual' ? 'Annual' : 'Monthly' ? 'Monthly' : 'Half Yearly'}</span>
                   </div>
                   <div className="border-t border-gray-700 pt-4">
                     <div className="flex justify-between text-2xl font-bold">
