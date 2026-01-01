@@ -18,11 +18,36 @@ const ContactPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmissionMessage(`Thank you, ${formData.name}! Your message has been sent.`);
-    setFormData({ name: '', email: '', mobile: '', message: '' });
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setSubmissionMessage(`Thank you, ${formData.name}! Your message has been sent.`);
+  //   setFormData({ name: '', email: '', mobile: '', message: '' });
+  // };
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch('http://localhost:5000/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setSubmissionMessage(data.message);
+      setFormData({ name: '', email: '', mobile: '', message: '' });
+    } else {
+      setSubmissionMessage(data.message || 'Failed to send message');
+    }
+  } catch (err) {
+    setSubmissionMessage('Server error. Please try again later.');
+  }
+};
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">

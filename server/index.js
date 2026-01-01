@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 import authRouter from './routes/auth.js';
 import reviewRouter from './routes/reviews.js';
 import adminRouter from './routes/admin.js';
-
+import contactRouter from './routes/contact.js';
 dotenv.config();
 
 const app = express();
@@ -18,6 +18,7 @@ app.use(express.json());
 app.use('/api/auth', authRouter);
 app.use('/api/reviews', reviewRouter);
 app.use('/api/admin', adminRouter);
+app.use('/api/contact', contactRouter);
 
 // Global error handler (optional but helpful)
 app.use((err, req, res, next) => {
