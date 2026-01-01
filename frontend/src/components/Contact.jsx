@@ -1,132 +1,157 @@
-import React from 'react';
+// src/pages/ContactPage.jsx
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
-function ContactPage() {
-  const [formData, setFormData] = React.useState({
+const ContactPage = () => {
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    mobile: '',
     message: '',
   });
-  const [submissionMessage, setSubmissionMessage] = React.useState('');
+
+  const [submissionMessage, setSubmissionMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const currentTime = new Date().toLocaleString('en-US', {
-      timeZone: 'Asia/Kolkata',
-      hour12: true,
-      hour: '2-digit',
-      minute: '2-digit',
-      day: '2-digit',
-      month: 'long',
-      year: 'numeric',
-      timeZoneName: 'short',
-    });
-    setSubmissionMessage(
-      `Thank you, ${formData.name}! Your message has been received at ${currentTime}.`
-    );
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
-
-  // Map configuration
-  const mapContainerStyle = {
-    height: '100%',
-    width: '100%',
-  };
-  const center = {
-    lat: 40.7128, // Latitude for New York, NY
-    lng: -74.0060, // Longitude for New York, NY
-  };
-  const position = {
-    lat: 40.7128,
-    lng: -74.0060,
+    setSubmissionMessage(`Thank you, ${formData.name}! Your message has been sent.`);
+    setFormData({ name: '', email: '', mobile: '', message: '' });
   };
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
+    <div className="min-h-screen bg-gray-950 text-white">
       <Navbar />
-      <section className="min-h-screen relative bg-[url('/a3.jpg')] bg-black/10 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
-        <div className="text-center p-6 sm:p-8 max-w-3xl mx-auto">
-          <div className="title mb-6 font-bold">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-tight">
-              CONTACT US
-            </h1>
-          </div>
-          
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat bg-[url('/a3.jpg')] bg-black/30 bg-blend-multiply pt-20">
+        <div className="text-center z-10">
+          <p className="text-red-500 text-xl font-semibold uppercase mb-4">Contact Us</p>
+          <h1 className="text-5xl md:text-7xl font-bold">GET IN TOUCH</h1>
         </div>
       </section>
 
-      <div className="bg-black p-10">
-        <div className="flex flex-col md:flex-row justify-between max-w-5xl mx-auto">
-          {/* Left Section - Contact Form */}
-          <div className="md:w-1/2 p-6">
-            <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
-            <p className="mb-6">We're here to help! Reach out to us with any questions or feedback.</p>
+      {/* Main Contact Section */}
+      <div className="py-16 px-6 bg-gray-950">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Left: Contact Information */}
+            <div className="space-y-12">
+              {/* Locations */}
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center">
+                  <svg className="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">Our Locations</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    Colombo 7, Maitland Crescent<br />
+                    Colombo 2, Moors Sports Club<br />
+                    Colombo 2, World Trade Center<br />
+                    Ja-ela
+                  </p>
+                </div>
+              </div>
 
-            
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                className="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your Email"
-                className="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <input
-                type="text"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                placeholder="Subject"
-                className="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your Message"
-                className="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 h-32"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-red-500 w-full bg-red-600 text-lg font-semibold text-white p-3 rounded-lg hover:bg-red-700 transition duration-300"
-              >
-                Send Message
-              </button>
-              {submissionMessage && <p className="mt-4 text-green-400">{submissionMessage}</p>}
-            </form>
+              {/* Phone Numbers */}
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center">
+                  <svg className="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">Phone Numbers</h3>
+                  <div className="text-gray-300 space-y-2">
+                    <p><span className="font-medium">Colombo 7:</span> 011-269-5331 | 077-834-5678</p>
+                    <p><span className="font-medium">Moors Sport Club:</span> 011-212-1755 | 075-711-9033</p>
+                    <p><span className="font-medium">World Trade Center:</span> 011-233-8842 | 077-840-5889</p>
+                    <p><span className="font-medium">Ja-ela:</span> 011-222-9747 | 077-834-5678</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center">
+                  <svg className="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884zM18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">Email</h3>
+                  <p className="text-gray-300 text-xl">fitnessfirstcolombo@gmail.com</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Contact Form */}
+            <div>
+              <h2 className="text-4xl font-bold text-center text-red-500 mb-10">Leave a Comment</h2>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Name"
+                  className="w-full px-6 py-4 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500 text-lg"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email"
+                  className="w-full px-6 py-4 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500 text-lg"
+                  required
+                />
+                <input
+                  type="tel"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleChange}
+                  placeholder="Mobile"
+                  className="w-full px-6 py-4 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500 text-lg"
+                  required
+                />
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Message"
+                  rows="6"
+                  className="w-full px-6 py-4 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500 text-lg resize-none"
+                  required
+                />
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl px-20 py-4 rounded-full transition transform hover:scale-105"
+                  >
+                    SUBMIT
+                  </button>
+                </div>
+                {submissionMessage && (
+                  <p className="text-center text-green-400 mt-6 text-lg">{submissionMessage}</p>
+                )}
+              </form>
+            </div>
           </div>
-
-          {/* Right Section - Location and Contact Info */}
-          
-          
-           
         </div>
       </div>
 
       <Footer />
     </div>
   );
-}
+};
 
 export default ContactPage;
