@@ -1,6 +1,7 @@
 // server/routes/contact.js
 import express from 'express';
 import Contact from '../models/Contact.js';
+import { sendContactEmail } from '../utils/sendEmail.js';
 
 const router = express.Router();
 
@@ -16,6 +17,7 @@ router.post('/', async (req, res) => {
 
     const contact = new Contact({ name, email, mobile, message });
     await contact.save();
+    await sendContactEmail({ name, email, mobile, message });
 
     res.status(201).json({ message: 'Thank you! Your message has been received.' });
   } catch (err) {
