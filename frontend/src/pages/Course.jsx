@@ -217,10 +217,12 @@ function Course() {
                   ))}
                 </ul>
                 {/* Enroll Button */}
+              <div className="mt-8">
               <button className="w-full bg-black bg-transparent border-2 border-red-500 text-lg font-semibold text-white py-2 rounded hover:bg-red-500 transition-colors duration-300"
                 onClick={handleEnrollClick}>
                 ENROLL NOW
               </button>
+              </div>
             </div>
               </div>
 
