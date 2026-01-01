@@ -16,21 +16,80 @@ function Course() {
     { title: "TRAINING", category: "BOXING", image: "/class-5.jpg" },
   ];
 
+  // const plans = [
+  //   {
+  //     title: "Class drop-in",
+  //     price: "$39.0",
+  //     features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+  //   },
+  //   {
+  //     title: "12 Month unlimited",
+  //     price: "$99.0",
+  //     features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+  //   },
+  //   {
+  //     title: "6 Month unlimited",
+  //     price: "$59.0",
+  //     features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+  //   },
+  // ];
+
   const plans = [
     {
-      title: "Class drop-in",
-      price: "$39.0",
-      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+      title: "Gents Buddy Package",
+      location: "MOORS",
+      price: "Rs.110000",
+      features: [
+        "Fully equipment gym",
+        "Ladies Only Area",
+        "Certified trainers",
+        "Shower & Changing room facilities",
+        "Free meal plan & workout schedules",
+        "Body assessment",
+        "Ample parking",
+      ],
     },
     {
-      title: "12 Month unlimited",
-      price: "$99.0",
-      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+      title: "Buy 6months Get 6months",
+      location: "JA ELA",
+      price: "Rs.40000",
+      features: [
+        "Fully equipment gym",
+        "Swimming pool, sauna & steam room",
+        "Certified trainers",
+        "Access to all 4 branches",
+        "In-house supplements store",
+        "Shower & Changing room facilities",
+        "Free meal plan & workout schedules",
+        "Body assessment",
+        "Ample parking",
+      ],
     },
     {
-      title: "6 Month unlimited",
-      price: "$59.0",
-      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
+      title: "Gents Buddy Package",
+      location: "JA ELA",
+      price: "Rs.85000",
+      features: [
+        "Fully equipment gym",
+        "Certified trainers",
+        "Shower & Changing room facilities",
+        "Body assessment",
+        "Ample parking",
+      ],
+    },
+    {
+      title: "Family Package",
+      location: "COLOMBO 7",
+      price: "Rs.160000",
+      features: [
+        "Body assessment",
+        "Free meal plan & workout schedules",
+        "In-house supplements store",
+        "Shower & Changing room facilities",
+        "Certified trainers",
+        "Fully equipment gym",
+        "Swimming pool, sauna & steam room",
+      ],
     },
   ];
 
@@ -105,7 +164,7 @@ function Course() {
           <h2 className="text-orange-500 text-4xl font-bold mb-2">OUR PLANS</h2>
           <h1 className="text-white text-4xl font-bold">CHOOSE YOUR PRICING PLAN</h1>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 w-full max-w-5xl">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 w-full max-w-5xl">
           {plans.map((plan, index) => (
             <div key={index} className="bg-black rounded-lg p-6 shadow-lg text-white border-2 border-orange-500 transform hover:scale-105 transition-transform duration-300">
               <h3 className="text-xl font-semibold mb-4">{plan.title}</h3>
@@ -121,8 +180,58 @@ function Course() {
               </button>
             </div>
           ))}
+        </div> */}
+
+        {/* Plans Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  gap-6 mt-15 w-full max-w-7xl">
+          {plans.map((plan, index) => (
+            // <div
+            //   key={index}
+            //   className="bg-black rounded-lg p-6 shadow-2xl text-white overflow-hidden flex flex-col border-2 border-red-800 hover:border-gray-600 transition-all duration-300"
+            // >
+              <div
+              key={index}
+              className="bg-black rounded-lg p-6 shadow-2xl text-white overflow-hidden flex flex-col border-2 border-red-800 transform hover:scale-105 transition-transform duration-300"
+            >
+              {/* Title & Price */}
+              <div className="p-8 text-center border-b border-gray-800">
+                <h2 className="text-xl md:text-2xl font-bold mb-2">
+                  {plan.title}
+                </h2>
+                {plan.location && (
+                  <p className="text-lg text-gray-400 mb-4">{plan.location}</p>
+                )}
+                <p className="text-2xl font-bold text-red-500">
+                  {plan.price}
+                </p>
+              </div>
+
+              {/* Features */}
+              <div className="p-8 flex-1">
+                <ul className="space-y-4 text-gray-300 text-lg">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start">
+                      {/* <span className="text-green-400 mr-3">✔</span> */}
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                {/* Enroll Button */}
+              <button className="w-full bg-black bg-transparent border-2 border-red-500 text-lg font-semibold text-white py-2 rounded hover:bg-red-500 transition-colors duration-300"
+                onClick={handleEnrollClick}>
+                ENROLL NOW
+              </button>
+            </div>
+              </div>
+
+            
+          ))}
         </div>
-      </div>
+             
+            </div>
+        
+
+    
       <Gallery />
       <Footer />
     </div>
