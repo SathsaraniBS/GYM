@@ -31,9 +31,14 @@ const ContactPage = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat bg-[url('/a3.jpg')] bg-black/30 bg-blend-multiply pt-20">
         <div className="text-center z-10">
-          <p className="text-red-500 text-xl font-semibold uppercase mb-4">Contact Us</p>
-          <h1 className="text-5xl md:text-7xl font-bold">GET IN TOUCH</h1>
+          <div className="title mb-6 font-bold">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-tight">
+              CONTACT US
+            </h1>
+          </div>
+
         </div>
+        
       </section>
 
       {/* Main Contact Section */}
@@ -135,7 +140,7 @@ const ContactPage = () => {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl px-20 py-4 rounded-full transition transform hover:scale-105"
+                    className="bg-red-500 w-full bg-red-600 text-lg font-semibold text-white p-3 rounded-lg hover:bg-red-700 transition duration-300"
                   >
                     SUBMIT
                   </button>
