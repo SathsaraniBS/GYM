@@ -9,14 +9,14 @@ function Membership() {
   const [duration, setDuration] = useState('');
 
   const pricingData = {
-    '2 Gents (Buddy Offer)': { annual: 110000, monthly: 10000 },
+    '2 Gents (Buddy Offer)': {  monthly: 10000, half_year: 55000 ,annual: 110000},
     'Buddy Gents': { annual: 85000, monthly: 7500 },
     'Buddy Ladies': { annual: 85000, monthly: 7500 },
     'Individual Ladies': { annual: 90000, monthly: 8000 },
-    'Individual Gents': { annual: 95000, monthly: 8500 },
+    'Individual Gents': { annual: 95000, half_year: 47500, monthly: 8500,daily:1000 },
     'Couple': { annual: 160000, monthly: 14000 },
-    'Family': { annual: 250000, monthly: 22000 },
-    'Student': { annual: 60000, monthly: 5500 },
+    'Family': { annual: 250000, half_year: 125000, monthly: 22000 },
+    'Student': { daily: 700, annual: 60000, monthly: 5500 },
   };
 
   const calculateTotal = () => {
@@ -29,6 +29,7 @@ function Membership() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />
+      <div className="pt-24 pb-12 px-4">
       <div className="max-w-7xl mx-auto py-12 px-4">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12">
           Membership Registration
@@ -92,8 +93,10 @@ function Membership() {
                   className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-lg"
                 >
                   <option value="">Select Duration</option>
-                  <option value="annual">Annual</option>
+                  <option value="daily">Daily</option>
                   <option value="monthly">Monthly</option>
+                  <option value="halfyearly">Half Yearly</option>
+                  <option value="annual">Annual</option>
                 </select>
               </div>
             </div>
@@ -121,7 +124,9 @@ function Membership() {
                   <div className="flex justify-between">
                     <span>{time}</span>
                     <span></span>
+                    {/* <span>{duration === 'annual' ? 'Annual' : 'Monthly'}</span> */}
                     <span>{duration === 'annual' ? 'Annual' : 'Monthly'}</span>
+                    <span>{duration === 'annual' ? 'Annual' : 'Half Yearly'}</span>
                   </div>
                   <div className="border-t border-gray-700 pt-4">
                     <div className="flex justify-between text-2xl font-bold">
@@ -143,7 +148,7 @@ function Membership() {
                   <input type="text" placeholder="Last Name" className="px-4 py-3 bg-black border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500" />
                 </div>
                 <input type="text" placeholder="Address" className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500" />
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xl py-4 rounded-lg transition transform hover:scale-105">
+                <button className="w-full bg-transparent border border-red-500 hover:bg-red-500 text-white font-bold text-xl py-4 rounded-lg transition transform hover:scale-105">
                   Pay Now
                 </button>
               </div>
@@ -151,8 +156,9 @@ function Membership() {
           </div>
         </div>
       </div>
+      </div>
     </div>
   );
 }
 
-export default Membership;
+export default Membership;  
