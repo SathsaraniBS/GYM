@@ -32,10 +32,21 @@ function About() {
         </div>
       </section> */}
 
-      <section className="min-h-screen relative bg-[url('/a3.jpg')] bg-black/30 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
-        <div className="text-center text-white p-6 sm:p-8 max-w-3xl mx-auto">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight"></h1>
-      </div>
+      <section className="min-h-screen relative flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/about_v3.mp4" type="/about_v3.mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-black/10 mix-blend-multiply z-10"></div>
+        <div className="relative z-20">
+          {/* Add content here if needed */}
+        </div>
       </section>
 
 
