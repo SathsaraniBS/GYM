@@ -17,8 +17,8 @@ function About() {
     <div className="bg-gray-100">
       <Navbar />
 
-      {/* Hero Section - Darker overlay for better contrast */}
-      <section className="min-h-screen relative bg-[url('/a3.jpg')] bg-black/70 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 saturate-30">
+      {/* Hero Section - Dark gym background with strong overlay and low saturation */}
+      <section className="min-h-screen relative bg-[url('/a3.jpg')] bg-black/80 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 saturate-30">
         <div className="text-center text-white p-6 sm:p-8 max-w-3xl mx-auto">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
             ABOUT US
@@ -32,7 +32,7 @@ function About() {
         </div>
       </section>
 
-      {/* Mission Section - Kept as is */}
+      {/* Mission Section */}
       <div className="bg-black text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl font-bold mb-8">Our Mission</h2>
@@ -42,54 +42,42 @@ function About() {
         </div>
       </div>
 
-      {/* Why Choose Us Section - Redesigned to match screenshot */}
-      <section className="relative bg-[url('/gym-background.jpg')] bg-center bg-cover bg-no-repeat py-32 px-6 saturate-30">  {/* Replace with your dark gym image */}
-        <div className="absolute inset-0 bg-black/80"></div>  {/* Heavy dark overlay */}
+      {/* Why Choose Us Section - Matches screenshot with dark gym background, heavy overlay, and glass-like cards */}
+      <section className="relative bg-[url('/ab2.avif')] bg-center bg-cover bg-no-repeat py-32 px-6 saturate-30"> {/* Replace '/gym-bg.jpg' with your dark gym image */}
+        <div className="absolute inset-0 bg-black/80"></div> {/* Strong dark overlay */}
         <div className="relative max-w-6xl mx-auto text-center text-white">
-          <h2 className="text-2xl font-bold text-red-500 uppercase mb-4">Why Choose Us?</h2>
+          <p className="text-xl font-bold text-red-500 uppercase mb-4">Why Choose Us?</p>
           <h1 className="text-5xl lg:text-6xl font-bold mb-16">Push Your Limits Forward</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            {/* Card 1 */}
-            <div className="bg-black/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-800">
-              <div className="text-red-500 text-5xl mb-6 flex justify-center">
-                <FaDumbbell />
-              </div>
+            <div className="bg-black/50 backdrop-blur-md rounded-3xl p-10 shadow-2xl border border-gray-800">
+              <FaDumbbell className="text-red-500 text-6xl mx-auto mb-6" />
               <h3 className="text-2xl font-bold mb-4">Modern Equipment</h3>
-              <p className="text-gray-400 text-base">
+              <p className="text-gray-300">
                 Our gym is equipped with the latest state-of-the-art fitness machines and technology, designed to deliver maximum performance and safety. Whether you’re strength training or doing cardio, our equipment supports every fitness level and goal.
               </p>
             </div>
 
-            {/* Card 2 */}
-            <div className="bg-black/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-800">
-              <div className="text-red-500 text-5xl mb-6 flex justify-center">
-                <FaAppleAlt />
-              </div>
+            <div className="bg-black/50 backdrop-blur-md rounded-3xl p-10 shadow-2xl border border-gray-800">
+              <FaAppleAlt className="text-red-500 text-6xl mx-auto mb-6" />
               <h3 className="text-2xl font-bold mb-4">Healthy Nutrition Plan</h3>
-              <p className="text-gray-400 text-base">
+              <p className="text-gray-300">
                 We go beyond the gym floor. With Fitness First meal plans, you’ll get nutritious, ready-to-follow food guidance that fuels performance and supports lasting health — because what you eat matters.
               </p>
             </div>
 
-            {/* Card 3 */}
-            <div className="bg-black/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-800">
-              <div className="text-red-500 text-5xl mb-6 flex justify-center">
-                <FaClipboardList />
-              </div>
+            <div className="bg-black/50 backdrop-blur-md rounded-3xl p-10 shadow-2xl border border-gray-800">
+              <FaClipboardList className="text-red-500 text-6xl mx-auto mb-6" />
               <h3 className="text-2xl font-bold mb-4">Professional Training Plan</h3>
-              <p className="text-gray-400 text-base">
+              <p className="text-gray-300">
                 Our certified trainers create structured, results-driven programs that help you train smarter, not harder. From strength and conditioning to fat loss and endurance, we’ve got the perfect plan for you.
               </p>
             </div>
 
-            {/* Card 4 */}
-            <div className="bg-black/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-800">
-              <div className="text-red-500 text-5xl mb-6 flex justify-center">
-                <FaHeart />
-              </div>
+            <div className="bg-black/50 backdrop-blur-md rounded-3xl p-10 shadow-2xl border border-gray-800">
+              <FaHeart className="text-red-500 text-6xl mx-auto mb-6" />
               <h3 className="text-2xl font-bold mb-4">Unique to Your Needs</h3>
-              <p className="text-gray-400 text-base">
+              <p className="text-gray-300">
                 Your fitness journey is personal, and so is our approach. From training plans to meal programs, everything we offer is uniquely crafted to match your individual needs and help you reach your goals faster.
               </p>
             </div>
@@ -97,8 +85,52 @@ function About() {
         </div>
       </section>
 
-      {/* Our Team Section - Kept unchanged */}
-      {/* ... (existing code remains the same) ... */}
+      {/* Our Team Section - Infinite scrolling carousel (unchanged) */}
+      <div className="bg-black text-white py-20 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-xl font-bold text-red-500 uppercase mb-2">Our Team</p>
+          <h1 className="text-4xl font-bold mb-12">Train With Experts</h1>
+
+          <style jsx>{`
+            @keyframes infiniteScroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .carousel-track {
+              display: flex;
+              width: max-content;
+              animation: infiniteScroll 40s linear infinite;
+            }
+            .carousel-track:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+
+          <div className="overflow-hidden">
+            <div className="carousel-track">
+              {[...teamMembers, ...teamMembers].map((member, index) => (
+                <div key={`${member.id}-${index}`} className="flex-shrink-0 w-80 mx-8">
+                  <div className="bg-gray-800 rounded-2xl overflow-hidden shadow-2xl hover:shadow-red-500/30 transition-shadow duration-300">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-96 object-cover"
+                    />
+                    <div className="p-8 text-center">
+                      <h3 className="text-2xl font-bold">{member.name}</h3>
+                      <p className="text-red-400 text-lg mt-2">{member.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button className="mt-12 bg-red-500 hover:bg-red-600 text-white font-bold px-12 py-4 rounded-full text-xl transition transform hover:scale-105">
+            Book Appointment
+          </button>
+        </div>
+      </div>
 
       <Footer />
     </div>
