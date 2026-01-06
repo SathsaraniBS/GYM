@@ -6,6 +6,10 @@ import { FaDumbbell, FaAppleAlt, FaClipboardList, FaHeart, FaEnvelope, FaFaceboo
 import { useNavigate } from 'react-router-dom';
 
 function Ourteam() {
+
+  // const [activeTab, setActiveTab] = useState('All');
+
+  // const tabs = ['All', 'Strength', 'HIIT', 'Yoga', 'Rehab', 'Nutrition'];
   const features = [
     {
       icon: FaDumbbell,
@@ -71,6 +75,19 @@ function Ourteam() {
           <source src="/video2.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/60 z-10"></div>
+      </section>
+
+      <section
+        className="relative h-96 md:h-screen bg-cover bg-center flex items-center justify-center text-center px-6"
+        style={{ backgroundImage: 'url("https://www.shutterstock.com/image-photo/indoor-photo-want-empty-gym-600nw-2606932589.jpg")' }}
+      >
+        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="relative z-10 max-w-4xl">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">MEET THE ELITE TEAM</h1>
+          <p className="text-xl md:text-2xl text-gray-300">
+            World-class experts dedicated to your transformation. We push limits, break barriers, and build strength together.
+          </p>
+        </div>
       </section>
 
       {/* Why Choose Us Section */}

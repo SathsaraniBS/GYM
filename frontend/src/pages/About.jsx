@@ -46,10 +46,12 @@ function About() {
       <section className="relative bg-[url('/ab2.avif')] bg-center bg-cover bg-no-repeat py-32 px-6 saturate-30">
         <div className="absolute inset-0 bg-black/80"></div>
         <div className="relative max-w-6xl mx-auto text-center">
-          <p className="text-3xl font-bold text-red-600 uppercase mb-2">Why Choose Us?</p>
+          <div className="text-3xl font-bold text-red-500 uppercase mb-2">
+          <p className="text-red-500">Why Choose Us?</p>
+          </div>
           <h1 className="text-5xl lg:text-6xl font-bold text-white mb-16">Push Your Limits Forward</h1>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ">
             <div className="bg-black/50 backdrop-blur-md rounded-3xl p-10 shadow-2xl border border-gray-800">
               <FaDumbbell className="text-red-500 text-6xl mx-auto mb-6" />
               <h3 className="text-2xl font-bold mb-4">Modern Equipment</h3>
