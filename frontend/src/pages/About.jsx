@@ -17,7 +17,7 @@ function About() {
     <div className="bg-gray-100">
       <Navbar />
 
-      {/* Hero Section - Dark gym background with strong overlay and low saturation */}
+      {/* Hero Section */}
       <section className="min-h-screen relative bg-[url('/a3.jpg')] bg-black/80 bg-blend-multiply bg-center bg-cover bg-no-repeat flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 saturate-30">
         <div className="text-center text-white p-6 sm:p-8 max-w-3xl mx-auto">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
@@ -42,12 +42,12 @@ function About() {
         </div>
       </div>
 
-      {/* Why Choose Us Section - Matches screenshot with dark gym background, heavy overlay, and glass-like cards */}
-      <section className="relative bg-[url('/ab2.avif')] bg-center bg-cover bg-no-repeat py-32 px-6 saturate-30"> {/* Replace '/gym-bg.jpg' with your dark gym image */}
-        <div className="absolute inset-0 bg-black/80"></div> {/* Strong dark overlay */}
-        <div className="relative max-w-6xl mx-auto text-center text-white">
-          <p className="text-xl font-bold text-red-500 uppercase mb-4">Why Choose Us?</p>
-          <h1 className="text-5xl lg:text-6xl font-bold mb-16">Push Your Limits Forward</h1>
+      {/* Why Choose Us Section */}
+      <section className="relative bg-[url('/ab2.avif')] bg-center bg-cover bg-no-repeat py-32 px-6 saturate-30">
+        <div className="absolute inset-0 bg-black/80"></div>
+        <div className="relative max-w-6xl mx-auto text-center">
+          <p className="text-3xl font-bold text-red-600 uppercase mb-2">Why Choose Us?</p>
+          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-16">Push Your Limits Forward</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div className="bg-black/50 backdrop-blur-md rounded-3xl p-10 shadow-2xl border border-gray-800">
@@ -85,7 +85,7 @@ function About() {
         </div>
       </section>
 
-      {/* Our Team Section - Infinite scrolling carousel (unchanged) */}
+      {/* Our Team Section */}
       <div className="bg-black text-white py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-xl font-bold text-red-500 uppercase mb-2">Our Team</p>
