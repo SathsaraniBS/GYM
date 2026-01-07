@@ -44,7 +44,7 @@ function Ourteam() {
         style={{ backgroundImage: 'url("https://www.shutterstock.com/image-photo/indoor-photo-want-empty-gym-600nw-2606932589.jpg")' }}>
         <div className="absolute inset-0 bg-black/70"></div>
         <div className="relative z-10 max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">MEET THE ELITE TEAM</h1>
+          <h1 className="text-5xl md:text-7xl font-bold mt-20 text mb-6 text-white">MEET THE ELITE TEAM</h1>
           <p className="text-xl md:text-2xl text-gray-300">
             World-class experts dedicated to your transformation. We push limits, break barriers, and build strength together.
           </p>
@@ -59,8 +59,9 @@ function Ourteam() {
                 "Strength is a mindset." With over 15 years of competitive experience, Alex leads our elite programming division. Specialized in maximizing raw power and injury prevention.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <button className="px-8 py-4 bg-red-600 rounded-full hover:bg-red-700 transition font-bold text-lg">Book Session</button>
-                <button className="px-8 py-4 border-2 border-gray-600 rounded-full hover:bg-gray-700 transition font-bold text-lg">View Profile</button>
+                <button className="px-8 py-4 bg-red-600 rounded-full hover:bg-red-700 transition font-bold text-lg text-white">Book Session</button>
+                {/* <button className="px-8 py-4 border-2 border-gray-600 rounded-full hover:bg-gray-700 transition font-bold text-lg">View Profile</button>
+              </div> */}
               </div>
             </div>
           </div>
@@ -73,7 +74,7 @@ function Ourteam() {
         </div>
       </section>
 
-      {/* {/* Head Coach Section (kept as in previous examples) */}
+      {/* Head Coach Section (kept as in previous examples)
       <section className="bg-black text-white py-20 px-6">
       <div className="max-w-7xl mx-auto px-6 py-20 ">
         <div className="mb-20 bg-gray-800/50 rounded-3xl p-10 md:p-16 shadow-2xl">
