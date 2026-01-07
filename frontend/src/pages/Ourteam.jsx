@@ -48,11 +48,34 @@ function Ourteam() {
           <p className="text-xl md:text-2xl text-gray-300">
             World-class experts dedicated to your transformation. We push limits, break barriers, and build strength together.
           </p>
+        <div className="mb-20 bg-gray-800/50 rounded-3xl p-10 md:p-16 shadow-2xl">
+          <h2 className="text-3xl font-bold text-left mb-12 text-white">Head Coach</h2>
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <img src="https://www.shutterstock.com/image-photo/closeup-portrait-professional-bodybuilder-workout-600nw-368281814.jpg" alt="Alex Johnson" className="w-64 h-64 rounded-2xl object-cover border-4 border-red-600" />
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-4xl font-bold mb-2 text-white">Alex "The Rock" Johnson </h3>
+              <p className="text-2xl text-red-500 mb-4">Head of Performance • Powerlifting</p>
+              <p className="text-lg text-gray-300 mb-8">
+                "Strength is a mindset." With over 15 years of competitive experience, Alex leads our elite programming division. Specialized in maximizing raw power and injury prevention.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <button className="px-8 py-4 bg-red-600 rounded-full hover:bg-red-700 transition font-bold text-lg">Book Session</button>
+                <button className="px-8 py-4 border-2 border-gray-600 rounded-full hover:bg-gray-700 transition font-bold text-lg">View Profile</button>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
         </div>
       </section>
 
-      {/* Head Coach Section (kept as in previous examples) */}
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      {/* {/* Head Coach Section (kept as in previous examples) */}
+      <section className="bg-black text-white py-20 px-6">
+      <div className="max-w-7xl mx-auto px-6 py-20 ">
         <div className="mb-20 bg-gray-800/50 rounded-3xl p-10 md:p-16 shadow-2xl">
           <h2 className="text-3xl font-bold text-center mb-12 text-white">Head Coach</h2>
           <div className="flex flex-col md:flex-row items-center gap-12">
@@ -71,6 +94,7 @@ function Ourteam() {
           </div>
         </div>
       </div>
+      </section> */}
 
       {/* Why Choose Us Section */}
       <section className="bg-black text-white py-20 px-6">
