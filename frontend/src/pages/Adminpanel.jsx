@@ -1,7 +1,29 @@
 // src/pages/GymAdminDashboard.jsx
 import React from 'react';
+import { Outlet,Navigate } from 'react-router-dom';
+import AdminSidebar from '../components/AdminComponents/Adminsidebar';
+import { useAuth } from '../contexts/AuthContext';
+
+
 
 const GymAdminDashboard = () => {
+      const { user , loading } = useAuth();
+
+      if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-luxury-50 dark:bg-luxury-950">
+                <div className="w-16 h-16 border-4 border-gold-500 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        );
+      }
+
+      if (!user) {
+        return <Navigate to="/login" replace />;
+    }
+
+    if (user.role !== 'admin') {
+        return <Navigate to="/" replace />;
+    }
   return (
     <div className="min-h-screen bg-gray-900 text-white flex">
       {/* Sidebar */}
