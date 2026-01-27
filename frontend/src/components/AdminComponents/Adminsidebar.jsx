@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Film, Users, Calendar, MessageSquare, CreditCard, LogOut, LayoutTemplate, Sun, Moon, RefreshCcw, Settings, ExternalLink, Ticket } from 'lucide-react';
-import { useAuth } from '../../contexts/AuthContext';
-import { useTheme } from '../../contexts/ThemeContext';
+import { LayoutDashboard, Users,  MessageSquare, CreditCard, LogOut, Sun, Moon, Settings, ExternalLink } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../context/ThemeContext';
 
 const AdminSidebar = () => {
     const { pathname } = useLocation();
