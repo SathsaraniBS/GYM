@@ -6,7 +6,7 @@ import { useAuth } from '../context/AuthContext';
 
 
 
-const GymAdminDashboard = () => {
+const Adminpanel = () => {
       const { user , loading } = useAuth();
 
       if (loading) {
@@ -36,4 +36,4 @@ const GymAdminDashboard = () => {
   );
 };
 
-export default GymAdminDashboard;
+export default Adminpanel;

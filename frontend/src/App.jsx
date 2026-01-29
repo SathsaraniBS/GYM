@@ -11,10 +11,10 @@ import Course from './pages/Course';
 import Ourteam from './pages/Ourteam';
 import GalleryPage from './pages/GalleryPage';
 import BecomeaMember from './pages/BecomeaMember';
-import AdminDashboard from './pages/Admin/AdminDashboard';
+// import AdminDashboard from './pages/Admin/AdminDashboard';
 import UserDashboard from './pages/Userdashboard';
 import Membership from './pages/Membership';
-import GymAdminDashboard from './pages/Adminpanel';
+import Adminpanel from './pages/Adminpanel';
 
 const router = createBrowserRouter(
   [
@@ -31,9 +31,9 @@ const router = createBrowserRouter(
 
     // Protected routes
     // { path: '/admin/dashboard', element: <AdminDashboard /> },
-    { path: '/admin', element: <AdminDashboard /> },
+    // { path: '/admin', element: <AdminDashboard /> },
     { path: '/user/dashboard', element: <UserDashboard /> },
-    {path: '/adminpanel', element: <GymAdminDashboard />},
+    {path: '/adminpanel', element: <Adminpanel />},
   ],
   {
     future: {
