@@ -32,7 +32,7 @@ const router = createBrowserRouter(
     // Protected routes
     // { path: '/admin/dashboard', element: <AdminDashboard /> },
     // { path: '/admin', element: <AdminDashboard /> },
-    { path: '/adminDashboard', element: <Adminpanel /> },
+    { path: '/admindashboard', element: <Adminpanel /> },
     { path: '/user/dashboard', element: <UserDashboard /> },
     {path: '/adminpanel', element: <Adminpanel />},
   ],
