@@ -1,16 +1,12 @@
 // src/components/ProtectedRoute.jsx
-import { Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../hooks/useAuth';
+import { Navigate ,Outlet} from 'react-router-dom';
 
-export default function ProtectedRoute({ children, adminOnly = false }) {
+export const ProtectedRoute = ({ children, adminOnly = false }) => {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
-      </div>
-    );
+    return <div className="flex items-center justify-center min-h-screen bg-black text-white">Loading...</div>;
   }
 
   if (!user) {
@@ -18,10 +14,8 @@ export default function ProtectedRoute({ children, adminOnly = false }) {
   }
 
   if (adminOnly && user.role !== 'admin') {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/user/dashboard" replace />;
   }
 
-  // If children is passed → render children
-  // If not → render <Outlet /> for nested routes
-  return children ? children : <Outlet />;
-}
+  return children;
+};
