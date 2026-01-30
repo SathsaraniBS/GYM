@@ -1,6 +1,6 @@
 // src/components/ProtectedRoute.jsx
 import { useAuth } from '../hooks/useAuth';
-import { Navigate } from 'react-router-dom';
+import { Navigate ,Outlet} from 'react-router-dom';
 
 export const ProtectedRoute = ({ children, adminOnly = false }) => {
   const { user, loading } = useAuth();
