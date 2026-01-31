@@ -44,7 +44,7 @@ const PersonalInfoForm = () => {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-            className="w-full border-b-2 border-gray-300 py-3 px-1 focus:outline-none focus:border-red-600 text-lg"
+            className="w-full border-2 border-gray-200 rounded-lg py-3 px-4 focus:outline-none focus:border-red-600 text-lg text-black"
             required
           />
         </div>
@@ -56,7 +56,7 @@ const PersonalInfoForm = () => {
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            className="w-full border-b-2 border-gray-300 py-3 px-1 focus:outline-none focus:border-red-600 text-lg"
+            className="w-full border-2 border-gray-200 rounded-lg py-3 px-4 focus:outline-none focus:border-red-600 text-lg text-black"
             required
           />
         </div>
@@ -67,7 +67,7 @@ const PersonalInfoForm = () => {
             name="gender"
             value={formData.gender}
             onChange={handleChange}
-            className="w-full border-2 border-gray-300 rounded-lg py-3 px-4 bg-white focus:outline-none focus:border-red-600 text-lg"
+            className="w-full border-2 border-gray-200 rounded-lg py-3 px-4 focus:outline-none focus:border-red-600 text-lg text-black"
           >
             <option className="text-lg font-semibold text-black">Male</option>
             <option className="text-lg font-semibold text-black">Female</option>
@@ -82,7 +82,7 @@ const PersonalInfoForm = () => {
             name="dateOfBirth"
             value={formData.dateOfBirth}
             onChange={handleChange}
-            className="w-full border-b-2 border-black py-3 px-1 focus:outline-none focus:border-red-600 text-lg"
+            className="w-full border-2 border-gray-200 rounded-lg py-3 px-4 focus:outline-none focus:border-red-600 text-lg text-black"
           />
         </div>
 
@@ -92,7 +92,7 @@ const PersonalInfoForm = () => {
             name="country"
             value={formData.country}
             onChange={handleChange}
-            className="w-full border-2 border-gray-300 rounded-lg py-3 px-4 bg-white focus:outline-none focus:border-red-600 text-lg"
+            className="w-full border-2 border-gray-200 rounded-lg py-3 px-4 focus:outline-none focus:border-red-600 text-lg text-black"
           >
             <option>Sri Lanka</option>
             <option>India</option>
