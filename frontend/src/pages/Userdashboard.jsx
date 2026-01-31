@@ -1,11 +1,13 @@
 // src/pages/Userdashboard.jsx
 import React, { useEffect, useState } from 'react';
 import UserNavbar from '../components/User/UserNavbar';
-import { useAuth } from '../hooks/useAuth';
+// import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../context/AuthContext'; 
 import { FaUserCircle, FaWhatsapp } from 'react-icons/fa';
 import Footer from '../components/Footer';
 import PersonalInfoForm from '../components/User/PresonalInfo'
 import ChangePasswordForm from '../components/User/ChangePasswordForm';
+import UserSidebar from '../components/User/UserSidebar';
 
 function UserDashboard() {
   const { user } = useAuth();
@@ -32,7 +34,7 @@ function UserDashboard() {
         <div className="grid lg:grid-cols-3 gap-10">
           {/* Left Sidebar */}
           <div className="space-y-8">
-            <div className="bg-gray-900 rounded-2xl p-8 border border-red-900">
+            {/* <div className="bg-gray-900 rounded-2xl p-8 border border-red-900">
               <div className="flex items-center gap-6">
                 <div className="relative">
                   <FaUserCircle className="text-9xl text-gray-600" />
@@ -44,9 +46,11 @@ function UserDashboard() {
                   <p className="text-green-400 mt-2">Active Member</p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="bg-gradient-to-r from-red-900 to-orange-900 rounded-xl p-6 text-center">
+
+            <UserSidebar />
+            {/* <div className="bg-gradient-to-r from-red-900 to-orange-900 rounded-xl p-6 text-center">
               <h4 className="text-xl font-bold mb-6 text-white">Quick Actions</h4>
               <div className="space-y-4">
                 <button
@@ -65,7 +69,7 @@ function UserDashboard() {
                   <span className="text-red-500 text-2xl">&gt;</span>
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Content */}
