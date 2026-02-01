@@ -15,6 +15,7 @@ import BecomeaMember from './pages/BecomeaMember';
 import UserDashboard from './pages/Userdashboard';
 import Membership from './pages/Membership';
 import Adminpanel from './pages/Adminpanel';
+import { ThemeProvider } from './context/ThemeContext';
 
 const router = createBrowserRouter(
   [
@@ -45,7 +46,14 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+  <ThemeProvider>
+    <RouterProvider router={router} />;
+  </ThemeProvider>
+);
 }
+
+
+
 
 export default App;

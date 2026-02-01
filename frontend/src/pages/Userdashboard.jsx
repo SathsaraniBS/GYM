@@ -49,7 +49,6 @@ function UserDashboard() {
             </div> */}
 
 
-            <UserSidebar />
             {/* <div className="bg-gradient-to-r from-red-900 to-orange-900 rounded-xl p-6 text-center">
               <h4 className="text-xl font-bold mb-6 text-white">Quick Actions</h4>
               <div className="space-y-4">

@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { LayoutDashboard, Dumbbell, User, CalendarCheck, Apple, CreditCard, LogOut, Trophy, Sun, Moon, Activity, Settings, ExternalLink, HeartPulse } from 'lucide-react';
-import { useAuth } from '../../contexts/AuthContext';
-import { useTheme } from '../../contexts/ThemeContext';
+import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../context/ThemeContext';
 
 const UserSidebar = () => {
     const { pathname } = useLocation();
