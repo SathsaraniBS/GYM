@@ -28,7 +28,7 @@ const UserSidebar = () => {
     };
 
     return (
-        <aside className="fixed left-0 top-0 h-screen w-64 bg-zinc-50 dark:bg-zinc-950 border-r border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white z-50 pt-10 hidden lg:flex flex-col transition-colors duration-500 shadow-xl">
+        <aside className="fixed left-0 top-20 h-[calc(100vh-64px)] w-64 bg-black dark:bg-zinc-950 border-r border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white z-40 hidden lg:flex flex-col transition-colors duration-500 shadow-xl">
             {/* Branding Section */}
             <div className="px-6 mb-8 flex items-start justify-between">
                 <div>
@@ -69,7 +69,7 @@ const UserSidebar = () => {
             </nav>
 
             {/* Bottom Section */}
-            <div className="p-4 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/50 backdrop-blur-sm">
+            <div className="bg-black p-4 border-t border-zinc-200  backdrop-blur-sm">
                 <div className="flex items-center justify-between">
                     <button
                         onClick={logout}

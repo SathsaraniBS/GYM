@@ -21,7 +21,7 @@ function UserNavbar() {
 
   return (
     <nav
-      className={`fixed w-full top-0 z-50 py-4 h-20 text-white flex justify-between items-center shadow-md transition duration-300 ${
+      className={`fixed w-full top-0 z-60 py-4 h-20 text-white flex justify-between items-center shadow-md transition duration-300 ${
         isScrolled ? 'bg-gradient-to-r from-black to-red-900' : 'bg-black'
       }`}
     >
