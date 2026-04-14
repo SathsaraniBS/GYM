@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useToast } from '../contexts/ToastContext';
+// FIXED: Using singular 'context' to match your project folder structure
+import { useToast } from '../context/ToastContext'; 
 import { Camera, ShieldCheck, Mail, Smartphone, Bell, Trash2, Monitor, User } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 
@@ -90,7 +91,7 @@ const ProfilePage = () => {
           </div>
         </div>
 
-        {/* Right Side Decoration (Consistent with Auth pages) */}
+        {/* Right Side Decoration */}
         <div className="relative hidden md:block">
            <div className="w-full max-w-md mx-auto aspect-square rounded-2xl bg-gray-900 border-2 border-orange-500/20 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-orange-500/5 animate-pulse"></div>

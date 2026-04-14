@@ -4,6 +4,7 @@ import { ToastProvider } from "./context/ToastContext";
 
 // Pages
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import ResetPassword from "./pages/ResetPassword";
 import Profile from "./pages/Profile";
 import About from "./pages/About";
@@ -15,8 +16,8 @@ import BecomeaMember from "./pages/BecomeaMember";
 import Membership from "./pages/Membership";
 import Adminpanel from './pages/Adminpanel';
 import UserDashboard from "./pages/UserDashboard";
+
 // Components
-// FIXED: Removed the duplicate UserDashboard import that was pointing to ./pages/
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Routes>
             {/* Public Routes */}
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Signup />} />
             <Route path="/forgot-password" element={<ResetPassword />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contactpage />} />
