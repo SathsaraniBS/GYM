@@ -14,11 +14,9 @@ import Ourteam from "./pages/Ourteam";
 import BecomeaMember from "./pages/BecomeaMember";
 import Membership from "./pages/Membership";
 import Adminpanel from './pages/Adminpanel';
-import UserDashboard from './pages/Userdashboard';
-
+import UserDashboard from "./pages/UserDashboard";
 // Components
-
-import UserDashboard from "./components/User/UserDashboard";
+// FIXED: Removed the duplicate UserDashboard import that was pointing to ./pages/
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -26,11 +24,10 @@ function App() {
     <Router
       future={{
         v7_startTransition: true,
-        v7_relativeSplatPath: true, // Added to future-proof for React Router v7
+        v7_relativeSplatPath: true,
       }}
     >
       <AuthProvider>
-        {/* ToastProvider wraps everything inside AuthProvider so it can access auth state if needed */}
         <ToastProvider>
           <Routes>
             {/* Public Routes */}
@@ -80,7 +77,7 @@ function App() {
               }
             />
 
-            {/* Default Route (Optional: redirect or 404) */}
+            {/* Default Route */}
             <Route path="/" element={<Login />} />
           </Routes>
         </ToastProvider>

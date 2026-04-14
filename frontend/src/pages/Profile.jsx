@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import { useToast } from '../contexts/ToastContext';
 import { Camera, ShieldCheck, Mail, Smartphone, Bell, Trash2, Monitor, User } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
