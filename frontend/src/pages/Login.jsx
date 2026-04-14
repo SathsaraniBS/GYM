@@ -162,6 +162,17 @@ function Login() {
             Register here
           </Link>
         </p>
+
+        {/* Options */}
+        <div className="flex justify-between items-center mt-5 text-sm text-gray-400 px-1">
+          <label className="flex items-center gap-2 cursor-pointer select-none">
+            <input type="checkbox" className="accent-cyan-400 w-4 h-4" />
+            Remember me
+          </label>
+          <Link to ="/forgot-password" className="text-cyan-400 hover:text-cyan-300 cursor-pointer transition">
+            Forgot password?
+          </Link>
+        </div>
       </div>
     </div>
   );
