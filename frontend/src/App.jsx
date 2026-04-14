@@ -13,9 +13,11 @@ import GalleryPage from "./pages/GalleryPage";
 import Ourteam from "./pages/Ourteam";
 import BecomeaMember from "./pages/BecomeaMember";
 import Membership from "./pages/Membership";
+import Adminpanel from './pages/Adminpanel';
+import UserDashboard from './pages/Userdashboard';
 
 // Components
-import Adminpanel from "./components/AdminComponents/Adminpanel";
+
 import UserDashboard from "./components/User/UserDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
