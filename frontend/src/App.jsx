@@ -1,8 +1,11 @@
+// src/App.jsx
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { ToastProvider } from "./context/ToastContext";
 
 // Pages
+import Home from "./pages/Home";               // ✅ Fix 1: Home import add කළා
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ResetPassword from "./pages/ResetPassword";
@@ -31,6 +34,10 @@ function App() {
       <AuthProvider>
         <ToastProvider>
           <Routes>
+
+            {/* ✅ Fix 2: Default route — Home page පෙන්වනවා */}
+            <Route path="/" element={<Home />} />
+
             {/* Public Routes */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Signup />} />
@@ -61,11 +68,11 @@ function App() {
               }
             />
 
-            {/* Protected Admin Routes */}
+            {/* ✅ Fix 3: Admin routes — requiredRole="admin" add කළා */}
             <Route
               path="/admindashboard"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute requiredRole="admin">
                   <Adminpanel />
                 </ProtectedRoute>
               }
@@ -73,14 +80,12 @@ function App() {
             <Route
               path="/adminpanel"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute requiredRole="admin">
                   <Adminpanel />
                 </ProtectedRoute>
               }
             />
 
-            {/* Default Route */}
-            <Route path="/" element={<Login />} />
           </Routes>
         </ToastProvider>
       </AuthProvider>
