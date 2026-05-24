@@ -99,10 +99,6 @@ function Contactpage() {
 
         <div className="relative w-full max-w-7xl mx-auto px-8 md:px-16 pt-28 pb-20" style={{ zIndex: 60 }}>
           <div className="max-w-2xl">
-            <div className="flex items-center gap-2 mb-6">
-              <Zap size={14} className="text-red-500 fill-red-500" />
-              <span className="text-red-500 font-bold uppercase tracking-[0.25em] text-xs">Get In Touch</span>
-            </div>
             <h1 className="text-7xl md:text-8xl font-black text-white leading-none uppercase mb-5">
               Contact<br /><span className="text-red-500">Us</span>
             </h1>
