@@ -1,37 +1,77 @@
 // src/pages/Ourteam.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { FaDumbbell, FaAppleAlt, FaClipboardList, FaHeart, FaEnvelope, FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { ChevronRight, Zap } from 'lucide-react';
+import { ChevronRight, Zap, ArrowUpRight } from 'lucide-react';
 
 function Ourteam() {
   const navigate = useNavigate();
+  const [hoveredTrainer, setHoveredTrainer] = useState(null);
 
   const features = [
-    { icon: FaDumbbell,       title: "Modern Equipment",          desc: "State-of-the-art fitness machines designed to optimize your workouts and maximize results." },
-    { icon: FaAppleAlt,       title: "Healthy Nutrition Plan",    desc: "Expert-guided nutrition plans tailored to fuel your body and support your fitness journey." },
-    { icon: FaClipboardList,  title: "Professional Training Plan",desc: "Certified trainers create personalized workout plans to maximize your strength and progress." },
-    { icon: FaHeart,          title: "Unique to Your Needs",      desc: "Customized fitness solutions that adapt to your lifestyle, preferences, and personal goals." },
+    {
+      icon: FaDumbbell,
+      title: "Modern Equipment",
+      desc: "State-of-the-art fitness machines designed to optimize your workouts and maximize results.",
+      stat: "200+",
+      statLabel: "Machines",
+    },
+    {
+      icon: FaAppleAlt,
+      title: "Nutrition Plans",
+      desc: "Expert-guided nutrition plans tailored to fuel your body and support your fitness journey.",
+      stat: "50+",
+      statLabel: "Meal Plans",
+    },
+    {
+      icon: FaClipboardList,
+      title: "Training Programs",
+      desc: "Certified trainers create personalized workout plans to maximize your strength and progress.",
+      stat: "30+",
+      statLabel: "Programs",
+    },
+    {
+      icon: FaHeart,
+      title: "Personal Approach",
+      desc: "Customized fitness solutions that adapt to your lifestyle, preferences, and personal goals.",
+      stat: "100%",
+      statLabel: "Dedicated",
+    },
   ];
 
   const trainers = [
-    { name: "Ayesh Ranasinghe",  specialty: "National Diploma in Sports Strength & Conditioning (SLF)",     image: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&h=800&fit=crop" },
-    { name: "Thumesh Almeda",    specialty: "Physical Fitness Trainer (NVQ Level 4)",                       image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop" },
-    { name: "Dulshan Miyuranga", specialty: "Physical Fitness Trainer (NVQ Level 4 - South Asian Academy)", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop" },
+    {
+      name: "Ayesh Ranasinghe",
+      specialty: "Strength & Conditioning",
+      qualification: "National Diploma (SLF)",
+      experience: "8 Years",
+      image: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&h=800&fit=crop",
+      tags: ["Powerlifting", "HIIT", "Conditioning"],
+    },
+    {
+      name: "Thumesh Almeda",
+      specialty: "Physical Fitness",
+      qualification: "NVQ Level 4",
+      experience: "6 Years",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop",
+      tags: ["Cardio", "Weight Loss", "Endurance"],
+    },
+    {
+      name: "Dulshan Miyuranga",
+      specialty: "Physical Fitness",
+      qualification: "NVQ Level 4 — South Asian Academy",
+      experience: "5 Years",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop",
+      tags: ["Yoga", "Flexibility", "Recovery"],
+    },
   ];
 
   return (
     <div className="bg-black">
       <Navbar />
 
-      {/* ══════════════════════════════════════════
-          HERO SECTION — Exact VoltIQ Style
-          • Full screen background VIDEO
-          • Left side: dark gradient + all content
-          • Right side: video visible through
-      ══════════════════════════════════════════ */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
 
         {/* ── Full Screen Background Video ── */}
@@ -126,87 +166,206 @@ function Ourteam() {
         </div>
       </section>
 
-      {/* ── Head Coach Section ── */}
-      <section className="bg-black text-white py-24 px-6 border-t border-gray-800">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-red-500 text-sm font-bold uppercase tracking-widest mb-4 text-center">Leading The Way</p>
-          <h2 className="text-5xl font-black uppercase text-center mb-4">Head Coach</h2>
-          <div className="w-24 h-1 bg-red-600 mx-auto mb-16" />
+      {/* ══════════════════════════════════════
+          WHY CHOOSE US — Professional Redesign
+          • Numbered cards with border accent
+          • Stat callout per feature
+          • Dark sophisticated look
+      ══════════════════════════════════════ */}
+      <section className="bg-black text-white py-32 px-6 relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-red-600/5 rounded-full blur-[120px] pointer-events-none" />
 
-          <div className="bg-gray-900 rounded-3xl p-10 md:p-14 border border-gray-800 hover:border-red-600 transition-all duration-300 flex flex-col md:flex-row items-center gap-12">
-            <img
-              src="https://www.shutterstock.com/image-photo/closeup-portrait-professional-bodybuilder-workout-600nw-368281814.jpg"
-              alt="Alex Johnson"
-              className="w-64 h-64 rounded-2xl object-cover border-4 border-red-600 flex-shrink-0"
-            />
-            <div className="text-center md:text-left">
-              <h3 className="text-4xl font-black text-white mb-2">Alex "The Rock" Johnson</h3>
-              <p className="text-red-500 text-xl font-semibold mb-6">Head of Performance • Powerlifting</p>
-              <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                "Strength is a mindset." With over 15 years of competitive experience,
-                Alex leads our elite programming division. Specialized in maximizing
-                raw power and injury prevention.
-              </p>
-              <button
-                onClick={() => navigate('/membership')}
-                className="flex items-center gap-2 px-8 py-4 bg-red-600 hover:bg-red-700 rounded-full font-bold text-lg text-white transition transform hover:scale-105"
-              >
-                Book Session <ChevronRight size={18} />
-              </button>
+        <div className="max-w-7xl mx-auto relative">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+            <div>
+              <p className="text-red-500 text-xs font-bold uppercase tracking-[0.3em] mb-4">Why Choose Us</p>
+              <h2 className="text-6xl md:text-7xl font-black uppercase leading-none text-white">
+                Push Your<br />
+                <span className="text-transparent" style={{ WebkitTextStroke: '2px #dc2626' }}>
+                  Limits
+                </span>
+              </h2>
             </div>
+            <p className="text-gray-500 max-w-xs text-sm leading-relaxed md:text-right">
+              Everything we offer is engineered to deliver real, measurable results — not just motivation.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* ── Why Choose Us ── */}
-      <section className="bg-black text-white py-24 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-red-500 text-sm font-bold uppercase tracking-widest mb-4">Why Choose Us?</p>
-          <h1 className="text-5xl font-black uppercase mb-4">Push Your Limits Forward</h1>
-          <div className="w-24 h-1 bg-red-600 mx-auto mb-16" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Feature Cards — horizontal numbered layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-800 rounded-2xl overflow-hidden">
             {features.map((item, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 bg-gray-900 border border-gray-800 group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-300 group-hover:scale-110">
-                  <item.icon className="text-3xl text-red-500 group-hover:text-white transition-colors duration-300" />
+              <div
+                key={index}
+                className="bg-black p-8 group hover:bg-gray-950 transition-all duration-500 relative overflow-hidden"
+              >
+                {/* Number watermark */}
+                <span className="absolute top-4 right-6 text-7xl font-black text-gray-900 group-hover:text-gray-800 transition-colors select-none">
+                  0{index + 1}
+                </span>
+
+                {/* Top accent line */}
+                <div className="w-8 h-0.5 bg-red-600 mb-8 group-hover:w-16 transition-all duration-500" />
+
+                {/* Icon */}
+                <div className="mb-6">
+                  <item.icon className="text-red-500 text-3xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+
+                {/* Stat */}
+                <div className="mb-4">
+                  <span className="text-4xl font-black text-white">{item.stat}</span>
+                  <span className="text-gray-500 text-xs uppercase tracking-widest ml-2">{item.statLabel}</span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
+
+                {/* Desc */}
+                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Trainers Section ── */}
-      <section id="trainers-section" className="bg-black text-white py-24 px-6 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-red-500 text-sm font-bold uppercase tracking-widest mb-4">Our Team</p>
-          <h1 className="text-5xl font-black uppercase mb-4">Train With Experts</h1>
-          <div className="w-24 h-1 bg-red-600 mx-auto mb-16" />
+      {/* ══════════════════════════════════════
+          HEAD COACH
+      ══════════════════════════════════════ */}
+      <section className="bg-black text-white py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-stretch gap-0 rounded-2xl overflow-hidden border border-gray-800 hover:border-red-600/40 transition-all duration-500">
+            {/* Left — Image */}
+            <div className="md:w-2/5 relative overflow-hidden">
+              <img
+                src="https://www.shutterstock.com/image-photo/closeup-portrait-professional-bodybuilder-workout-600nw-368281814.jpg"
+                alt="Alex Johnson"
+                className="w-full h-full object-cover min-h-[400px] hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/60" />
+              {/* Badge */}
+              <div className="absolute top-6 left-6 bg-red-600 text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">
+                Head Coach
+              </div>
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* Right — Content */}
+            <div className="md:w-3/5 bg-gray-950 p-10 md:p-14 flex flex-col justify-center">
+              <p className="text-red-500 text-xs font-bold uppercase tracking-[0.3em] mb-4">Leading The Way</p>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-3">
+                Alex "The Rock" Johnson
+              </h2>
+              <p className="text-red-500 font-semibold mb-6 text-lg">Head of Performance • Powerlifting</p>
+
+              <div className="flex gap-8 mb-8 border-y border-gray-800 py-6">
+                {[["15+","Years Exp."],["500+","Athletes"],["3x","Champion"]].map(([val, label]) => (
+                  <div key={label}>
+                    <p className="text-white text-2xl font-black">{val}</p>
+                    <p className="text-gray-500 text-xs uppercase tracking-widest">{label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-gray-400 leading-relaxed mb-8">
+                "Strength is a mindset." With over 15 years of competitive experience, Alex leads our elite programming division. Specialized in maximizing raw power and injury prevention through evidence-based training.
+              </p>
+              <button
+                onClick={() => navigate('/membership')}
+                className="self-start flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 text-sm uppercase tracking-wider"
+              >
+                Book a Session <ArrowUpRight size={16} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          TRAINERS — Professional Redesign
+          • Large image, info overlay on hover
+          • Tags / qualifications
+          • Clean minimal card
+      ══════════════════════════════════════ */}
+      <section id="trainers-section" className="bg-black text-white py-32 px-6 relative overflow-hidden">
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-red-600/5 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+            <div>
+              <p className="text-red-500 text-xs font-bold uppercase tracking-[0.3em] mb-4">Our Team</p>
+              <h2 className="text-6xl md:text-7xl font-black uppercase leading-none text-white">
+                Train With<br />
+                <span className="text-transparent" style={{ WebkitTextStroke: '2px #dc2626' }}>
+                  Experts
+                </span>
+              </h2>
+            </div>
+            <button
+              onClick={() => navigate('/membership')}
+              className="self-start md:self-end flex items-center gap-2 border border-red-600 text-red-500 hover:bg-red-600 hover:text-white font-bold px-8 py-4 rounded-full transition-all duration-300 text-sm uppercase tracking-wider"
+            >
+              Book Appointment <ArrowUpRight size={16} />
+            </button>
+          </div>
+
+          {/* Trainer Cards */}
+          <div className="grid md:grid-cols-3 gap-6">
             {trainers.map((trainer, index) => (
               <div
                 key={index}
-                className="bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-red-600 transition-all duration-500 group"
+                onMouseEnter={() => setHoveredTrainer(index)}
+                onMouseLeave={() => setHoveredTrainer(null)}
+                className="group relative rounded-2xl overflow-hidden cursor-pointer"
+                style={{ aspectRatio: '3/4' }}
               >
-                <div className="relative h-96 overflow-hidden">
-                  <img
-                    src={trainer.image}
-                    alt={trainer.name}
-                    className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-gray-900 to-transparent" />
+                {/* Image */}
+                <img
+                  src={trainer.image}
+                  alt={trainer.name}
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                />
+
+                {/* Default gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent transition-opacity duration-500" />
+
+                {/* Hover full overlay */}
+                <div className={`absolute inset-0 bg-black/80 transition-opacity duration-500 ${hoveredTrainer === index ? 'opacity-100' : 'opacity-0'}`} />
+
+                {/* Index number top-right */}
+                <div className="absolute top-6 right-6 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center">
+                  <span className="text-white/50 text-sm font-bold">0{index + 1}</span>
                 </div>
-                <div className="p-8 text-center">
-                  <h3 className="text-2xl font-bold text-white mb-2">{trainer.name}</h3>
-                  <p className="text-red-500 font-medium mb-6 text-sm leading-relaxed">{trainer.specialty}</p>
-                  <div className="flex justify-center gap-4">
+
+                {/* Default bottom info */}
+                <div className={`absolute bottom-0 left-0 right-0 p-8 transition-all duration-500 ${hoveredTrainer === index ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
+                  <h3 className="text-2xl font-black text-white mb-1">{trainer.name}</h3>
+                  <p className="text-red-500 text-sm font-semibold uppercase tracking-wider">{trainer.specialty}</p>
+                </div>
+
+                {/* Hover info */}
+                <div className={`absolute inset-0 flex flex-col justify-center p-8 transition-all duration-500 ${hoveredTrainer === index ? 'opacity-100' : 'opacity-0'}`}>
+                  <p className="text-red-500 text-xs font-bold uppercase tracking-[0.2em] mb-4">{trainer.specialty}</p>
+                  <h3 className="text-3xl font-black text-white mb-2">{trainer.name}</h3>
+                  <p className="text-gray-400 text-sm mb-2">{trainer.qualification}</p>
+                  <p className="text-gray-500 text-xs mb-6">{trainer.experience} Experience</p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {trainer.tags.map((tag, i) => (
+                      <span key={i} className="text-xs bg-red-600/20 border border-red-600/30 text-red-400 px-3 py-1 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Social icons */}
+                  <div className="flex gap-3">
                     {[FaEnvelope, FaFacebookF, FaInstagram].map((Icon, i) => (
                       <a key={i} href="#"
-                        className="w-10 h-10 rounded-full bg-gray-800 hover:bg-red-600 flex items-center justify-center transition-colors duration-300">
-                        <Icon className="text-gray-400 w-4 h-4" />
+                        className="w-10 h-10 rounded-full bg-white/10 hover:bg-red-600 border border-white/10 flex items-center justify-center transition-all duration-300">
+                        <Icon className="text-white w-4 h-4" />
                       </a>
                     ))}
                   </div>
@@ -214,13 +373,6 @@ function Ourteam() {
               </div>
             ))}
           </div>
-
-          <button
-            onClick={() => navigate('/membership')}
-            className="mt-16 bg-red-600 hover:bg-red-700 text-white font-bold text-xl px-12 py-5 rounded-full shadow-2xl shadow-red-900/30 transform hover:scale-105 transition duration-300 inline-flex items-center gap-3"
-          >
-            Book Appointment <ChevronRight size={22} />
-          </button>
         </div>
       </section>
 
