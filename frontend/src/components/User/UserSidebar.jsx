@@ -16,7 +16,7 @@ const UserSidebar = () => {
 
   const links = [
     { path: '/user/dashboard',          icon: LayoutDashboard, label: 'Overview'         },
-    { path: '/user/dashboard/workouts', icon: Dumbbell,        label: 'Workout Plans'    },
+    { path: '/user/dashboard/userworkouts', icon: Dumbbell,        label: 'Workout Plans'    },
     { path: '/user/dashboard/progress', icon: Activity,        label: 'Progress'         },
     { path: '/course',                  icon: CalendarCheck,   label: 'Book Classes'     },
     { path: '/user/dashboard/nutrition',icon: Apple,           label: 'Diet & Nutrition' },
