@@ -22,6 +22,8 @@ import Adminpanel    from './pages/Adminpanel';
 import UserDashboard from "./pages/UserDashboard";
 import Progress from "./pages/Progress";
 import UserWorkouts from "./pages/UserWorkouts";
+import Nutrition from './pages/Nutrition';
+
 // Components
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -65,6 +67,9 @@ function App() {
               } />
               <Route path="/user/dashboard/userworkouts" element={
                 <ProtectedRoute><UserWorkouts /></ProtectedRoute>
+              } />
+              <Route path="/user/dashboard/nutrition" element={
+                <ProtectedRoute><Nutrition /></ProtectedRoute>
               } />
 
               {/* Protected Admin Routes */}
