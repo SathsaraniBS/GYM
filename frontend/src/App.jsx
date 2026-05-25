@@ -20,7 +20,7 @@ import BecomeaMember from "./pages/BecomeaMember";
 import Membership    from "./pages/Membership";
 import Adminpanel    from './pages/Adminpanel';
 import UserDashboard from "./pages/UserDashboard";
-
+import Progress from "./pages/Progress";
 // Components
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -58,6 +58,9 @@ function App() {
               } />
               <Route path="/user/dashboard" element={
                 <ProtectedRoute><UserDashboard /></ProtectedRoute>
+              } />
+              <Route path="/user/dashboard/progress" element={
+                <ProtectedRoute><Progress /></ProtectedRoute>
               } />
 
               {/* Protected Admin Routes */}
