@@ -25,6 +25,7 @@ import Nutrition from './pages/Nutrition';
 import Milestones from './pages/Milestones';
 import UserSettings from './pages/UserSettings';
 
+import AdminDashboard from "./pages/AdminDashboard";
 // Components
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -81,7 +82,7 @@ function App() {
 
               {/* Protected Admin Routes */}
               <Route path="/admindashboard" element={
-                <ProtectedRoute requiredRole="admin"><Adminpanel /></ProtectedRoute>
+                <ProtectedRoute requiredRole="admin"><AdminDashboard /></ProtectedRoute>
               } />
              
 

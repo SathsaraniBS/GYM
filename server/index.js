@@ -8,7 +8,8 @@ import authRouter    from './routes/auth.js';
 import reviewRouter  from './routes/reviews.js';
 import adminRouter   from './routes/admin.js';
 import contactRouter from './routes/contact.js';
-import mediaRouter   from './routes/media.js';   // ✅ ADD — Media Manager
+import mediaRouter   from './routes/media.js';
+import aiRouter      from './routes/ai.js';        
 
 dotenv.config();
 
@@ -25,7 +26,8 @@ app.use('/api/auth',         authRouter);
 app.use('/api/reviews',      reviewRouter);
 app.use('/api/admin',        adminRouter);
 app.use('/api/contact',      contactRouter);
-app.use('/api/admin/media',  mediaRouter);        // ✅ ADD — Media Manager
+app.use('/api/admin/media',  mediaRouter);
+app.use('/api/ai',           aiRouter);            
 
 // ── Global error handler ──
 app.use((err, req, res, next) => {
