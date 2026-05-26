@@ -1,91 +1,130 @@
-import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Users,  MessageSquare, CreditCard, LogOut, Sun, Moon, Settings, ExternalLink } from 'lucide-react';
+// src/components/Admin/AdminSidebar.jsx
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {
+  LayoutDashboard, Users, Dumbbell, Image, Settings,
+  LogOut, Zap, ChevronRight, X, Menu, Bell,
+  TrendingUp, Calendar, UserCog, Shield
+} from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
-import { useTheme } from '../../context/ThemeContext';
 
-const AdminSidebar = () => {
-    const { pathname } = useLocation();
-    const { logout } = useAuth();
-    const { theme, toggleTheme } = useTheme();
+export default function AdminSidebar({ open, setOpen }) {
+  const { user, logout } = useAuth();
+  const navigate         = useNavigate();
+  const location         = useLocation();
 
-    const links = [
-        { path: '/admin', icon: LayoutDashboard, label: 'Overview' },
-        { path: '/admin/users', icon: Users, label: 'Users' },
-        { path: '/admin/bookings', icon: CreditCard, label: 'Bookings' },
-        { path: '/admin/contacts', icon: MessageSquare, label: 'Queries' },
-        { path: '/admin/settings', icon: Settings, label: 'Settings' },
-    ];
+  const handleLogout = () => { logout(); navigate('/login'); };
 
-    const isActive = (path) => {
-        if (path === '/admin' && pathname === '/admin') return true;
-        if (path !== '/admin' && pathname.startsWith(path)) return true;
-        return false;
-    };
+  const navGroups = [
+    {
+      label: 'Main',
+      items: [
+        { to: '/admindashboard',              icon: LayoutDashboard, label: 'Dashboard'         },
+        { to: '/admindashboard/members',      icon: Users,           label: 'Members'           },
+        { to: '/admindashboard/trainers',     icon: Dumbbell,        label: 'Trainers'          },
+        { to: '/admindashboard/revenue',      icon: TrendingUp,      label: 'Revenue'           },
+        { to: '/admindashboard/classes',      icon: Calendar,        label: 'Classes'           },
+      ],
+    },
+    {
+      label: 'Content',
+      items: [
+        { to: '/admindashboard/media',        icon: Image,           label: 'Media Manager'     },
+      ],
+    },
+    {
+      label: 'System',
+      items: [
+        { to: '/admindashboard/settings',     icon: Settings,        label: 'Settings'          },
+      ],
+    },
+  ];
 
-    return (
-        <aside className="fixed left-0 top-0 h-screen w-64 bg-luxury-50 dark:bg-luxury-900 border-r border-luxury-200 dark:border-luxury-800 text-luxury-900 dark:text-white z-50 pt-10 hidden lg:flex flex-col transition-colors duration-500 shadow-xl">
-            <div className="px-6 mb-8 flex items-start justify-between">
-                <div>
-                    <h2 className="text-2xl font-bold font-serif text-gold-500 tracking-wide">CINEMANIA</h2>
-                    <p className="text-xs text-luxury-400 dark:text-luxury-500 font-medium uppercase tracking-widest ml-0.5">Admin Panel</p>
-                </div>
-                {/* View Site Button */}
-                <Link
-                    to="/"
-                    className="p-2 rounded-full transition-all duration-300 hover:bg-gold-500/10 border border-gold-500/20 hover:border-gold-500/40 group text-gold-500"
-                    title="View Website"
-                >
-                    <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                </Link>
+  const isActive = (to) => location.pathname === to;
+
+  return (
+    <>
+      {/* Mobile overlay */}
+      {open && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-30 lg:hidden"
+          onClick={() => setOpen(false)} />
+      )}
+
+      <aside className={`fixed top-0 left-0 h-full w-64 bg-[#050505] border-r border-gray-800/60 z-40 flex flex-col transition-transform duration-300 ${
+        open ? 'translate-x-0' : '-translate-x-full'
+      } lg:translate-x-0`}>
+
+        {/* Logo */}
+        <div className="px-6 py-5 border-b border-gray-800/60 flex items-center justify-between">
+          <div>
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 bg-red-600 rounded-lg flex items-center justify-center">
+                <Zap size={14} className="text-white fill-white" />
+              </div>
+              <h2 className="text-white font-black text-lg uppercase tracking-wider">FitTrack</h2>
             </div>
+            <p className="text-gray-600 text-[9px] uppercase tracking-[0.3em] mt-0.5 ml-9">Admin Panel</p>
+          </div>
+          <button onClick={() => setOpen(false)} className="lg:hidden text-gray-600 hover:text-white">
+            <X size={18} />
+          </button>
+        </div>
 
-            <nav className="px-4 space-y-2 flex-1 overflow-y-auto scrollbar-hide">
-                {links.map((link) => (
-                    <Link
-                        key={link.path}
-                        to={link.path}
-                        className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group ${isActive(link.path)
-                            ? 'bg-gradient-to-r from-gold-500/20 to-transparent text-gold-600 dark:text-gold-400 border-l-4 border-gold-500'
-                            : 'text-gray-500 dark:text-gray-400 hover:text-luxury-900 dark:hover:text-white hover:bg-luxury-100 dark:hover:bg-white/5'
-                            }`}
-                    >
-                        <link.icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${isActive(link.path) ? 'text-gold-500' : ''}`} />
-                        <span className="font-medium">{link.label}</span>
-                    </Link>
+        {/* Admin info */}
+        <div className="px-4 py-4 border-b border-gray-800/60">
+          <div className="flex items-center gap-3 bg-gray-900/50 border border-gray-800 rounded-xl px-4 py-3">
+            <div className="w-9 h-9 rounded-xl bg-red-600/20 border border-red-600/30 flex items-center justify-center text-red-400 font-black text-sm flex-shrink-0">
+              {user?.name?.charAt(0) || 'A'}
+            </div>
+            <div className="min-w-0">
+              <p className="text-white text-sm font-bold truncate">{user?.name || 'Admin'}</p>
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                <p className="text-gray-500 text-[9px] uppercase tracking-widest">Super Admin</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Nav */}
+        <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-6">
+          {navGroups.map((group, gi) => (
+            <div key={gi}>
+              <p className="text-gray-700 text-[9px] uppercase tracking-[0.25em] font-bold px-3 mb-2">{group.label}</p>
+              <div className="space-y-0.5">
+                {group.items.map((item, ii) => (
+                  <Link key={ii} to={item.to} onClick={() => setOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group relative ${
+                      isActive(item.to)
+                        ? 'bg-red-600 text-white shadow-lg shadow-red-900/30'
+                        : 'text-gray-500 hover:text-white hover:bg-gray-900'
+                    }`}>
+                    <item.icon size={16} className={isActive(item.to) ? 'text-white' : 'text-gray-600 group-hover:text-red-400 transition-colors'} />
+                    <span className="text-sm font-semibold">{item.label}</span>
+                    {isActive(item.to) && (
+                      <div className="ml-auto w-1.5 h-1.5 rounded-full bg-white/60" />
+                    )}
+                  </Link>
                 ))}
-            </nav>
-
-            <div className="p-4 border-t border-luxury-200 dark:border-white/5 bg-luxury-50/50 dark:bg-black/20 backdrop-blur-sm">
-                {/* Bottom Actions Cluster */}
-                <div className="flex items-center justify-between gap-2">
-                    {/* Logout Button (Left) */}
-                    <button
-                        onClick={logout}
-                        className="p-2.5 rounded-full transition-all duration-300 text-red-500 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 group"
-                        title="Logout"
-                    >
-                        <LogOut className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
-                    </button>
-
-
-
-                    {/* Theme Toggle (Right) */}
-                    <button
-                        onClick={toggleTheme}
-                        className="p-2.5 rounded-full transition-all duration-300 text-gray-500 dark:text-gray-400 hover:bg-luxury-200 dark:hover:bg-white/10 group border border-transparent"
-                        aria-label="Toggle Theme"
-                        title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                    >
-                        {theme === 'dark' ? (
-                            <Sun className="w-5 h-5 group-hover:rotate-90 transition-transform duration-500" />
-                        ) : (
-                            <Moon className="w-5 h-5 group-hover:-rotate-12 transition-transform duration-500" />
-                        )}
-                    </button>
-                </div>
+              </div>
             </div>
-        </aside>
-    );
-};
+          ))}
+        </nav>
 
-export default AdminSidebar;
+        {/* Footer */}
+        <div className="px-4 py-4 border-t border-gray-800/60 space-y-1">
+          <Link to="/" target="_blank"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-gray-900 transition-all text-sm font-semibold group">
+            <Shield size={16} className="text-gray-600 group-hover:text-blue-400 transition-colors" />
+            View Website
+          </Link>
+          <button onClick={handleLogout}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-500 hover:text-red-400 hover:bg-red-600/10 transition-all group">
+            <LogOut size={16} className="text-gray-600 group-hover:text-red-400 transition-colors group-hover:-translate-x-0.5 transform duration-200" />
+            <span className="text-sm font-semibold">Sign Out</span>
+          </button>
+        </div>
+      </aside>
+    </>
+  );
+}

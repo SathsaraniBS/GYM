@@ -3,6 +3,12 @@ npm run dev
 
 cd server
 npm start
+
+
 user
 email - john@gmail.com
 password - john1234
+
+admin
+email - admin@fittrack.com
+password - Admin%3&?
