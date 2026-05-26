@@ -34,7 +34,7 @@ const UserSidebar = () => {
   };
 
   return (
-    <aside className="fixed left-0 top-20 h-[calc(100vh-80px)] w-64 bg-black border-r border-gray-800 text-white z-40 hidden lg:flex flex-col shadow-xl">
+    <aside className="fixed left-0 top-10 h-[calc(100vh-80px)] w-64 bg-black border-r border-gray-800 text-white z-40 hidden lg:flex flex-col shadow-xl">
 
       {/* ── Branding ── */}
       <div className="px-6 py-6 flex items-center justify-between border-b border-gray-800">

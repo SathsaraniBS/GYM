@@ -23,6 +23,7 @@ import UserDashboard from "./pages/UserDashboard";
 import Progress from "./pages/Progress";
 import UserWorkouts from "./pages/UserWorkouts";
 import Nutrition from './pages/Nutrition';
+import Milestones from './pages/Milestones';
 
 // Components
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -70,6 +71,9 @@ function App() {
               } />
               <Route path="/user/dashboard/nutrition" element={
                 <ProtectedRoute><Nutrition /></ProtectedRoute>
+              } />
+              <Route path="/user/dashboard/milestones" element={
+                <ProtectedRoute><Milestones /></ProtectedRoute>
               } />
 
               {/* Protected Admin Routes */}

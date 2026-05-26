@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import UserSidebar from '../components/User/UserSidebar';
-import UserNavbar from '../components/User/UserNavbar';
 import {
   Activity, Flame, Dumbbell, Trophy, TrendingUp,
   Calendar, Clock, ChevronRight, Target, Zap,
@@ -163,9 +162,7 @@ function UserDashboard() {
 
   return (
     <div className="bg-black min-h-screen text-white">
-      <UserNavbar />
 
-      <div className="flex pt-20">
         <UserSidebar />
 
         {/* ── Main Content ── */}
@@ -469,7 +466,6 @@ function UserDashboard() {
           </div>
         </main>
       </div>
-    </div>
   );
 }
 
