@@ -18,7 +18,6 @@ import GalleryPage   from "./pages/GalleryPage";
 import Ourteam       from "./pages/Ourteam";
 import BecomeaMember from "./pages/BecomeaMember";
 import Membership    from "./pages/Membership";
-import Adminpanel    from './pages/Adminpanel';
 import UserDashboard from "./pages/UserDashboard";
 import Progress from "./pages/Progress";
 import UserWorkouts from "./pages/UserWorkouts";
@@ -84,9 +83,7 @@ function App() {
               <Route path="/admindashboard" element={
                 <ProtectedRoute requiredRole="admin"><Adminpanel /></ProtectedRoute>
               } />
-              <Route path="/adminpanel" element={
-                <ProtectedRoute requiredRole="admin"><Adminpanel /></ProtectedRoute>
-              } />
+             
 
             </Routes>
           </ToastProvider>
