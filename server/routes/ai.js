@@ -1,12 +1,12 @@
 import express from "express";
 import Anthropic from "@anthropic-ai/sdk";
 import User from "../models/User.js";
-import { verifyToken } from "../middleware/auth.js"; 
+import { protect } from "../middleware/auth.js";   // ✅ verifyToken → protect
 
 const router = express.Router();
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-router.post("/chat", verifyToken, async (req, res) => {
+router.post("/chat", protect, async (req, res) => {
   try {
     const { message, conversationHistory = [] } = req.body;
 
