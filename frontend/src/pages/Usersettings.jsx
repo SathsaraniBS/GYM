@@ -5,13 +5,13 @@ import {
   Camera, Eye, EyeOff, Check, X, ChevronRight,
   Moon, Sun, Monitor, Zap, Save, LogOut,
   Smartphone, Mail, Globe, CreditCard,
-  ArrowUpRight, AlertTriangle, RefreshCw
+  ArrowUpRight, AlertTriangle, RefreshCw,
+  BarChart2, Calendar                        // ✅ Fixed: missing imports added
 } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
-import { useTheme } from '../context/ThemeContext';
-import { useToast } from '../context/ToastContext';
+import { useAuth }     from '../context/AuthContext';
+import { useTheme }    from '../context/ThemeContext';   // ✅ Fixed: was missing
 import { useNavigate } from 'react-router-dom';
-import api from '../api/axios';
+import api             from '../api/axios';
 
 // ── Toggle switch ──
 const Toggle = ({ enabled, onToggle, color = '#dc2626' }) => (
@@ -68,7 +68,6 @@ export default function UserSettings() {
   const navigate = useNavigate();
   const fileRef  = useRef(null);
 
-  // ── Active nav ──
   const [activeSection, setActiveSection] = useState('profile');
 
   // ── Profile ──
@@ -83,13 +82,13 @@ export default function UserSettings() {
   const [profOk,   setProfOk]   = useState(false);
 
   // ── Password ──
-  const [curPw,    setCurPw]    = useState('');
-  const [newPw,    setNewPw]    = useState('');
-  const [conPw,    setConPw]    = useState('');
-  const [showPw,   setShowPw]   = useState(false);
-  const [pwSave,   setPwSave]   = useState(false);
-  const [pwErr,    setPwErr]    = useState('');
-  const [pwOk,     setPwOk]     = useState(false);
+  const [curPw,  setCurPw]  = useState('');
+  const [newPw,  setNewPw]  = useState('');
+  const [conPw,  setConPw]  = useState('');
+  const [showPw, setShowPw] = useState(false);
+  const [pwSave, setPwSave] = useState(false);
+  const [pwErr,  setPwErr]  = useState('');
+  const [pwOk,   setPwOk]   = useState(false);
 
   // ── Notifications ──
   const [notif, setNotif] = useState({
@@ -104,10 +103,10 @@ export default function UserSettings() {
   });
 
   // ── Appearance ──
-  const [accentColor,  setAccentColor]  = useState('red');
-  const [fontSize,     setFontSize]     = useState('medium');
-  const [compactMode,  setCompactMode]  = useState(false);
-  const [animations,   setAnimations]   = useState(true);
+  const [accentColor, setAccentColor] = useState('red');
+  const [fontSize,    setFontSize]    = useState('medium');
+  const [compactMode, setCompactMode] = useState(false);
+  const [animations,  setAnimations]  = useState(true);
 
   // ── Privacy ──
   const [privacy, setPrivacy] = useState({
@@ -119,11 +118,11 @@ export default function UserSettings() {
   });
 
   // ── Fitness ──
-  const [fitnessGoal,  setFitnessGoal]  = useState('muscle_gain');
-  const [activityLevel,setActivityLevel]= useState('intermediate');
-  const [units,        setUnits]        = useState('metric');
-  const [restDays,     setRestDays]     = useState(['saturday', 'sunday']);
-  const [workoutTime,  setWorkoutTime]  = useState('morning');
+  const [fitnessGoal,   setFitnessGoal]   = useState('muscle_gain');
+  const [activityLevel, setActivityLevel] = useState('intermediate');
+  const [units,         setUnits]         = useState('metric');
+  const [restDays,      setRestDays]      = useState(['saturday', 'sunday']);
+  const [workoutTime,   setWorkoutTime]   = useState('morning');
 
   // ── Handlers ──
   const handleAvatarChange = (e) => {
@@ -177,20 +176,20 @@ export default function UserSettings() {
   ];
 
   const navItems = [
-    { id: 'profile',      icon: User,       label: 'Profile'       },
-    { id: 'password',     icon: Lock,       label: 'Password'      },
-    { id: 'notifications',icon: Bell,       label: 'Notifications' },
-    { id: 'appearance',   icon: Palette,    label: 'Appearance'    },
-    { id: 'privacy',      icon: Shield,     label: 'Privacy'       },
-    { id: 'fitness',      icon: Zap,        label: 'Fitness'       },
-    { id: 'account',      icon: CreditCard, label: 'Account'       },
+    { id: 'profile',       icon: User,       label: 'Profile'       },
+    { id: 'password',      icon: Lock,       label: 'Password'      },
+    { id: 'notifications', icon: Bell,       label: 'Notifications' },
+    { id: 'appearance',    icon: Palette,    label: 'Appearance'    },
+    { id: 'privacy',       icon: Shield,     label: 'Privacy'       },
+    { id: 'fitness',       icon: Zap,        label: 'Fitness'       },
+    { id: 'account',       icon: CreditCard, label: 'Account'       },
   ];
 
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="flex">
 
-        {/* ── Left Settings Nav ── */}
+        {/* ── Left Settings Nav (desktop) ── */}
         <aside className="hidden lg:flex flex-col w-60 flex-shrink-0 sticky top-0 h-screen border-r border-gray-800 py-8 px-4">
           <div className="mb-8 px-2">
             <div className="flex items-center gap-2 mb-1">
@@ -215,7 +214,6 @@ export default function UserSettings() {
             ))}
           </nav>
 
-          {/* Logout */}
           <div className="border-t border-gray-800 pt-4 mt-4">
             <button onClick={() => { logout(); navigate('/login'); }}
               className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-500 hover:text-red-400 hover:bg-red-600/10 transition-all duration-200 group">
@@ -248,7 +246,6 @@ export default function UserSettings() {
                 <h1 className="text-3xl font-black uppercase">Profile Settings</h1>
               </div>
 
-              {/* Avatar upload */}
               <Section icon={User} title="Profile Photo" subtitle="Update your display picture">
                 <div className="flex items-center gap-6">
                   <div className="relative flex-shrink-0">
@@ -275,7 +272,6 @@ export default function UserSettings() {
                 </div>
               </Section>
 
-              {/* Personal info */}
               <Section icon={User} title="Personal Information" subtitle="Update your personal details">
                 <div className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -304,7 +300,8 @@ export default function UserSettings() {
                     </Field>
                   </div>
                   <Field label="Bio">
-                    <textarea rows={3} value={bio} onChange={e => setBio(e.target.value)} placeholder="Tell us about yourself..."
+                    <textarea rows={3} value={bio} onChange={e => setBio(e.target.value)}
+                      placeholder="Tell us about yourself..."
                       className="w-full px-4 py-3 bg-gray-950 border border-gray-800 rounded-xl focus:outline-none focus:border-red-600 text-white text-sm resize-none placeholder-gray-700 transition-colors" />
                   </Field>
 
@@ -411,32 +408,28 @@ export default function UserSettings() {
                 <p className="text-gray-500 text-[10px] uppercase tracking-[0.3em] mb-1">Alerts</p>
                 <h1 className="text-3xl font-black uppercase">Notifications</h1>
               </div>
-
               {[
                 {
-                  title: 'Workout & Training',
-                  color: '#dc2626',
+                  title: 'Workout & Training', color: '#dc2626',
                   items: [
-                    { key: 'workoutReminders', label: 'Workout Reminders',    sub: 'Daily push to stay on schedule'     },
-                    { key: 'progressUpdates',  label: 'Progress Updates',     sub: 'Weekly progress summaries'          },
-                    { key: 'weeklyReport',     label: 'Weekly Report',        sub: 'Your performance report every Monday'},
+                    { key: 'workoutReminders', label: 'Workout Reminders', sub: 'Daily push to stay on schedule'      },
+                    { key: 'progressUpdates',  label: 'Progress Updates',  sub: 'Weekly progress summaries'           },
+                    { key: 'weeklyReport',     label: 'Weekly Report',     sub: 'Performance report every Monday'     },
                   ],
                 },
                 {
-                  title: 'Community & Events',
-                  color: '#3b82f6',
+                  title: 'Community & Events', color: '#3b82f6',
                   items: [
-                    { key: 'challengeAlerts',  label: 'Challenge Alerts',     sub: 'New challenges and deadlines'       },
-                    { key: 'newClasses',       label: 'New Classes',          sub: 'When new classes are available'     },
-                    { key: 'communityUpdates', label: 'Community Updates',    sub: 'Posts and announcements'            },
+                    { key: 'challengeAlerts',  label: 'Challenge Alerts',    sub: 'New challenges and deadlines'      },
+                    { key: 'newClasses',       label: 'New Classes',         sub: 'When new classes are available'    },
+                    { key: 'communityUpdates', label: 'Community Updates',   sub: 'Posts and announcements'           },
                   ],
                 },
                 {
-                  title: 'Account & Offers',
-                  color: '#22c55e',
+                  title: 'Account & Offers', color: '#22c55e',
                   items: [
-                    { key: 'membershipExpiry', label: 'Membership Expiry',   sub: 'Renewal reminders'                   },
-                    { key: 'promotions',       label: 'Promotions & Offers', sub: 'Special deals and discounts'         },
+                    { key: 'membershipExpiry', label: 'Membership Expiry',  sub: 'Renewal reminders'                 },
+                    { key: 'promotions',       label: 'Promotions & Offers',sub: 'Special deals and discounts'        },
                   ],
                 },
               ].map((group, gi) => (
@@ -467,7 +460,6 @@ export default function UserSettings() {
                 <h1 className="text-3xl font-black uppercase">Appearance</h1>
               </div>
 
-              {/* Theme */}
               <Section icon={Palette} title="Theme Mode" subtitle="Choose your preferred colour scheme">
                 <div className="grid grid-cols-3 gap-3">
                   {[
@@ -490,18 +482,17 @@ export default function UserSettings() {
                 </div>
               </Section>
 
-              {/* Accent color */}
               <Section icon={Palette} title="Accent Color" subtitle="Personalize your dashboard color">
                 <div className="flex flex-wrap gap-3">
                   {accentColors.map(c => (
                     <button key={c.key} onClick={() => setAccentColor(c.key)}
-                      className={`flex flex-col items-center gap-1.5 transition-all duration-200 group`}>
+                      className="flex flex-col items-center gap-1.5 transition-all duration-200 group">
                       <div className={`w-10 h-10 rounded-xl transition-all duration-200 ${
                         accentColor === c.key ? 'ring-2 ring-white ring-offset-2 ring-offset-black scale-110' : 'group-hover:scale-105'
                       }`} style={{ backgroundColor: c.hex }}>
                         {accentColor === c.key && (
                           <div className="w-full h-full flex items-center justify-center">
-                            <Check size={14} className="text-white font-black" />
+                            <Check size={14} className="text-white" />
                           </div>
                         )}
                       </div>
@@ -511,15 +502,13 @@ export default function UserSettings() {
                 </div>
               </Section>
 
-              {/* Display options */}
               <Section icon={Monitor} title="Display Options" subtitle="Layout and visual preferences">
                 <div className="space-y-1 -mx-2">
                   {[
-                    { key: 'compact',    label: 'Compact Mode',    sub: 'Reduce spacing for more content', state: compactMode,  set: setCompactMode  },
-                    { key: 'animations', label: 'Animations',      sub: 'Smooth transitions and effects',  state: animations,   set: setAnimations   },
+                    { key: 'compact',    label: 'Compact Mode', sub: 'Reduce spacing for more content', state: compactMode, set: setCompactMode },
+                    { key: 'animations', label: 'Animations',   sub: 'Smooth transitions and effects',  state: animations,  set: setAnimations  },
                   ].map(opt => (
-                    <div key={opt.key}
-                      onClick={() => opt.set(!opt.state)}
+                    <div key={opt.key} onClick={() => opt.set(!opt.state)}
                       className="flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-gray-900 transition-colors cursor-pointer">
                       <div>
                         <p className="text-white text-sm font-semibold">{opt.label}</p>
@@ -529,7 +518,6 @@ export default function UserSettings() {
                     </div>
                   ))}
                 </div>
-
                 <div className="mt-4 pt-4 border-t border-gray-800">
                   <Field label="Font Size">
                     <div className="grid grid-cols-3 gap-2 mt-2">
@@ -557,9 +545,9 @@ export default function UserSettings() {
               <Section icon={Globe} title="Profile Visibility" subtitle="Control who can see your information" iconColor="#3b82f6">
                 <div className="space-y-1 -mx-2">
                   {[
-                    { key: 'profilePublic',     label: 'Public Profile',       sub: 'Others can view your profile'         },
-                    { key: 'showProgress',      label: 'Show Progress',        sub: 'Display your fitness progress publicly'},
-                    { key: 'showOnLeaderboard', label: 'Leaderboard Visibility',sub: 'Appear on community leaderboards'    },
+                    { key: 'profilePublic',     label: 'Public Profile',        sub: 'Others can view your profile'          },
+                    { key: 'showProgress',      label: 'Show Progress',         sub: 'Display your fitness progress publicly' },
+                    { key: 'showOnLeaderboard', label: 'Leaderboard Visibility', sub: 'Appear on community leaderboards'      },
                   ].map(item => (
                     <div key={item.key}
                       onClick={() => setPrivacy(p => ({ ...p, [item.key]: !p[item.key] }))}
@@ -577,8 +565,8 @@ export default function UserSettings() {
               <Section icon={Shield} title="Security" subtitle="Protect your account" iconColor="#22c55e">
                 <div className="space-y-1 -mx-2">
                   {[
-                    { key: 'twoFactor',     label: 'Two-Factor Authentication', sub: 'Extra login security via SMS/app' },
-                    { key: 'dataCollection',label: 'Analytics & Improvement',   sub: 'Help us improve with usage data' },
+                    { key: 'twoFactor',      label: 'Two-Factor Authentication', sub: 'Extra login security via SMS/app' },
+                    { key: 'dataCollection', label: 'Analytics & Improvement',   sub: 'Help us improve with usage data'  },
                   ].map(item => (
                     <div key={item.key}
                       onClick={() => setPrivacy(p => ({ ...p, [item.key]: !p[item.key] }))}
@@ -596,8 +584,8 @@ export default function UserSettings() {
               <Section icon={RefreshCw} title="Data Management" subtitle="Download or clear your data" iconColor="#f59e0b">
                 <div className="space-y-3">
                   {[
-                    { label: 'Download My Data',  sub: 'Get a copy of all your data', icon: ArrowUpRight, style: 'border border-gray-700 hover:border-gray-500 text-gray-400 hover:text-white' },
-                    { label: 'Clear Workout History', sub: 'Remove all logged workouts', icon: Trash2,      style: 'border border-yellow-800/50 hover:border-yellow-600/50 text-yellow-600 hover:text-yellow-400' },
+                    { label: 'Download My Data',     sub: 'Get a copy of all your data',  icon: ArrowUpRight, style: 'border border-gray-700 hover:border-gray-500 text-gray-400 hover:text-white'                           },
+                    { label: 'Clear Workout History',sub: 'Remove all logged workouts',   icon: Trash2,       style: 'border border-yellow-800/50 hover:border-yellow-600/50 text-yellow-600 hover:text-yellow-400' },
                   ].map((btn, i) => (
                     <button key={i} className={`w-full flex items-center justify-between px-5 py-4 rounded-xl transition-all duration-200 ${btn.style}`}>
                       <div className="text-left">
@@ -612,7 +600,7 @@ export default function UserSettings() {
             </div>
           )}
 
-          {/* ════════ FITNESS PREFERENCES ════════ */}
+          {/* ════════ FITNESS ════════ */}
           {activeSection === 'fitness' && (
             <div className="max-w-xl space-y-6">
               <div>
@@ -623,12 +611,12 @@ export default function UserSettings() {
               <Section icon={Zap} title="Fitness Goal" subtitle="What are you primarily training for?">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
-                    { key: 'muscle_gain',   label: 'Muscle Gain',    emoji: '💪' },
-                    { key: 'weight_loss',   label: 'Weight Loss',    emoji: '🔥' },
-                    { key: 'endurance',     label: 'Endurance',      emoji: '🏃' },
-                    { key: 'strength',      label: 'Strength',       emoji: '🏋️' },
-                    { key: 'flexibility',   label: 'Flexibility',    emoji: '🧘' },
-                    { key: 'general',       label: 'General Fitness',emoji: '⚡' },
+                    { key: 'muscle_gain', label: 'Muscle Gain',    emoji: '💪' },
+                    { key: 'weight_loss', label: 'Weight Loss',    emoji: '🔥' },
+                    { key: 'endurance',   label: 'Endurance',      emoji: '🏃' },
+                    { key: 'strength',    label: 'Strength',       emoji: '🏋️' },
+                    { key: 'flexibility', label: 'Flexibility',    emoji: '🧘' },
+                    { key: 'general',     label: 'General Fitness',emoji: '⚡' },
                   ].map(g => (
                     <button key={g.key} onClick={() => setFitnessGoal(g.key)}
                       className={`flex items-center gap-3 px-4 py-3.5 rounded-xl border text-left transition-all duration-200 ${
@@ -669,7 +657,6 @@ export default function UserSettings() {
               </Section>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {/* Units */}
                 <Section icon={Globe} title="Units" subtitle="Measurement system" iconColor="#22c55e">
                   <div className="grid grid-cols-2 gap-2">
                     {[{ key: 'metric', label: 'Metric\nkg/cm' }, { key: 'imperial', label: 'Imperial\nlbs/ft' }].map(u => (
@@ -681,7 +668,6 @@ export default function UserSettings() {
                   </div>
                 </Section>
 
-                {/* Workout time */}
                 <Section icon={Zap} title="Preferred Time" subtitle="Best time to train" iconColor="#f59e0b">
                   <div className="grid grid-cols-2 gap-2">
                     {[
@@ -702,15 +688,14 @@ export default function UserSettings() {
                 </Section>
               </div>
 
-              {/* Rest days */}
               <Section icon={Calendar} title="Rest Days" subtitle="Select your weekly rest days" iconColor="#8b5cf6">
                 <div className="grid grid-cols-7 gap-2">
                   {['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map((day, i) => {
-                    const key = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'][i];
+                    const key    = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'][i];
                     const active = restDays.includes(key);
                     return (
                       <button key={key} onClick={() => toggleRestDay(key)}
-                        className={`aspect-square rounded-xl flex flex-col items-center justify-center gap-0.5 border text-xs font-bold uppercase transition-all duration-200 ${
+                        className={`aspect-square rounded-xl flex items-center justify-center border text-xs font-bold uppercase transition-all duration-200 ${
                           active ? 'bg-purple-600/20 border-purple-600/40 text-purple-400' : 'bg-gray-900 border-gray-800 text-gray-600 hover:border-gray-600 hover:text-white'
                         }`}>
                         {day}
@@ -734,7 +719,6 @@ export default function UserSettings() {
                 <h1 className="text-3xl font-black uppercase">Account</h1>
               </div>
 
-              {/* Membership */}
               <Section icon={CreditCard} title="Membership Plan" subtitle="Your current subscription" iconColor="#f59e0b">
                 <div className="bg-gradient-to-r from-yellow-900/15 to-black border border-yellow-800/20 rounded-xl p-5 mb-4">
                   <div className="flex items-start justify-between mb-4">
@@ -764,7 +748,6 @@ export default function UserSettings() {
                 </div>
               </Section>
 
-              {/* Sign out */}
               <Section icon={LogOut} title="Sessions" subtitle="Manage your active sessions">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between p-4 bg-gray-900 border border-gray-800 rounded-xl">
@@ -787,7 +770,6 @@ export default function UserSettings() {
                 </div>
               </Section>
 
-              {/* Danger zone */}
               <div className="bg-red-950/15 border border-red-900/30 rounded-2xl p-6">
                 <div className="flex items-center gap-2 mb-2">
                   <AlertTriangle size={16} className="text-red-500" />
