@@ -2,229 +2,432 @@
 import React, { useState } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Clock, User, Dumbbell, Users } from 'lucide-react';
-import MembershipPlans from '../components/MembershipPlans';
+import { useNavigate } from 'react-router-dom';
+import {
+  Clock, User, Dumbbell, Users, Zap,
+  ArrowUpRight, Check, ChevronRight,
+  Mail, Phone, Calendar, Shield, Star,
+  Heart, TrendingUp, Award
+} from 'lucide-react';
 
 function BecomeaMember() {
+  const navigate = useNavigate();
+  const [activeStep, setActiveStep] = useState(1);
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    age: '',
-    gender: '',
+    fullName: '', email: '', phone: '', age: '', gender: '',
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted,  setSubmitted]  = useState(false);
+  const [hoveredFeature, setHoveredFeature] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Form submitted successfully! (Check console for data)');
+    setSubmitting(true);
+    await new Promise(r => setTimeout(r, 1500));
+    setSubmitting(false);
+    setSubmitted(true);
   };
 
-  const plans = [
-    {
-      title: "Class drop-in",
-      price: "$39.0",
-      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
-    },
-    {
-      title: "12 Month unlimited",
-      price: "$99.0",
-      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
-    },
-    {
-      title: "6 Month unlimited",
-      price: "$59.0",
-      features: ["Free riding", "Unlimited equipments", "Personal trainer", "Weight losing classes", "Month to month", "No time restriction"],
-    },
-  ];
-
   const features = [
-    { icon: Clock, title: "24/7 Access", desc: "Workout on your schedule, anytime, day or night." },
-    { icon: User, title: "Personal Training", desc: "Get guidance from our certified expert trainers." },
-    { icon: Dumbbell, title: "State-of-the-Art Equipment", desc: "Top-tier machines and free weights for every workout." },
-    { icon: Users, title: "Supportive Community", desc: "Join a motivating and friendly fitness family." },
+    {
+      icon: Clock,
+      title: "24/7 Access",
+      stat: "365", statLabel: "Days/Year",
+      desc: "Workout on your schedule, anytime day or night — no restrictions.",
+      color: '#dc2626',
+    },
+    {
+      icon: User,
+      title: "Personal Training",
+      stat: "50+", statLabel: "Trainers",
+      desc: "Get one-on-one guidance from our certified expert coaches.",
+      color: '#3b82f6',
+    },
+    {
+      icon: Dumbbell,
+      title: "Premium Equipment",
+      stat: "200+", statLabel: "Machines",
+      desc: "State-of-the-art machines and free weights for every workout goal.",
+      color: '#22c55e',
+    },
+    {
+      icon: Users,
+      title: "Community",
+      stat: "5,000+", statLabel: "Members",
+      desc: "Join a motivating, friendly fitness family that pushes you forward.",
+      color: '#f59e0b',
+    },
   ];
 
-  return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      <Navbar />
+  const steps = [
+    { n: 1, label: 'Your Details', icon: User     },
+    { n: 2, label: 'Choose Plan',  icon: Award    },
+    { n: 3, label: 'Payment',      icon: Shield   },
+  ];
 
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90 z-10"></div>
-        
-        <div className="relative z-20 text-center px-6 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            Unlock Your Potential.
-            <br />
-            <span className="bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
-              Become a Member Today.
-            </span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">
-            Join a community dedicated to helping you achieve your fitness goals and 
-            become your strongest self.
-          </p>
-          <button className="bg-red-600 hover:bg-red-700 text-white font-bold text-xl px-12 py-6 rounded-full shadow-2xl transform hover:scale-105 transition duration-300">
-            Choose Your Plan
-          </button>
-        </div>
+  const stats = [
+    { value: '15+',    label: 'Years Experience' },
+    { value: '5,000+', label: 'Happy Members'    },
+    { value: '50+',    label: 'Expert Trainers'  },
+    { value: '3',      label: 'Branches'         },
+  ];
 
-      </section>
+  const canSubmit = formData.fullName && formData.email && formData.phone && formData.age && formData.gender;
 
-      <MembershipPlans />
-
-
-      {/* Features Section */}
-      <section className="py-20 px-6 bg-gray-950">
-        <div className="max-w-6xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">More Than a Membership.</h2>
-          <p className="text-xl text-gray-400">Discover the benefits that set our gym apart from the rest.</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {features.map((feature, i) => (
-            <div key={i} className="bg-gray-900/50 backdrop-blur border border-red-900/30 rounded-2xl p-8 text-center hover:border-red-600 transition group">
-              <div className="w-20 h-20 bg-gradient-to-br from-red-600 to-pink-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                <feature.icon className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-gray-400">{feature.desc}</p>
+  if (submitted) {
+    return (
+      <div className="min-h-screen bg-black text-white">
+        <Navbar />
+        <div className="flex items-center justify-center min-h-screen px-6">
+          <div className="text-center max-w-md">
+            <div className="w-24 h-24 rounded-full bg-green-600/20 border-2 border-green-600/40 flex items-center justify-center mx-auto mb-6">
+              <Check size={42} className="text-green-500" />
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="py-20 px-6 bg-black/50">
-        <div className="max-w-6xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Choose Your Perfect Plan</h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
-            <div key={index} className="bg-black rounded-lg p-6 shadow-lg text-white border-2 border-orange-500 transform hover:scale-105 transition-transform duration-300">
-              <h3 className="text-xl font-semibold mb-4">{plan.title}</h3>
-              <p className="text-4xl font-bold text-orange-500 mb-6">{plan.price}<span className="text-base font-normal"> SINGLE CLASS</span></p>
-              <ul className="text-gray-400 space-y-2 mb-6">
-                {plan.features.map((feature, i) => (
-                  <li key={i}>{feature}</li>
-                ))}
-              </ul>
-              <button className="w-full bg-transparent border-2 border-red-500 text-lg font-semibold text-white py-2 rounded hover:bg-red-500 transition-colors duration-300">
-                ENROLL NOW
+            <div className="flex items-center gap-2 justify-center mb-3">
+              <Zap size={13} className="text-red-500 fill-red-500" />
+              <span className="text-red-500 text-[10px] font-bold uppercase tracking-[0.3em]">Welcome to FitTrack</span>
+            </div>
+            <h2 className="text-4xl font-black uppercase mb-3">You're In!</h2>
+            <p className="text-gray-400 mb-8 leading-relaxed">
+              Welcome to the FitTrack family, <span className="text-white font-bold">{formData.fullName}</span>!
+              We'll contact you at <span className="text-white font-bold">{formData.email}</span> within 24 hours
+              to complete your membership setup.
+            </p>
+            <div className="bg-[#0a0a0a] border border-gray-800 rounded-2xl p-6 text-left mb-8 space-y-3">
+              {[
+                { label: 'Name',  val: formData.fullName },
+                { label: 'Email', val: formData.email    },
+                { label: 'Phone', val: formData.phone    },
+                { label: 'Age',   val: formData.age      },
+              ].map((r, i) => (
+                <div key={i} className="flex justify-between text-sm">
+                  <span className="text-gray-500">{r.label}</span>
+                  <span className="text-white font-bold">{r.val}</span>
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-3">
+              <button onClick={() => navigate('/membership')}
+                className="flex-1 flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-full text-sm uppercase tracking-wider transition-all">
+                Choose Plan <ArrowUpRight size={14}/>
+              </button>
+              <button onClick={() => navigate('/')}
+                className="flex-1 border border-gray-700 hover:border-gray-500 text-gray-400 hover:text-white font-bold py-4 rounded-full text-sm transition-all">
+                Back to Home
               </button>
             </div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <Navbar />
+
+      {/* ── Hero ── */}
+      <section className="min-h-screen relative flex items-center overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 bg-[url('/h1_hero.png')] bg-center bg-cover bg-no-repeat" style={{ zIndex: 0 }} />
+        {/* Left gradient */}
+        <div className="absolute inset-0" style={{
+          zIndex: 10,
+          background: 'linear-gradient(105deg, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.20) 100%)',
+        }} />
+        <div className="absolute bottom-0 left-0 right-0 h-40" style={{ zIndex: 11, background: 'linear-gradient(to top, #000, transparent)' }} />
+        <div className="absolute top-0 left-0 w-1.5 h-full bg-red-600" style={{ zIndex: 15 }} />
+
+        <div className="relative w-full max-w-7xl mx-auto px-8 md:px-16 pt-28 pb-20" style={{ zIndex: 60 }}>
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-2 mb-6">
+              <Zap size={13} className="text-red-500 fill-red-500" />
+              <span className="text-red-500 font-bold uppercase tracking-[0.25em] text-xs">Join FitTrack Today</span>
+            </div>
+
+            <h1 className="text-6xl md:text-7xl font-black leading-none uppercase mb-5">
+              Unlock<br />
+              Your<br />
+              <span className="text-red-500">Potential</span>
+            </h1>
+
+            <p className="text-gray-300 italic text-xl mb-8 font-light border-l-2 border-red-600 pl-4">
+              "Join a community dedicated to making you your strongest self."
+            </p>
+
+            {/* Stats */}
+            <div className="flex items-center gap-0 mb-10">
+              {stats.slice(0,3).map((s, i) => (
+                <React.Fragment key={i}>
+                  {i !== 0 && <div className="w-px h-10 bg-gray-700 mx-6" />}
+                  <div>
+                    <p className="text-gray-500 text-[9px] uppercase tracking-widest font-semibold mb-0.5">{s.label}</p>
+                    <p className="text-white text-2xl font-black">{s.value}</p>
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
+
+            <p className="text-gray-400 text-base leading-relaxed mb-10 max-w-md">
+              FitTrack is more than a gym — it's a caring community with expert trainers,
+              premium equipment, and personalized programs designed for your goals.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <button
+                onClick={() => document.getElementById('join-form').scrollIntoView({ behavior: 'smooth' })}
+                className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50"
+              >
+                Become a Member <ArrowUpRight size={15} />
+              </button>
+              <button
+                onClick={() => navigate('/membership')}
+                className="flex items-center gap-2 border border-white/20 hover:border-white/50 text-white font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider transition-all duration-300 hover:bg-white/5"
+              >
+                View Plans
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Stats bar ── */}
+      <section className="bg-red-600 py-12 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <div key={i} className={`text-center py-2 ${i !== stats.length - 1 ? 'border-r border-red-500' : ''}`}>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-1">{s.value}</h2>
+              <p className="text-red-100 text-xs font-bold uppercase tracking-[0.2em]">{s.label}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Join Steps */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">Join the FitTrack Family in 3 Easy Steps</h2>
-          
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center font-bold text-xl">1</div>
-              <span className="text-xl">Your Details</span>
+      {/* ── Features ── */}
+      <section className="py-32 px-6 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-red-600/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative">
+
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+            <div>
+              <p className="text-red-500 text-xs font-bold uppercase tracking-[0.3em] mb-4">Why Join Us</p>
+              <h2 className="text-6xl md:text-7xl font-black uppercase leading-none">
+                More Than<br />
+                <span className="text-transparent" style={{ WebkitTextStroke: '2px #dc2626' }}>a Membership</span>
+              </h2>
             </div>
-            <div className="hidden md:block w-24 h-1 bg-gray-700"></div>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center font-bold text-xl text-gray-400">2</div>
-              <span className="text-xl text-gray-400">Choose Plan</span>
-            </div>
-            <div className="hidden md:block w-24 h-1 bg-gray-700"></div>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center font-bold text-xl text-gray-400">3</div>
-              <span className="text-xl text-gray-400">Payment</span>
-            </div>
+            <p className="text-gray-500 max-w-xs text-sm leading-relaxed md:text-right">
+              Everything you need to transform your body and mindset — under one roof.
+            </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-gray-900/70 backdrop-blur border border-red-900/30 rounded-3xl p-10 max-w-2xl mx-auto">
-            <input
-              type="text"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              placeholder="Full Name"
-              required
-              className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400"
-            />
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email address"
-              required
-              className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400"
-            />
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Phone Number"
-              required
-              className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400"
-            />
-            <input
-              type="number"
-              name="age"
-              value={formData.age}
-              onChange={handleChange}
-              placeholder="Age"
-              required
-              min="18"
-              className="w-full mb-4 px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white placeholder-gray-400"
-            />
-            
-            {/* Gender Select with Red Theme */}
-            <div className="relative mb-8">
-              <select
-                name="gender"
-                value={formData.gender}
-                onChange={handleChange}
-                required
-                className="w-full px-6 py-4 bg-gray-800/70 rounded-xl border border-gray-700 focus:border-red-600 focus:outline-none text-white appearance-none cursor-pointer pr-12"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ef4444' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
-                  backgroundPosition: 'right 1.5rem center',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: '1.5em'
-                }}
+          {/* Numbered feature cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-800/40 rounded-2xl overflow-hidden">
+            {features.map((f, i) => (
+              <div
+                key={i}
+                onMouseEnter={() => setHoveredFeature(i)}
+                onMouseLeave={() => setHoveredFeature(null)}
+                className={`p-8 cursor-pointer relative overflow-hidden transition-all duration-500 ${
+                  hoveredFeature === i ? 'bg-gray-900' : 'bg-[#0a0a0a] hover:bg-gray-950'
+                }`}
               >
-                <option value="" disabled className="bg-gray-800 text-gray-400">
-                  Select Gender
-                </option>
-                <option value="male" className="bg-red-600 text-white hover:bg-red-700">
-                  Male
-                </option>
-                <option value="female" className="bg-red-600 text-white hover:bg-red-700">
-                  Female
-                </option>
-                <option value="other" className="bg-red-600 text-white hover:bg-red-700">
-                  Other
-                </option>
-                <option value="prefer-not" className="bg-red-600 text-white hover:bg-red-700">
-                  Prefer not to say
-                </option>
-              </select>
+                {/* Number watermark */}
+                <span className="absolute top-4 right-5 text-7xl font-black select-none text-gray-900">0{i+1}</span>
+
+                {/* Accent line */}
+                <div className={`h-0.5 mb-8 transition-all duration-500 ${
+                  hoveredFeature === i ? 'w-16' : 'w-8 bg-gray-700'
+                }`} style={hoveredFeature === i ? { backgroundColor: f.color, width: '4rem' } : {}} />
+
+                <f.icon size={28} className="mb-5" style={{ color: hoveredFeature === i ? f.color : '#4b5563' }} />
+
+                <div className="mb-4">
+                  <span className="text-3xl font-black text-white">{f.stat}</span>
+                  <span className={`text-xs uppercase tracking-widest ml-2 transition-colors ${
+                    hoveredFeature === i ? 'text-gray-400' : 'text-gray-600'
+                  }`}>{f.statLabel}</span>
+                </div>
+
+                <h3 className="text-lg font-bold text-white mb-3">{f.title}</h3>
+                <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                  hoveredFeature === i ? 'text-gray-300' : 'text-gray-600'
+                }`}>{f.desc}</p>
+
+                {/* Bottom slide line */}
+                <div className={`absolute bottom-0 left-0 h-0.5 transition-all duration-500 ${
+                  hoveredFeature === i ? 'w-full' : 'w-0'
+                }`} style={{ backgroundColor: f.color }} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Join Form ── */}
+      <section id="join-form" className="py-32 px-6 relative overflow-hidden">
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-red-600/5 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+            {/* Left — copy */}
+            <div className="lg:sticky lg:top-24">
+              <p className="text-red-500 text-xs font-bold uppercase tracking-[0.3em] mb-4">Get Started</p>
+              <h2 className="text-5xl md:text-6xl font-black uppercase leading-none mb-6">
+                Join in<br />
+                <span className="text-transparent" style={{ WebkitTextStroke: '2px #dc2626' }}>3 Steps</span>
+              </h2>
+              <div className="w-12 h-0.5 bg-red-600 mb-10" />
+
+              {/* Step indicators */}
+              <div className="space-y-6 mb-10">
+                {steps.map((s) => (
+                  <div key={s.n} className={`flex items-center gap-5 transition-all duration-300 ${
+                    activeStep === s.n ? 'opacity-100' : 'opacity-40'
+                  }`}>
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-black text-lg flex-shrink-0 transition-all duration-300 ${
+                      activeStep > s.n  ? 'bg-green-600 text-white' :
+                      activeStep === s.n ? 'bg-red-600 text-white' :
+                      'bg-gray-900 border border-gray-800 text-gray-600'
+                    }`}>
+                      {activeStep > s.n ? <Check size={18} /> : s.n}
+                    </div>
+                    <div>
+                      <p className={`font-black text-sm uppercase tracking-wider ${activeStep === s.n ? 'text-white' : 'text-gray-500'}`}>
+                        {s.label}
+                      </p>
+                      <p className="text-gray-600 text-xs">
+                        {s.n === 1 ? 'Tell us about yourself' : s.n === 2 ? 'Pick your perfect plan' : 'Complete payment'}
+                      </p>
+                    </div>
+                    {activeStep === s.n && (
+                      <div className="ml-auto w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {/* Trust badges */}
+              <div className="bg-[#0a0a0a] border border-gray-800 rounded-2xl p-6">
+                <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold mb-4">Member Benefits</p>
+                <div className="space-y-3">
+                  {[
+                    { icon: Heart,      text: 'Cancel anytime — no lock-in contracts' },
+                    { icon: TrendingUp, text: 'Free fitness assessment on join'        },
+                    { icon: Star,       text: 'First month discount for new members'  },
+                    { icon: Shield,     text: 'Secure, hassle-free registration'      },
+                  ].map((b, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <b.icon size={14} className="text-red-500 flex-shrink-0" />
+                      <p className="text-gray-400 text-sm">{b.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-red-600 hover:bg-red-700 py-5 rounded-xl font-bold text-xl shadow-xl transform hover:scale-105 transition"
-            >
-              Continue to Plan Selection
-            </button>
-          </form>
+            {/* Right — form */}
+            <div className="bg-[#0a0a0a] border border-gray-800 rounded-2xl overflow-hidden">
+              <div className="p-8 border-b border-gray-800">
+                <p className="text-gray-500 text-[10px] uppercase tracking-widest mb-1">Step 1 of 3</p>
+                <h3 className="text-white font-black text-xl uppercase">Your Details</h3>
+              </div>
+
+              <form onSubmit={handleSubmit} className="p-8 space-y-5">
+
+                {/* Full name */}
+                <div>
+                  <label className="text-gray-500 text-[10px] uppercase tracking-widest font-semibold mb-2 block">Full Name</label>
+                  <div className="relative">
+                    <User size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600" />
+                    <input type="text" name="fullName" value={formData.fullName}
+                      onChange={handleChange} placeholder="John Silva" required
+                      className="w-full pl-10 pr-4 py-3.5 bg-gray-950 border border-gray-800 rounded-xl focus:outline-none focus:border-red-600 text-white text-sm placeholder-gray-700 transition-colors" />
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="text-gray-500 text-[10px] uppercase tracking-widest font-semibold mb-2 block">Email</label>
+                  <div className="relative">
+                    <Mail size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600" />
+                    <input type="email" name="email" value={formData.email}
+                      onChange={handleChange} placeholder="you@example.com" required
+                      className="w-full pl-10 pr-4 py-3.5 bg-gray-950 border border-gray-800 rounded-xl focus:outline-none focus:border-red-600 text-white text-sm placeholder-gray-700 transition-colors" />
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <label className="text-gray-500 text-[10px] uppercase tracking-widest font-semibold mb-2 block">Phone</label>
+                  <div className="relative">
+                    <Phone size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600" />
+                    <input type="tel" name="phone" value={formData.phone}
+                      onChange={handleChange} placeholder="+94 77 123 4567" required
+                      className="w-full pl-10 pr-4 py-3.5 bg-gray-950 border border-gray-800 rounded-xl focus:outline-none focus:border-red-600 text-white text-sm placeholder-gray-700 transition-colors" />
+                  </div>
+                </div>
+
+                {/* Age + Gender row */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-gray-500 text-[10px] uppercase tracking-widest font-semibold mb-2 block">Age</label>
+                    <div className="relative">
+                      <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600" />
+                      <input type="number" name="age" value={formData.age}
+                        onChange={handleChange} placeholder="25" required min="16" max="80"
+                        className="w-full pl-10 pr-4 py-3.5 bg-gray-950 border border-gray-800 rounded-xl focus:outline-none focus:border-red-600 text-white text-sm placeholder-gray-700 transition-colors" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-gray-500 text-[10px] uppercase tracking-widest font-semibold mb-2 block">Gender</label>
+                    <select name="gender" value={formData.gender}
+                      onChange={handleChange} required
+                      className="w-full px-4 py-3.5 bg-gray-950 border border-gray-800 rounded-xl focus:outline-none focus:border-red-600 text-white text-sm transition-colors appearance-none">
+                      <option value="" disabled>Select</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                      <option value="prefer-not">Prefer not to say</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Live preview */}
+                {formData.fullName && (
+                  <div className="bg-gray-950 border border-gray-800 rounded-xl p-4">
+                    <p className="text-gray-600 text-[10px] uppercase tracking-widest mb-2">Preview</p>
+                    <p className="text-white font-bold text-sm">{formData.fullName}</p>
+                    {formData.email && <p className="text-gray-400 text-xs">{formData.email}</p>}
+                    {formData.phone && <p className="text-gray-400 text-xs">{formData.phone}</p>}
+                  </div>
+                )}
+
+                {/* Submit */}
+                <button type="submit" disabled={!canSubmit || submitting}
+                  className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 disabled:bg-gray-800 disabled:text-gray-600 disabled:cursor-not-allowed text-white font-black py-5 rounded-xl text-sm uppercase tracking-wider transition-all duration-300">
+                  {submitting
+                    ? <><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" /> Processing...</>
+                    : <>Continue to Plan Selection <ChevronRight size={16} /></>
+                  }
+                </button>
+
+                <p className="text-gray-600 text-xs text-center">
+                  By continuing, you agree to our{' '}
+                  <span className="text-red-400 cursor-pointer hover:underline">Terms of Service</span>
+                  {' '}and{' '}
+                  <span className="text-red-400 cursor-pointer hover:underline">Privacy Policy</span>
+                </p>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
 
