@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
-  LayoutDashboard, Users, Dumbbell, Image,
+  ExternalLink,LayoutDashboard, Users, Dumbbell, Image,
   Settings, LogOut, Zap, X, ChevronRight,
   TrendingUp, Calendar, UserCog, MessageSquare,
   Shield, Menu, Activity
@@ -156,6 +156,15 @@ export default function Adminsidebar({ open, setOpen }) {
                 Admin Panel
               </p>
             </div>
+            
+            <Link
+                to="/"
+                title="Go to Home"
+                className="p-2 rounded-lg border border-gray-800 hover:border-red-600/50 hover:bg-red-600/10 text-gray-600 hover:text-red-500 transition-all duration-300 group"
+            >
+            <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
+            </Link>
+        
           </div>
           <button
             onClick={() => setOpen(false)}
@@ -215,20 +224,6 @@ export default function Adminsidebar({ open, setOpen }) {
         {/* ── Footer links ── */}
         <div className="px-4 pb-4 border-t border-gray-800/60 pt-4 space-y-0.5">
 
-          {/* View website */}
-          <Link
-            to="/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-500 hover:text-white hover:bg-gray-900/80 transition-all duration-200 group"
-          >
-            <Activity
-              size={16}
-              className="text-gray-600 group-hover:text-blue-400 transition-colors flex-shrink-0"
-            />
-            <span className="text-sm font-semibold">View Website</span>
-            <ChevronRight size={12} className="text-gray-700 ml-auto group-hover:text-gray-400 transition-colors" />
-          </Link>
 
           {/* Sign out */}
           <button
