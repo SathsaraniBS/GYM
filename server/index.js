@@ -10,6 +10,7 @@ import adminRouter   from './routes/admin.js';
 import contactRouter from './routes/contact.js';
 import mediaRouter   from './routes/media.js';
 import aiRouter      from './routes/ai.js';        
+import classRouter from './routes/gymClasses.js';   
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use('/api/admin',        adminRouter);
 app.use('/api/contact',      contactRouter);
 app.use('/api/admin/media',  mediaRouter);
 app.use('/api/ai',           aiRouter);            
+app.use('/api/admin/classes', classRouter);          
 
 // ── Global error handler ──
 app.use((err, req, res, next) => {

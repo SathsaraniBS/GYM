@@ -47,15 +47,15 @@ function Ourteam() {
       specialty: "Strength & Conditioning",
       qualification: "National Diploma (SLF)",
       experience: "8 Years",
-      image: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&h=800&fit=crop",
+      image: "/trainerAyesh.jpg",
       tags: ["Powerlifting", "HIIT", "Conditioning"],
     },
     {
-      name: "Thumesh Almeda",
+      name: "Kevin Almeda",
       specialty: "Physical Fitness",
       qualification: "NVQ Level 4",
       experience: "6 Years",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop",
+      image: "trainerKevin.jpg",
       tags: ["Cardio", "Weight Loss", "Endurance"],
     },
     {
@@ -63,7 +63,7 @@ function Ourteam() {
       specialty: "Physical Fitness",
       qualification: "NVQ Level 4 — South Asian Academy",
       experience: "5 Years",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop",
+      image: "trainerDulshan.jpg",
       tags: ["Yoga", "Flexibility", "Recovery"],
     },
   ];
