@@ -1,9 +1,8 @@
 // src/App.jsx
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider }  from "./context/AuthContext";
 import { ToastProvider } from "./context/ToastContext";
-import { ThemeProvider } from "./context/ThemeContext"; // ✅ ADD
+import { ThemeProvider } from "./context/ThemeContext";
 
 // Pages
 import Home          from "./pages/Home";
@@ -19,13 +18,13 @@ import Ourteam       from "./pages/Ourteam";
 import BecomeaMember from "./pages/BecomeaMember";
 import Membership    from "./pages/Membership";
 import UserDashboard from "./pages/UserDashboard";
-import Progress from "./pages/Progress";
-import UserWorkouts from "./pages/UserWorkouts";
-import Nutrition from './pages/Nutrition';
-import Milestones from './pages/Milestones';
-import UserSettings from './pages/UserSettings';
-
+import Progress      from "./pages/Progress";
+import UserWorkouts  from "./pages/UserWorkouts";
+import Nutrition     from "./pages/Nutrition";
+import Milestones    from "./pages/Milestones";
+import UserSettings  from "./pages/UserSettings";
 import AdminDashboard from "./pages/AdminDashboard";
+
 // Components
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -38,26 +37,24 @@ function App() {
       }}
     >
       <AuthProvider>
-        <ThemeProvider>  {/* ✅ ADD — useTheme() now works everywhere */}
+        <ThemeProvider>
           <ToastProvider>
             <Routes>
 
-              {/* Default route */}
-              <Route path="/" element={<Home />} />
-
-              {/* Public Routes */}
-              <Route path="/login"           element={<Login />} />
-              <Route path="/register"        element={<Signup />} />
+              {/* ── Public Routes ── */}
+              <Route path="/"              element={<Home />} />
+              <Route path="/login"         element={<Login />} />
+              <Route path="/register"      element={<Signup />} />
               <Route path="/forgot-password" element={<ResetPassword />} />
-              <Route path="/about"           element={<About />} />
-              <Route path="/contact"         element={<Contactpage />} />
-              <Route path="/course"          element={<Course />} />
-              <Route path="/gallery"         element={<GalleryPage />} />
-              <Route path="/ourteam"         element={<Ourteam />} />
-              <Route path="/becomeamember"   element={<BecomeaMember />} />
-              <Route path="/membership"      element={<Membership />} />
+              <Route path="/about"         element={<About />} />
+              <Route path="/contact"       element={<Contactpage />} />
+              <Route path="/course"        element={<Course />} />
+              <Route path="/gallery"       element={<GalleryPage />} />
+              <Route path="/ourteam"       element={<Ourteam />} />
+              <Route path="/becomeamember" element={<BecomeaMember />} />
+              <Route path="/membership"    element={<Membership />} />
 
-              {/* Protected User Routes */}
+              {/* ── Protected User Routes ── */}
               <Route path="/profile" element={
                 <ProtectedRoute><Profile /></ProtectedRoute>
               } />
@@ -80,15 +77,17 @@ function App() {
                 <ProtectedRoute><UserSettings /></ProtectedRoute>
               } />
 
-              {/* Protected Admin Routes */}
-              <Route path="/admindashboard" element={
-                <ProtectedRoute requiredRole="admin"><AdminDashboard /></ProtectedRoute>
+              {/* ── Protected Admin Routes ── */}
+              {/* ✅ Fix: /* wildcard — lets AdminDashboard handle sub-routes */}
+              <Route path="/admindashboard/*" element={
+                <ProtectedRoute requiredRole="admin">
+                  <AdminDashboard />
+                </ProtectedRoute>
               } />
-             
 
             </Routes>
           </ToastProvider>
-        </ThemeProvider> {/* ✅ */}
+        </ThemeProvider>
       </AuthProvider>
     </Router>
   );
