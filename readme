@@ -1,14 +1,417 @@
+# 🏋️ FitTrack — Gym Management System
+
+<div align="center">
+
+![FitTrack Banner](https://img.shields.io/badge/FitTrack-Gym%20Management%20System-dc2626?style=for-the-badge&logo=lightning&logoColor=white)
+
+**A premium, full-stack gym management web application featuring member portals, AI coaching, real-time class booking, and a comprehensive admin dashboard.**
+
+[![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)](https://mongodb.com/)
+[![Express](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
+
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+- [API Endpoints](#api-endpoints)
+- [Screenshots](#screenshots)
+
+---
+
+## 🌟 Overview
+
+FitTrack is a **full-stack MERN web application** built for modern gym management. It combines a polished public website, a personalized member dashboard, and a powerful admin panel — all in a sleek black & red theme.
+
+The system supports **3 branches** (Colombo 7, Moors, Ja Ela), multiple membership plans, AI-powered fitness coaching, class scheduling, media management, and real-time analytics.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) v18+
+- [MongoDB Atlas](https://mongodb.com/atlas) account or local MongoDB
+- npm or yarn
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/fittrack.git
+cd fittrack
+```
+
+### 2. Frontend Setup
+
+```bash
 cd frontend
+npm install
 npm run dev
+```
+> Runs on `http://localhost:5173`
 
+### 3. Backend Setup
+
+```bash
 cd server
+npm install
 npm start
+```
+> Runs on `http://localhost:5000`
 
+### 4. Default Admin Login
 
-user
-email - john@gmail.com
-password - john1234
+| Field    | Value                    |
+|----------|--------------------------|
+| Email    | `admin@fittrack.com`     |
+| Password | `admin1234`              |
+| Role     | Admin                    |
 
-admin
-email - admin@fittrack.com
-password - Admin%3&?
+### 5. Default Member Login
+
+| Field    | Value              |
+|----------|--------------------|
+| Email    | `john@gmail.com`   |
+| Password | `john1234`         |
+| Role     | User               |
+
+> **Note:** To set a user as admin, open MongoDB Compass → find the user → set `role: "admin"` manually.
+
+---
+
+## 🌐 Project Structure
+
+```
+fittrack/
+├── frontend/                  # React + Vite frontend
+│   ├── public/                # Static assets (images, videos)
+│   └── src/
+│       ├── api/
+│       │   └── axios.js       # Centralized Axios instance
+│       ├── components/
+│       │   ├── AdminComponents/
+│       │   │   ├── AdminOverview.jsx
+│       │   │   ├── Adminmembers.jsx
+│       │   │   ├── AdminUsers.jsx
+│       │   │   ├── AdminTrainers.jsx
+│       │   │   ├── AdminClass.jsx
+│       │   │   ├── AdminContact.jsx
+│       │   │   ├── Adminmediamanager.jsx
+│       │   │   ├── AdminSetting.jsx
+│       │   │   └── Adminsidebar.jsx
+│       │   ├── Navbar.jsx
+│       │   ├── Footer.jsx
+│       │   ├── CustomerReview.jsx
+│       │   ├── ReviewForm.jsx
+│       │   └── ProtectedRoute.jsx
+│       ├── context/
+│       │   ├── AuthContext.jsx
+│       │   ├── ThemeContext.jsx
+│       │   └── ToastContext.jsx
+│       └── pages/
+│           ├── Home.jsx
+│           ├── About.jsx
+│           ├── Course.jsx
+│           ├── GalleryPage.jsx
+│           ├── Ourteam.jsx
+│           ├── Contactpage.jsx
+│           ├── Membership.jsx
+│           ├── BecomeaMember.jsx
+│           ├── Login.jsx
+│           ├── Signup.jsx
+│           ├── Profile.jsx
+│           ├── UserDashboard.jsx
+│           ├── Progress.jsx
+│           ├── UserWorkouts.jsx
+│           ├── Nutrition.jsx
+│           ├── Milestones.jsx
+│           ├── UserSettings.jsx
+│           └── AdminDashboard.jsx
+│
+└── server/                    # Node.js + Express backend
+    ├── controllers/
+    ├── middleware/
+    │   └── authMiddleware.js
+    ├── models/
+    ├── routes/
+    │   ├── auth.js
+    │   ├── gymClasses.js
+    │   ├── contact.js
+    │   ├── media.js
+    │   ├── reviews.js
+    │   └── settingRoutes.js
+    └── index.js
+```
+
+---
+
+## ✨ Features
+
+### 👤 Public Website
+
+<table>
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th>Features</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🏠 <b>Home</b></td>
+      <td>Hero section, workout sessions, BMI calculator, reviews, featured classes</td>
+    </tr>
+    <tr>
+      <td>ℹ️ <b>About</b></td>
+      <td>Gym story, team carousel, why choose us, facility highlights</td>
+    </tr>
+    <tr>
+      <td>🥊 <b>Courses</b></td>
+      <td>Class grid (Boxing, Yoga, HIIT, Pilates, Strength), hero video background</td>
+    </tr>
+    <tr>
+      <td>🖼️ <b>Gallery</b></td>
+      <td>Responsive image gallery with lightbox</td>
+    </tr>
+    <tr>
+      <td>👥 <b>Our Team</b></td>
+      <td>Trainer profiles with specializations and ratings</td>
+    </tr>
+    <tr>
+      <td>📞 <b>Contact</b></td>
+      <td>Contact form (sends to DB), branch info, Google Maps embed</td>
+    </tr>
+    <tr>
+      <td>💳 <b>Membership</b></td>
+      <td>3-step wizard: Plan selection → Member details → Payment, promo code support</td>
+    </tr>
+    <tr>
+      <td>⭐ <b>Reviews</b></td>
+      <td>Star rating system, review submission form, display on homepage</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+### 🎯 Member Dashboard
+
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Features</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📊 <b>Overview</b></td>
+      <td>Stats cards, workout tracker, weekly activity heatmap, goal rings, schedule</td>
+    </tr>
+    <tr>
+      <td>💪 <b>Progress</b></td>
+      <td>Strength logger, body measurements, goal tracking with ring charts</td>
+    </tr>
+    <tr>
+      <td>🏋️ <b>Workouts</b></td>
+      <td>Workout plans, today's interactive checklist, workout library</td>
+    </tr>
+    <tr>
+      <td>🥗 <b>Nutrition</b></td>
+      <td>Calorie ring, macro tracking, meal log, water intake, food database</td>
+    </tr>
+    <tr>
+      <td>🏆 <b>Milestones</b></td>
+      <td>Player card with XP, 18 achievement badges, challenges, leaderboard</td>
+    </tr>
+    <tr>
+      <td>⚙️ <b>Settings</b></td>
+      <td>Profile, password change, notifications, appearance, privacy, fitness goals</td>
+    </tr>
+    <tr>
+      <td>👤 <b>Profile</b></td>
+      <td>Inline edit, security settings, account management</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+### 🛡️ Admin Dashboard
+
+<table>
+  <thead>
+    <tr>
+      <th>Module</th>
+      <th>Capabilities</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📊 <b>Overview</b></td>
+      <td>KPI cards (members, revenue, plans, expiring), sparkline charts, revenue bar chart, pending approval queue, branch performance, live activity feed, recent members table</td>
+    </tr>
+    <tr>
+      <td>👥 <b>Member Management</b></td>
+      <td>Add/Edit/View/Delete members, status filter pills, branch filter, inline status dropdown, pagination, export</td>
+    </tr>
+    <tr>
+      <td>🔑 <b>User Management</b></td>
+      <td>User accounts, role toggle (user↔admin), ban/unban, search and filter</td>
+    </tr>
+    <tr>
+      <td>🏋️ <b>Trainer Management</b></td>
+      <td>Trainer cards with specialization colors, ratings, member count, add/edit/delete, branch filter</td>
+    </tr>
+    <tr>
+      <td>📅 <b>Class Management</b></td>
+      <td>Class schedule table, booking progress bars, type color coding, add/edit/delete, 4 filters</td>
+    </tr>
+    <tr>
+      <td>✉️ <b>Contact Messages</b></td>
+      <td>Inbox with unread/read/replied status, reply modal, mark all read, search, pagination</td>
+    </tr>
+    <tr>
+      <td>🖼️ <b>Media Manager</b></td>
+      <td>Grid/List view, drag & drop upload, replace file, delete with page usage warning, image & video support</td>
+    </tr>
+    <tr>
+      <td>⚙️ <b>Settings</b></td>
+      <td>6 tabs — General, Notifications, Security (password change + strength bar), Business Hours, Branches, System info</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer        | Technology                                      |
+|--------------|-------------------------------------------------|
+| **Frontend** | React 18, Vite, Tailwind CSS, React Router DOM  |
+| **Backend**  | Node.js, Express.js, ES Modules                 |
+| **Database** | MongoDB Atlas, Mongoose ODM                     |
+| **Auth**     | JWT (JSON Web Tokens), Bcrypt                   |
+| **HTTP**     | Axios (centralized instance)                    |
+| **Icons**    | Lucide React                                    |
+| **File Upload** | Multer                                       |
+| **Dev Tools** | Nodemon, Vite HMR                              |
+
+---
+
+## 🔑 Environment Variables
+
+### Frontend — `frontend/.env`
+
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+### Backend — `server/.env`
+
+```env
+PORT=5000
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/fittrack
+JWT_SECRET=your_jwt_secret_key_here
+NODE_ENV=development
+```
+
+---
+
+## 📡 API Endpoints
+
+### Auth Routes — `/api/auth`
+
+| Method | Endpoint             | Access  | Description          |
+|--------|----------------------|---------|----------------------|
+| POST   | `/register`          | Public  | Register new user    |
+| POST   | `/login`             | Public  | Login & get token    |
+| GET    | `/profile`           | Private | Get user profile     |
+| PUT    | `/profile`           | Private | Update profile       |
+| PUT    | `/change-password`   | Private | Change password      |
+
+### Admin Routes — `/api/admin`
+
+| Method | Endpoint              | Access | Description          |
+|--------|-----------------------|--------|----------------------|
+| GET    | `/members`            | Admin  | Get all members      |
+| POST   | `/members`            | Admin  | Add new member       |
+| PUT    | `/members/:id`        | Admin  | Update member        |
+| DELETE | `/members/:id`        | Admin  | Delete member        |
+| GET    | `/users`              | Admin  | Get all users        |
+| GET    | `/trainers`           | Admin  | Get all trainers     |
+| GET    | `/stats`              | Admin  | Get dashboard stats  |
+
+### Other Routes
+
+| Method | Endpoint                   | Access  | Description          |
+|--------|----------------------------|---------|----------------------|
+| GET    | `/api/reviews`             | Public  | Get all reviews      |
+| POST   | `/api/reviews`             | Public  | Submit review        |
+| POST   | `/api/contact`             | Public  | Send contact message |
+| GET    | `/api/contact`             | Admin   | View all messages    |
+| GET    | `/api/admin/classes`       | Admin   | Get all classes      |
+| POST   | `/api/admin/classes`       | Admin   | Create class         |
+| GET    | `/api/admin/media`         | Admin   | List media files     |
+| POST   | `/api/admin/media/upload`  | Admin   | Upload files         |
+
+---
+
+## 🏢 Branches
+
+| Branch     | Address              | Phone        |
+|------------|----------------------|--------------|
+| Colombo 7  | Maitland Crescent    | 011-269-5331 |
+| Moors      | Moors Sports Club    | 011-212-1755 |
+| Ja Ela     | Ja-ela               | 011-222-9747 |
+
+---
+
+## 💳 Membership Plans
+
+| Plan               | Type       |
+|--------------------|------------|
+| Individual Gents   | Rs. 95,000 |
+| Individual Ladies  | Rs. 90,000 |
+| Buddy Gents        | Rs. 85,000 |
+| Buddy Ladies       | Rs. 85,000 |
+| Couple             | Rs. 80,000 |
+| Family             | Rs. 160,000|
+| Student            | Rs. 35,000 |
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Sanduni Sathsarani**
+- LinkedIn: [linkedin.com/in/sanduni-sathsarani](https://linkedin.com/in/sanduni-sathsarani-998a74316)
+- GitHub: [github.com/yourusername](https://github.com/yourusername)
+
+---
+
+<div align="center">
+
+**⭐ Star this repo if you found it helpful!**
+
+Made with ❤️ and ☕ by the FitTrack Team
+
+</div>
