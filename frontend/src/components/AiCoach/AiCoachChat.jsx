@@ -29,7 +29,18 @@ export default function AiCoachChat({ isOpen, onClose }) {
     setLoading(true);
 
     try {
+      // ✅ localStorage ෙකේ save වෙන key name confirm කරනවා
       const token = localStorage.getItem("token");
+
+      // ✅ token නෑ නම් error show කරනවා
+      if (!token) {
+        setMessages(prev => [...prev, {
+          role: "assistant",
+          content: "Please log in to use the AI Coach!",
+        }]);
+        setLoading(false);
+        return;
+      }
 
       const res = await fetch("/api/ai/chat", {
         method: "POST",
@@ -43,12 +54,20 @@ export default function AiCoachChat({ isOpen, onClose }) {
         }),
       });
 
+      // ✅ response status check කරනවා
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || `HTTP ${res.status}`);
+      }
+
       const data = await res.json();
       setMessages(prev => [...prev, { role: "assistant", content: data.reply }]);
-    } catch {
+
+    } catch (err) {
+      console.error("Chat error:", err.message);
       setMessages(prev => [...prev, {
         role: "assistant",
-        content: "Something went wrong. Please try again!",
+        content: `Error: ${err.message}. Please try again!`,
       }]);
     } finally {
       setLoading(false);
