@@ -1,50 +1,141 @@
-// src/context/AuthContext.jsx
-import React, { createContext, useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from "react";
+import { useAuth } from "../../context/AuthContext";   // ✅ token context ෙකෙන් ගන්නවා
 
-export const AuthContext = createContext(undefined);
+const SUGGESTIONS = [
+  "How am I doing today?",
+  "Tips for today's workout",
+  "Help me hit my protein goal",
+];
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function AiCoachChat({ isOpen, onClose }) {
+  const { token } = useAuth();   // ✅ AuthContext ෙකෙන් token ගන්නවා
+
+  const [messages, setMessages] = useState([{
+    role: "assistant",
+    content: "Hey! I'm your FitTrack AI Coach 💪 Ask me anything about your workouts, nutrition, or progress!",
+  }]);
+  const [input, setInput]     = useState("");
+  const [loading, setLoading] = useState(false);
+  const bottomRef             = useRef(null);
 
   useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    const storedUser = localStorage.getItem('user');
-    if (storedToken && storedUser) {
-      setToken(storedToken);
-      setUser(JSON.parse(storedUser));
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, loading]);
+
+  const send = async (text) => {
+    const msg = text || input.trim();
+    if (!msg || loading) return;
+    setInput("");
+
+    const next = [...messages, { role: "user", content: msg }];
+    setMessages(next);
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/ai/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,   // ✅ context token use කරනවා
+        },
+        body: JSON.stringify({
+          message: msg,
+          conversationHistory: next.slice(1),
+        }),
+      });
+
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || `HTTP ${res.status}`);
+      }
+
+      const data = await res.json();
+      setMessages(prev => [...prev, { role: "assistant", content: data.reply }]);
+    } catch (err) {
+      console.error("Chat error:", err.message);
+      setMessages(prev => [...prev, {
+        role: "assistant",
+        content: "Something went wrong. Please try again!",
+      }]);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
-  }, []);
-
-  const login = (newToken, userData) => {
-    setToken(newToken);
-    setUser(userData);
-    localStorage.setItem('token', newToken);
-    localStorage.setItem('user', JSON.stringify(userData));
   };
 
-  const logout = () => {
-    setToken(null);
-    setUser(null);
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-  };
+  if (!isOpen) return null;
 
   return (
-    <AuthContext.Provider value={{ user, token, login, logout, loading }}>
-      {children}
-    </AuthContext.Provider>
+    <div className="fixed bottom-6 right-6 w-80 h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 border border-gray-100">
+
+      {/* Header */}
+      <div className="flex items-center justify-between p-4 border-b border-gray-100">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
+            AI
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-gray-800">FitTrack Coach</p>
+            <p className="text-xs text-green-500">● Online</p>
+          </div>
+        </div>
+        <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-2xl leading-none">×</button>
+      </div>
+
+      {/* Messages */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-3">
+        {messages.map((m, i) => (
+          <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+            <div className={`max-w-[78%] text-sm px-3 py-2 rounded-2xl leading-relaxed ${
+              m.role === "user"
+                ? "bg-red-500 text-white rounded-br-sm"
+                : "bg-gray-100 text-gray-800 rounded-bl-sm"
+            }`}>
+              {m.content}
+            </div>
+          </div>
+        ))}
+
+        {/* Loading dots */}
+        {loading && (
+          <div className="flex justify-start">
+            <div className="bg-gray-100 rounded-2xl rounded-bl-sm px-4 py-3 flex gap-1">
+              {[0,1,2].map(i => (
+                <div key={i} className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                  style={{ animationDelay: `${i * 0.15}s` }} />
+              ))}
+            </div>
+          </div>
+        )}
+        <div ref={bottomRef} />
+      </div>
+
+      {/* Quick suggestions — පළමු message ෙකන් පස්සේ පමණක් */}
+      {messages.length === 1 && (
+        <div className="px-4 pb-2 flex flex-wrap gap-1">
+          {SUGGESTIONS.map(s => (
+            <button key={s} onClick={() => send(s)}
+              className="text-xs bg-gray-50 border border-gray-200 rounded-full px-3 py-1 text-gray-600 hover:bg-red-50 hover:border-red-200 hover:text-red-600 transition-colors">
+              {s}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Input */}
+      <div className="p-3 border-t border-gray-100 flex gap-2">
+        <input
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          onKeyDown={e => e.key === "Enter" && send()}
+          placeholder="Ask your coach..."
+          className="flex-1 text-sm bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-red-300"
+        />
+        <button onClick={() => send()}
+          disabled={loading || !input.trim()}
+          className="bg-red-500 text-white rounded-xl px-3 text-sm font-medium hover:bg-red-600 disabled:opacity-40 transition-colors">
+          Send
+        </button>
+      </div>
+    </div>
   );
-};
-
-export const useAuth = () => {
-  const context = React.useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
-};
-
-export default AuthContext;
+}
