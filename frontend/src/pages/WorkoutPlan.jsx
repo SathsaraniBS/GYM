@@ -1,15 +1,7 @@
 // src/pages/WorkoutPlan.jsx
 
 import React, { useState } from 'react';
-import { 
-  Dumbbell, 
-  Clock, 
-  Flame, 
-  ChevronRight, 
-  Search, 
-  Filter,
-  PlayCircle,
-  Trophy
+import { Dumbbell, Clock, Flame, ChevronRight, Search, Filter,PlayCircle,Trophy
 } from "lucide-react";
 
 const WorkoutPlan = () => {
