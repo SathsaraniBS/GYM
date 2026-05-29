@@ -80,15 +80,7 @@ function BMI() {
           className="relative w-full max-w-7xl mx-auto px-10 md:px-20 pt-24 pb-16"
           style={{ zIndex: 60 }}
         >
-          {/* <div className="max-w-2xl">
-
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-none mb-5">
-              BMI<br />
-              <span className="text-red-500">Calculator</span>
-            </h1>
-
-
-          </div> */}
+          
         </div>
 
         {/* Scroll indicator */}
