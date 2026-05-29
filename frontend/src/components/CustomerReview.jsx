@@ -132,18 +132,7 @@ const CustomerReview = () => {
           {/* Rating summary + buttons */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
 
-            {/* Average rating pill */}
-            {/* <div className="flex items-center gap-3 bg-[#0a0a0a] border border-gray-800 rounded-2xl px-5 py-4">
-              <div>
-                <p className="text-white font-black text-3xl leading-none">{avgRating}</p>
-                <StarRating stars={Math.round(parseFloat(avgRating))} size={12} />
-              </div>
-              <div className="border-l border-gray-800 pl-3">
-                <p className="text-gray-500 text-xs uppercase tracking-widest">
-                  {reviews.length} Reviews
-                </p>
-              </div>
-            </div> */}
+            
 
             {/* Write review button */}
             <button
